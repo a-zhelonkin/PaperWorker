@@ -1,0 +1,50 @@
+syntax: glob
+bin/
+obj/
+*.suo
+Source/.vs
+*.user
+packages/
+logs/
+*.DBF
+Source/Integration.Tests/TestFiles/attachment_downloading_test_file.txt
+Data/regionDefinitions/content/
+Source/Deployment/MongoDeploy/**/*.json
+Source/Front/Local.config
+InstallUtil.InstallLog
+*.Results.xml
+*.log
+*~
+
+Tools/Mdbc/
+docs/site
+docs/package.zip
+docs/package
+
+Source/Front/es.*.config
+Source/Azeroth/es.*.config
+
+# output of New-DefaultKibana
+Tools/default-kibana/default.txt
+Tools/default-kibana/front.txt
+Tools/default-kibana/services.txt
+
+# ReSharper continuous testing
+*Tests.mdf
+*Tests_log.ldf
+
+# XML docs
+Source/Api/Zakupki.Api.XML
+
+# Python
+*.pyc
+
+# webpack-generated bundles
+Source/Front/Content/dist/
+Source/Front/node_modules/
+Source/Front/Content/jsconfig.json
+
+#JetBrains
+.idea
+*.json
+*.sqlite
