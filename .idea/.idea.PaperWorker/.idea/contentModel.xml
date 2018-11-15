@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\_http_incoming.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\_http_outgoing.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\_http_server.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\assert.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\async_hooks.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\child_process.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\cluster.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\crypto.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\dgram.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\dns.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\domain.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\events.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\fs.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\http.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\https.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\net.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\os.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\path.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\punycode.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\querystring.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\readline.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\repl.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\stream.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\string_decoder.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\tls.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\tty.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\url.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\util.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\v8.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\vm.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\zlib.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_PaperWorker.-761895311.00" t="ExcludeRecursive" />
+    <e p="C:\Users\zhelonkin\RiderProjects\PaperWorker" t="IncludeFlat">
+      <e p="Api" t="IncludeRecursive">
+        <e p="Api.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Class1.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Api.Client" t="IncludeRecursive">
+        <e p="Api.Client.projitems" t="Include" />
+        <e p="Api.Client.shproj" t="IncludeRecursive" />
+        <e p="PaperWorkerClient.cs" t="Include" />
+      </e>
+      <e p="Api.Models" t="IncludeRecursive">
+        <e p="Api.Models.projitems" t="Include" />
+        <e p="Api.Models.shproj" t="IncludeRecursive" />
+        <e p="User.cs" t="Include" />
+      </e>
+      <e p="Front" t="IncludeRecursive">
+        <e p=".babelrc" t="Include" />
+        <e p="App_Data" t="Include" />
+        <e p="App_Start" t="Include">
+          <e p="BundleConfig.cs" t="Include" />
+          <e p="FilterConfig.cs" t="Include" />
+          <e p="RouteConfig.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Content" t="Include">
+          <e p="bootstrap.css" t="Include" />
+          <e p="bootstrap.min.css" t="Include" />
+          <e p="Site.css" t="Include" />
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="HomeController.cs" t="Include" />
+        </e>
+        <e p="favicon.ico" t="Include" />
+        <e p="fonts" t="Include">
+          <e p="glyphicons-halflings-regular.eot" t="Include" />
+          <e p="glyphicons-halflings-regular.svg" t="Include" />
+          <e p="glyphicons-halflings-regular.ttf" t="Include" />
+          <e p="glyphicons-halflings-regular.woff" t="Include" />
+        </e>
+        <e p="Front.csproj" t="IncludeRecursive" />
+        <e p="Global.asax" t="Include" />
+        <e p="Global.asax.cs" t="Include" />
+        <e p="Models" t="Include" />
+        <e p="node_modules" t="ExcludeRecursive">
+          <e p="@babel\cli" t="IncludeRecursive" />
+          <e p="@babel\core" t="IncludeRecursive" />
+          <e p="@babel\plugin-proposal-class-properties" t="IncludeRecursive" />
+          <e p="@babel\plugin-proposal-object-rest-spread" t="IncludeRecursive" />
+          <e p="@babel\preset-env" t="IncludeRecursive" />
+          <e p="@babel\preset-react" t="IncludeRecursive" />
+          <e p="babel-loader" t="IncludeRecursive" />
+          <e p="clean-webpack-plugin" t="IncludeRecursive" />
+          <e p="css-loader" t="IncludeRecursive" />
+          <e p="html-webpack-plugin" t="IncludeRecursive" />
+          <e p="image-webpack-loader" t="IncludeRecursive" />
+          <e p="mini-css-extract-plugin" t="IncludeRecursive" />
+          <e p="nodemon" t="IncludeRecursive" />
+          <e p="optimize-css-assets-webpack-plugin" t="IncludeRecursive" />
+          <e p="react" t="IncludeRecursive" />
+          <e p="react-dom" t="IncludeRecursive" />
+          <e p="source-map-loader" t="IncludeRecursive" />
+          <e p="style-loader" t="IncludeRecursive" />
+          <e p="svg-url-loader" t="IncludeRecursive" />
+          <e p="uglifyjs-webpack-plugin" t="IncludeRecursive" />
+          <e p="webpack" t="IncludeRecursive" />
+          <e p="webpack-cli" t="IncludeRecursive" />
+          <e p="webpack-dev-server" t="IncludeRecursive" />
+          <e p="webpack-merge" t="IncludeRecursive" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="package.json" t="Include" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="bootstrap.js" t="Include" />
+          <e p="bootstrap.min.js" t="Include" />
+          <e p="dist" t="Include">
+            <e p="bundle.js" t="Include" />
+            <e p="favicon.ico" t="Include" />
+            <e p="index.html" t="Include" />
+          </e>
+          <e p="Home" t="Include">
+            <e p="react" t="Include">
+              <e p="index.jsx" t="Include" />
+            </e>
+          </e>
+          <e p="jquery-1.10.2.intellisense.js" t="Include" />
+          <e p="jquery-1.10.2.js" t="Include" />
+          <e p="jquery-1.10.2.min.js" t="Include" />
+          <e p="jquery-1.10.2.min.map" t="Include" />
+        </e>
+        <e p="Views" t="Include">
+          <e p="_ViewStart.cshtml" t="Include" />
+          <e p="Home" t="Include">
+            <e p="About.cshtml" t="Include" />
+            <e p="Contact.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Shared" t="Include">
+            <e p="_Layout.cshtml" t="Include" />
+            <e p="Error.cshtml" t="Include" />
+          </e>
+          <e p="Web.config" t="Include" />
+        </e>
+        <e p="Web.config" t="Include" />
+        <e p="Web.Debug.config" t="Include" />
+        <e p="Web.Release.config" t="Include" />
+        <e p="webpack.config.js" t="Include" />
+        <e p="webpack.dev.js" t="Include" />
+        <e p="webpack.prod.js" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="PaperWorker.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
