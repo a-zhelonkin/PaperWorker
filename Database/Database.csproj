@@ -51,6 +51,7 @@
       <DependentUpon>201811171516305_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Account\Role.cs" />
     <Compile Include="Models\Account\User.cs" />
     <Compile Include="Models\Base\Entity.cs" />
     <Compile Include="PaperWorkerDbContext.cs" />

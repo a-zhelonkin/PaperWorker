@@ -71,6 +71,7 @@
         </e>
         <e p="Models" t="Include">
           <e p="Account" t="Include">
+            <e p="Role.cs" t="Include" />
             <e p="User.cs" t="Include" />
           </e>
           <e p="base" t="Include">
@@ -114,6 +115,11 @@
         </e>
         <e p="favicon.ico" t="Include" />
         <e p="Front.csproj" t="IncludeRecursive" />
+        <e p="Global" t="Include">
+          <e p="Auth" t="Include">
+            <e p="JwtBearerCookieAuthenticationOptions.cs" t="Include" />
+          </e>
+        </e>
         <e p="Global.asax" t="Include" />
         <e p="Global.asax.cs" t="Include" />
         <e p="Models" t="Include" />
