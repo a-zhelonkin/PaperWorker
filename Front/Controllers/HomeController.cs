@@ -1,4 +1,7 @@
 ﻿using System.Web.Mvc;
+using Database;
+using Database.Extensions;
+using Database.Models.Account;
 
 namespace Front.Controllers
 {
