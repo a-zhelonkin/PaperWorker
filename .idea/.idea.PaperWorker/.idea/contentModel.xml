@@ -154,6 +154,11 @@
         <e p="packages.config" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
+          <e p="PublishProfiles" t="Include">
+            <e p="paper-worker - FTP.pubxml" t="Include" />
+            <e p="paper-worker - Web Deploy.pubxml" t="Include" />
+            <e p="paper-worker.publishsettings" t="Include" />
+          </e>
         </e>
         <e p="Scripts" t="Include">
           <e p="bootstrap.bundle.js" t="Include" />
