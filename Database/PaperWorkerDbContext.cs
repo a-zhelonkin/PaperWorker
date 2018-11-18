@@ -24,8 +24,8 @@ namespace Database
                 .WithMany(role => role.Users)
                 .Map(config =>
                 {
-                    config.MapLeftKey(nameof(User.Id));
-                    config.MapRightKey(nameof(Role.Id));
+                    config.MapLeftKey("UserId");
+                    config.MapRightKey("RoleId");
                     config.ToTable("UserRoles");
                 });
 

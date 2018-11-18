@@ -38,13 +38,17 @@
       <e p="Api" t="IncludeRecursive">
         <e p="Api.csproj" t="IncludeRecursive" />
         <e p="App.config" t="Include" />
+        <e p="AuthConstants.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="AuthController.cs" t="Include" />
+          <e p="UsersController.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
-        <e p="UsersController.cs" t="Include" />
       </e>
       <e p="Api.Client" t="IncludeRecursive">
         <e p="Api.Client.projitems" t="Include" />
@@ -54,6 +58,7 @@
       <e p="Api.Models" t="IncludeRecursive">
         <e p="Api.Models.projitems" t="Include" />
         <e p="Api.Models.shproj" t="IncludeRecursive" />
+        <e p="Auth.cs" t="Include" />
         <e p="User.cs" t="Include" />
       </e>
       <e p="Database" t="IncludeRecursive">
@@ -64,9 +69,9 @@
           <e p="UsersExtension.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="201811171516305_Init.cs" t="Include" />
-          <e p="201811171516305_Init.Designer.cs" t="Include" />
-          <e p="201811171516305_Init.resx" t="Include" />
+          <e p="201811180148021_Init.cs" t="Include" />
+          <e p="201811180148021_Init.Designer.cs" t="Include" />
+          <e p="201811180148021_Init.resx" t="Include" />
           <e p="Configuration.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
@@ -115,11 +120,6 @@
         </e>
         <e p="favicon.ico" t="Include" />
         <e p="Front.csproj" t="IncludeRecursive" />
-        <e p="Global" t="Include">
-          <e p="Auth" t="Include">
-            <e p="JwtBearerCookieAuthenticationOptions.cs" t="Include" />
-          </e>
-        </e>
         <e p="Global.asax" t="Include" />
         <e p="Global.asax.cs" t="Include" />
         <e p="Models" t="Include" />

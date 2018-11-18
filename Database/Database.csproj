@@ -46,9 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\UsersExtension.cs" />
-    <Compile Include="Migrations\201811171516305_Init.cs" />
-    <Compile Include="Migrations\201811171516305_Init.Designer.cs">
-      <DependentUpon>201811171516305_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201811180148021_Init.cs" />
+    <Compile Include="Migrations\201811180148021_Init.Designer.cs">
+      <DependentUpon>201811180148021_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account\Role.cs" />
@@ -62,8 +62,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811171516305_Init.resx">
-      <DependentUpon>201811171516305_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811180148021_Init.resx">
+      <DependentUpon>201811180148021_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
