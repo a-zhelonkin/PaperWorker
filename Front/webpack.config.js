@@ -2,11 +2,11 @@ const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const outputDirectory = path.resolve(__dirname, "Scripts/dist");
+const outputDirectory = path.resolve(__dirname, "App/dist");
 const nodeModulesDirectory = path.resolve(__dirname, "node_modules");
 
 module.exports = {
-    entry: "./Scripts/Home/react/index.jsx",
+    entry: "./App/index.jsx",
     output: {
         filename: "bundle.js",
         path: outputDirectory

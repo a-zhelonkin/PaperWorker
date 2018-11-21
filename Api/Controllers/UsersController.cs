@@ -7,6 +7,7 @@ using Database;
 
 namespace Api.Controllers
 {
+    [Authorize]
     public class UsersController : ApiController
     {
         [HttpGet]

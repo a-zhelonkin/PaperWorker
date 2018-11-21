@@ -13,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Api.Controllers
 {
+    [AllowAnonymous]
     public class AuthController : ApiController
     {
         [HttpPost]
@@ -20,28 +21,24 @@ namespace Api.Controllers
         [ResponseType(typeof(string))]
         public IHttpActionResult Token([FromBody] Auth auth)
         {
-            var identity = GetIdentity(auth.Username, auth.Password);
-            if (identity == null)
+            var claims = GetClaims(auth.Username, auth.Password);
+            if (claims == null)
             {
                 return Unauthorized();
             }
 
             var now = DateTime.UtcNow;
-            var jwt = new JwtSecurityToken(
+            return Ok(new JwtSecurityTokenHandler().WriteToken(new JwtSecurityToken(
                 AuthConstants.Issuer,
                 AuthConstants.Audience,
-                identity,
+                claims,
                 now,
                 now.Add(TimeSpan.FromMinutes(AuthConstants.Lifetime)),
                 new SigningCredentials(AuthConstants.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256)
-            );
-
-            var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
-
-            return Ok(encodedJwt);
+            )));
         }
 
-        private static IReadOnlyCollection<Claim> GetIdentity(string username, string password)
+        private static IReadOnlyCollection<Claim> GetClaims(string username, string password)
         {
             using (var context = new PaperWorkerDbContext())
             {
@@ -53,7 +50,7 @@ namespace Api.Controllers
 
                 var sha256 = new SHA256Managed();
                 var passwordHash = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password)));
-//                if (passwordHash == user.Password)
+                if (passwordHash == user.Password)
                 {
                     return new List<Claim>
                     {

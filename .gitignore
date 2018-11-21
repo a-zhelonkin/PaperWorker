@@ -1,6 +1,6 @@
 *.log
 
-Front/Scripts/dist/
+Front/App/dist/
 Front/node_modules/
 
 bin/

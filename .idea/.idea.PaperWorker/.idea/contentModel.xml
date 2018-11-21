@@ -92,29 +92,29 @@
       </e>
       <e p="Front" t="IncludeRecursive">
         <e p=".babelrc" t="Include" />
-        <e p="App_Data" t="Include" />
+        <e p="App" t="Include">
+          <e p="Api" t="Include" />
+          <e p="components" t="Include" />
+          <e p="dist" t="Include">
+            <e p="bundle.js" t="Include" />
+            <e p="favicon.ico" t="Include" />
+            <e p="index.html" t="Include" />
+          </e>
+          <e p="index.jsx" t="Include" />
+          <e p="pages" t="Include">
+            <e p="Home" t="Include">
+              <e p="home.css" t="Include" />
+              <e p="home.jsx" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="App_Start" t="Include">
-          <e p="BundleConfig.cs" t="Include" />
           <e p="FilterConfig.cs" t="Include" />
           <e p="RouteConfig.cs" t="Include" />
+          <e p="Startup.Auth.cs" t="Include" />
           <e p="WebApiConfig.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Content" t="Include">
-          <e p="bootstrap-grid.css" t="Include" />
-          <e p="bootstrap-grid.css.map" t="Include" />
-          <e p="bootstrap-grid.min.css" t="Include" />
-          <e p="bootstrap-grid.min.css.map" t="Include" />
-          <e p="bootstrap-reboot.css" t="Include" />
-          <e p="bootstrap-reboot.css.map" t="Include" />
-          <e p="bootstrap-reboot.min.css" t="Include" />
-          <e p="bootstrap-reboot.min.css.map" t="Include" />
-          <e p="bootstrap.css" t="Include" />
-          <e p="bootstrap.css.map" t="Include" />
-          <e p="bootstrap.min.css" t="Include" />
-          <e p="bootstrap.min.css.map" t="Include" />
-          <e p="Site.css" t="Include" />
-        </e>
         <e p="Controllers" t="Include">
           <e p="HomeController.cs" t="Include" />
         </e>
@@ -131,6 +131,7 @@
           <e p="@babel\preset-env" t="IncludeRecursive" />
           <e p="@babel\preset-react" t="IncludeRecursive" />
           <e p="babel-loader" t="IncludeRecursive" />
+          <e p="bootstrap" t="IncludeRecursive" />
           <e p="clean-webpack-plugin" t="IncludeRecursive" />
           <e p="css-loader" t="IncludeRecursive" />
           <e p="html-webpack-plugin" t="IncludeRecursive" />
@@ -160,74 +161,10 @@
             <e p="paper-worker.publishsettings" t="Include" />
           </e>
         </e>
-        <e p="Scripts" t="Include">
-          <e p="bootstrap.bundle.js" t="Include" />
-          <e p="bootstrap.bundle.js.map" t="Include" />
-          <e p="bootstrap.bundle.min.js" t="Include" />
-          <e p="bootstrap.bundle.min.js.map" t="Include" />
-          <e p="bootstrap.js" t="Include" />
-          <e p="bootstrap.js.map" t="Include" />
-          <e p="bootstrap.min.js" t="Include" />
-          <e p="bootstrap.min.js.map" t="Include" />
-          <e p="dist" t="Include">
-            <e p="bundle.js" t="Include" />
-            <e p="favicon.ico" t="Include" />
-            <e p="index.html" t="Include" />
-          </e>
-          <e p="esm" t="Include">
-            <e p="popper-utils.js" t="Include" />
-            <e p="popper-utils.js.map" t="Include" />
-            <e p="popper-utils.min.js" t="Include" />
-            <e p="popper-utils.min.js.map" t="Include" />
-            <e p="popper.js" t="Include" />
-            <e p="popper.js.map" t="Include" />
-            <e p="popper.min.js" t="Include" />
-            <e p="popper.min.js.map" t="Include" />
-          </e>
-          <e p="Home" t="Include">
-            <e p="react" t="Include">
-              <e p="index.jsx" t="Include" />
-            </e>
-          </e>
-          <e p="index.d.ts" t="Include" />
-          <e p="jquery-1.10.2.intellisense.js" t="Include" />
-          <e p="jquery-3.3.1.intellisense.js" t="Include" />
-          <e p="jquery-3.3.1.js" t="Include" />
-          <e p="jquery-3.3.1.min.js" t="Include" />
-          <e p="jquery-3.3.1.min.map" t="Include" />
-          <e p="jquery-3.3.1.slim.js" t="Include" />
-          <e p="jquery-3.3.1.slim.min.js" t="Include" />
-          <e p="jquery-3.3.1.slim.min.map" t="Include" />
-          <e p="popper-utils.js" t="Include" />
-          <e p="popper-utils.js.map" t="Include" />
-          <e p="popper-utils.min.js" t="Include" />
-          <e p="popper-utils.min.js.map" t="Include" />
-          <e p="popper.js" t="Include" />
-          <e p="popper.js.map" t="Include" />
-          <e p="popper.min.js" t="Include" />
-          <e p="popper.min.js.map" t="Include" />
-          <e p="README.md" t="Include" />
-          <e p="umd" t="Include">
-            <e p="popper-utils.js" t="Include" />
-            <e p="popper-utils.js.map" t="Include" />
-            <e p="popper-utils.min.js" t="Include" />
-            <e p="popper-utils.min.js.map" t="Include" />
-            <e p="popper.js" t="Include" />
-            <e p="popper.js.map" t="Include" />
-            <e p="popper.min.js" t="Include" />
-            <e p="popper.min.js.map" t="Include" />
-          </e>
-        </e>
+        <e p="Startup.cs" t="Include" />
         <e p="Views" t="Include">
-          <e p="_ViewStart.cshtml" t="Include" />
           <e p="Home" t="Include">
-            <e p="About.cshtml" t="Include" />
-            <e p="Contact.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
-          </e>
-          <e p="Shared" t="Include">
-            <e p="_Layout.cshtml" t="Include" />
-            <e p="Error.cshtml" t="Include" />
           </e>
           <e p="Web.config" t="Include" />
         </e>
