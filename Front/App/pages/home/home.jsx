@@ -1,11 +1,11 @@
 import React, {Component} from "react";
 
-export class Home extends Component {
+export default class Home extends Component {
 
     render() {
         return (
             <>
-                <div className="navbar navbar-inverse navbar-fixed-top">
+                <div className="sample navbar navbar-inverse navbar-fixed-top">
                     <div className="container">
                         <div className="navbar-header">
                             <button type="button" className="navbar-toggle" data-toggle="collapse"

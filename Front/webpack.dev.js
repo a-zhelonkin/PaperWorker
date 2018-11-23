@@ -9,14 +9,13 @@ module.exports = merge(config, {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 enforce: "pre",
                 exclude: nodeModulesDirectory,
                 use: ["source-map-loader"]
             },
             {
                 test: /\.css$/,
-                exclude: nodeModulesDirectory,
                 use: ["style-loader", "css-loader"]
             }
         ]

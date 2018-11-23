@@ -158,14 +158,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".babelrc" />
+    <Content Include="App\app.css" />
+    <Content Include="App\bootstrap.minty.css" />
     <Content Include="App\dist\bundle.js" />
     <Content Include="App\dist\favicon.ico" />
     <Content Include="App\dist\index.html" />
+    <Content Include="App\app.jsx" />
+    <Content Include="App\dist\main.css" />
     <Content Include="App\index.jsx" />
     <Content Include="App\pages\home\home.css" />
     <Content Include="App\pages\home\home.jsx" />
+    <Content Include="App\pages\login\login.jsx" />
+    <Content Include="App\routes.jsx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="Properties\PublishProfiles\paper-worker.publishsettings" />
     <None Include="Properties\PublishProfiles\paper-worker - FTP.pubxml" />
@@ -189,6 +196,7 @@
   <ItemGroup>
     <Folder Include="App\api" />
     <Folder Include="App\components" />
+    <Folder Include="App\redux" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

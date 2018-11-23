@@ -5,7 +5,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
-const outputDirectory = path.resolve(__dirname, "Scripts/dist");
+const outputDirectory = path.resolve(__dirname, "App/dist");
 const nodeModulesDirectory = path.resolve(__dirname, "node_modules");
 
 module.exports = merge(config, {

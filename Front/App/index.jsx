@@ -1,9 +1,6 @@
+import "./bootstrap.minty.css"
 import React from "react";
 import {render} from "react-dom";
-import {Home} from "./pages/home/home";
+import App from "./app";
 
-const app = () => (
-    <Home/>
-);
-
-render(<app/>, document.getElementById("app"));
+render(<App/>, document.getElementById("app"));
