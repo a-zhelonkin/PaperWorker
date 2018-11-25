@@ -163,13 +163,13 @@
     <Content Include="App\dist\bundle.js" />
     <Content Include="App\dist\favicon.ico" />
     <Content Include="App\dist\index.html" />
-    <Content Include="App\app.jsx" />
+    <Content Include="App\app.tsx" />
     <Content Include="App\dist\main.css" />
-    <Content Include="App\index.jsx" />
-    <Content Include="App\pages\home\home.css" />
-    <Content Include="App\pages\home\home.jsx" />
-    <Content Include="App\pages\login\login.jsx" />
-    <Content Include="App\routes.jsx" />
+    <Content Include="App\index.tsx" />
+    <Content Include="App\pages\error404\error404.tsx" />
+    <Content Include="App\pages\home\home.tsx" />
+    <Content Include="App\pages\login\login.tsx" />
+    <Content Include="App\routes.tsx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="package-lock.json" />
@@ -177,6 +177,8 @@
     <Content Include="Properties\PublishProfiles\paper-worker.publishsettings" />
     <None Include="Properties\PublishProfiles\paper-worker - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\paper-worker - Web Deploy.pubxml" />
+    <Content Include="tsconfig.json" />
+    <Content Include="tslint.json" />
     <Content Include="webpack.config.js" />
     <Content Include="webpack.dev.js" />
     <Content Include="webpack.prod.js" />
@@ -197,6 +199,7 @@
     <Folder Include="App\api" />
     <Folder Include="App\components" />
     <Folder Include="App\redux" />
+    <Folder Include="App\test" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

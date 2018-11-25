@@ -1,8 +1,8 @@
-import React, {Component} from "react";
+import React, {Component, ReactNode} from "react";
 
 export default class Home extends Component {
 
-    render() {
+    public render(): ReactNode {
         return (
             <>
                 <div className="sample navbar navbar-inverse navbar-fixed-top">
@@ -10,9 +10,9 @@ export default class Home extends Component {
                         <div className="navbar-header">
                             <button type="button" className="navbar-toggle" data-toggle="collapse"
                                     data-target=".navbar-collapse">
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
+                                <span className="icon-bar"/>
+                                <span className="icon-bar"/>
+                                <span className="icon-bar"/>
                             </button>
                         </div>
                         <div className="navbar-collapse collapse">

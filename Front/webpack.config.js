@@ -6,13 +6,13 @@ const outputDirectory = path.resolve(__dirname, "App/dist");
 const nodeModulesDirectory = path.resolve(__dirname, "node_modules");
 
 module.exports = {
-    entry: "./App/index.jsx",
+    entry: "./App/index.tsx",
     output: {
         filename: "bundle.js",
         path: outputDirectory
     },
     resolve: {
-        extensions: [".js", ".jsx"],
+        extensions: [".ts", ".tsx", ".js"],
         modules: [
             nodeModulesDirectory
         ]
@@ -20,7 +20,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.tsx?$/,
                 exclude: nodeModulesDirectory,
                 loader: "babel-loader"
             },
@@ -56,9 +56,5 @@ module.exports = {
                 removeEmptyAttributes: true
             }
         })
-    ],
-    target: "web",
-    node: {
-        fs: "empty"
-    }
+    ]
 };

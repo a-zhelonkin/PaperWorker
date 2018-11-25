@@ -95,7 +95,7 @@
         <e p="App" t="Include">
           <e p="Api" t="Include" />
           <e p="app.css" t="Include" />
-          <e p="app.jsx" t="Include" />
+          <e p="app.tsx" t="Include" />
           <e p="bootstrap.minty.css" t="Include" />
           <e p="components" t="Include" />
           <e p="dist" t="Include">
@@ -104,18 +104,21 @@
             <e p="index.html" t="Include" />
             <e p="main.css" t="Include" />
           </e>
-          <e p="index.jsx" t="Include" />
+          <e p="index.tsx" t="Include" />
           <e p="pages" t="Include">
+            <e p="error404" t="Include">
+              <e p="error404.tsx" t="Include" />
+            </e>
             <e p="Home" t="Include">
-              <e p="home.css" t="Include" />
-              <e p="home.jsx" t="Include" />
+              <e p="home.tsx" t="Include" />
             </e>
             <e p="login" t="Include">
-              <e p="login.jsx" t="Include" />
+              <e p="login.tsx" t="Include" />
             </e>
           </e>
           <e p="redux" t="Include" />
-          <e p="routes.jsx" t="Include" />
+          <e p="routes.tsx" t="Include" />
+          <e p="test" t="Include" />
         </e>
         <e p="App_Start" t="Include">
           <e p="FilterConfig.cs" t="Include" />
@@ -139,20 +142,81 @@
           <e p="@babel\plugin-proposal-object-rest-spread" t="IncludeRecursive" />
           <e p="@babel\preset-env" t="IncludeRecursive" />
           <e p="@babel\preset-react" t="IncludeRecursive" />
+          <e p="@babel\preset-typescript" t="IncludeRecursive" />
+          <e p="@types" t="IncludeRecursive">
+            <e p="chai" t="IncludeRecursive" />
+            <e p="history" t="IncludeRecursive" />
+            <e p="mocha" t="IncludeRecursive" />
+            <e p="node" t="IncludeRecursive" />
+            <e p="prop-types" t="IncludeRecursive" />
+            <e p="react" t="IncludeRecursive" />
+            <e p="react-bootstrap" t="IncludeRecursive" />
+            <e p="react-dom" t="IncludeRecursive" />
+            <e p="react-router" t="IncludeRecursive" />
+            <e p="react-router-dom" t="IncludeRecursive" />
+          </e>
           <e p="babel-loader" t="IncludeRecursive" />
+          <e p="chai" t="IncludeRecursive" />
           <e p="clean-webpack-plugin" t="IncludeRecursive" />
           <e p="css-loader" t="IncludeRecursive" />
+          <e p="csstype" t="IncludeRecursive" />
           <e p="html-webpack-plugin" t="IncludeRecursive" />
           <e p="image-webpack-loader" t="IncludeRecursive" />
           <e p="mini-css-extract-plugin" t="IncludeRecursive" />
+          <e p="mocha" t="IncludeRecursive" />
           <e p="optimize-css-assets-webpack-plugin" t="IncludeRecursive" />
           <e p="react" t="IncludeRecursive" />
           <e p="react-bootstrap" t="IncludeRecursive" />
           <e p="react-dom" t="IncludeRecursive" />
           <e p="react-router" t="IncludeRecursive" />
+          <e p="react-router-dom" t="IncludeRecursive" />
           <e p="source-map-loader" t="IncludeRecursive" />
           <e p="style-loader" t="IncludeRecursive" />
           <e p="svg-url-loader" t="IncludeRecursive" />
+          <e p="ts-node" t="IncludeRecursive" />
+          <e p="tslint" t="IncludeRecursive" />
+          <e p="tslint-react" t="IncludeRecursive" />
+          <e p="typescript" t="IncludeRecursive">
+            <e p="lib\lib.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.dom.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.dom.iterable.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.collection.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.core.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.generator.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.iterable.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.promise.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.proxy.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.reflect.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.symbol.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.symbol.wellknown.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2016.array.include.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2016.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2016.full.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2017.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2017.full.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2017.intl.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2017.object.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2017.sharedmemory.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2017.string.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2017.typedarrays.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2018.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2018.full.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2018.intl.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2018.promise.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2018.regexp.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es5.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es6.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.esnext.array.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.esnext.asynciterable.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.esnext.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.esnext.full.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.esnext.intl.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.esnext.symbol.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.scripthost.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.webworker.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.webworker.importscripts.d.ts" t="IncludeRecursive" />
+          </e>
           <e p="uglifyjs-webpack-plugin" t="IncludeRecursive" />
           <e p="webpack" t="IncludeRecursive" />
           <e p="webpack-cli" t="IncludeRecursive" />
@@ -171,6 +235,8 @@
           </e>
         </e>
         <e p="Startup.cs" t="Include" />
+        <e p="tsconfig.json" t="Include" />
+        <e p="tslint.json" t="Include" />
         <e p="Views" t="Include">
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />

@@ -9,7 +9,7 @@ module.exports = merge(config, {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.tsx?$/,
                 enforce: "pre",
                 exclude: nodeModulesDirectory,
                 use: ["source-map-loader"]
@@ -20,12 +20,5 @@ module.exports = merge(config, {
             }
         ]
     },
-    devtool: "inline-source-map",
-    devServer: {
-        port: 3000,
-        open: true,
-        proxy: {
-            "/api": "http://localhost:8080"
-        }
-    },
+    devtool: "inline-source-map"
 });
