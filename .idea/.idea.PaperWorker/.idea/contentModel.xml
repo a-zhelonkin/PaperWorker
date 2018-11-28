@@ -247,36 +247,10 @@
         <e p="webpack.dev.js" t="Include" />
         <e p="webpack.prod.js" t="Include" />
         <e p="wwwroot" t="Include">
-          <e p="app.d.ts" t="Include" />
-          <e p="app.js" t="Include" />
-          <e p="app.js.map" t="Include" />
           <e p="bundle.js" t="Include" />
           <e p="favicon.ico" t="Include" />
-          <e p="index.d.ts" t="Include" />
           <e p="index.html" t="Include" />
-          <e p="index.js" t="Include" />
-          <e p="index.js.map" t="Include" />
           <e p="main.css" t="Include" />
-          <e p="pages" t="Include">
-            <e p="error404" t="Include">
-              <e p="error404.d.ts" t="Include" />
-              <e p="error404.js" t="Include" />
-              <e p="error404.js.map" t="Include" />
-            </e>
-            <e p="Home" t="Include">
-              <e p="home.d.ts" t="Include" />
-              <e p="home.js" t="Include" />
-              <e p="home.js.map" t="Include" />
-            </e>
-            <e p="login" t="Include">
-              <e p="login.d.ts" t="Include" />
-              <e p="login.js" t="Include" />
-              <e p="login.js.map" t="Include" />
-            </e>
-          </e>
-          <e p="routes.d.ts" t="Include" />
-          <e p="routes.js" t="Include" />
-          <e p="routes.js.map" t="Include" />
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
