@@ -25,9 +25,6 @@ namespace Api
         /// </summary>
         public const double Lifetime = 86400;
 
-        public static SecurityKey GetSymmetricSecurityKey()
-        {
-            return new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Key));
-        }
+        public static SecurityKey SymmetricSecurityKey => new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Key));
     }
 }

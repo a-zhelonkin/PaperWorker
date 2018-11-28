@@ -4,22 +4,23 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web.Http;
-using System.Web.Http.Description;
 using Api.Models;
 using Database;
 using Database.Extensions;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Api.Controllers
 {
     [AllowAnonymous]
-    public class AuthController : ApiController
+    [Route("api/[controller]")]
+    [ApiController]
+    public class AuthController : ControllerBase
     {
         [HttpPost]
-        [Route("api/token")]
-        [ResponseType(typeof(string))]
-        public IHttpActionResult Token([FromBody] Auth auth)
+        [Route("token")]
+        public IActionResult Token([FromBody] Auth auth)
         {
             var claims = GetClaims(auth.Username, auth.Password);
             if (claims == null)
@@ -28,14 +29,17 @@ namespace Api.Controllers
             }
 
             var now = DateTime.UtcNow;
-            return Ok(new JwtSecurityTokenHandler().WriteToken(new JwtSecurityToken(
+            var jwt = new JwtSecurityToken(
                 AuthConstants.Issuer,
                 AuthConstants.Audience,
                 claims,
                 now,
                 now.Add(TimeSpan.FromMinutes(AuthConstants.Lifetime)),
-                new SigningCredentials(AuthConstants.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256)
-            )));
+                new SigningCredentials(AuthConstants.SymmetricSecurityKey, SecurityAlgorithms.HmacSha256)
+            );
+            var encoded = new JwtSecurityTokenHandler().WriteToken(jwt);
+
+            return Ok(encoded);
         }
 
         private static IReadOnlyCollection<Claim> GetClaims(string username, string password)
@@ -54,7 +58,7 @@ namespace Api.Controllers
                 {
                     return new List<Claim>
                     {
-                        new Claim(ClaimsIdentity.DefaultNameClaimType, user.Username),
+                        new Claim(ClaimsIdentity.DefaultNameClaimType, user.Username)
                     };
                 }
             }

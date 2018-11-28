@@ -1,18 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
-using System.Web.Http.Description;
-using Api.Models;
+﻿using System.Linq;
 using Database;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
     [Authorize]
-    public class UsersController : ApiController
+    [Route("api/users")]
+    [ApiController]
+    public class UsersController : ControllerBase
     {
         [HttpGet]
-        [ResponseType(typeof(IEnumerable<User>))]
-        public IHttpActionResult Get()
+        public IActionResult Get()
         {
             using (var context = new PaperWorkerDbContext())
             {

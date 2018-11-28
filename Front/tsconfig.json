@@ -5,7 +5,7 @@
     "declaration": true,
     "jsx": "react",
     "rootDir": "./App/",
-    "outDir": "./App/dist/",
+    "outDir": "./wwwroot/",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -25,7 +25,7 @@
     "./App"
   ],
   "exclude": [
-    "./App/dist/**",
+    "./wwwroot/**",
     "./node_modules/**",
     "./App/test/**"
   ]

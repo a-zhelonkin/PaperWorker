@@ -46,6 +46,7 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
+    "aspnet-webpack": "^3.0.0",
     "babel-loader": "^8.0.2",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
@@ -53,14 +54,16 @@
     "image-webpack-loader": "^4.3.1",
     "mini-css-extract-plugin": "^0.4.3",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "source-map": "^0.7.3",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.21.0",
     "svg-url-loader": "^2.3.2",
     "tslint": "^5.11.0",
     "tslint-react": "^3.6.0",
     "uglifyjs-webpack-plugin": "^2.0.1",
-    "webpack": "^4.20.2",
+    "webpack": "^4.26.1",
     "webpack-cli": "^3.1.2",
+    "webpack-dev-middleware": "^3.4.0",
     "webpack-merge": "^4.1.4"
   }
 }

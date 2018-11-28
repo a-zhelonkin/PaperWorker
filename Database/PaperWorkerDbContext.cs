@@ -1,35 +1,42 @@
-﻿using System.Data.Entity;
+﻿using System.IO;
 using Database.Models.Account;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Database
 {
     public class PaperWorkerDbContext : DbContext
     {
-        public PaperWorkerDbContext() : base(nameof(PaperWorkerDbContext))
-        {
-        }
-
         public DbSet<User> Users { get; set; }
 
-        /// <summary>
-        /// Fluent API
-        /// </summary>
-        /// <param name="modelBuilder"></param>
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            #region User
+            if (optionsBuilder.IsConfigured) return;
 
-            modelBuilder.Entity<User>()
-                .HasMany(user => user.Roles)
-                .WithMany(role => role.Users)
-                .Map(config =>
-                {
-                    config.MapLeftKey("UserId");
-                    config.MapRightKey("RoleId");
-                    config.ToTable("UserRoles");
-                });
+            var connectionString = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build()
+                .GetConnectionString(nameof(PaperWorkerDbContext));
 
-            #endregion
+            optionsBuilder.UseSqlServer(connectionString);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+//            #region User
+//
+//            modelBuilder.Entity<User>()
+//                .HasMany(user => user.Roles)
+//                .WithMany(role => role.Users)
+//                .Map(config =>
+//                {
+//                    config.MapLeftKey("UserId");
+//                    config.MapRightKey("RoleId");
+//                    config.ToTable("UserRoles");
+//                });
+//
+//            #endregion
 
             base.OnModelCreating(modelBuilder);
         }

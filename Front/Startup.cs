@@ -1,42 +1,62 @@
-﻿using Front;
-using Microsoft.Owin;
-using Microsoft.Owin.Logging;
-using Owin;
-
-[assembly: OwinStartup(typeof(Startup))]
+﻿using System;
+using Api;
+using Database;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Front
 {
-    public partial class Startup
+    public class Startup
     {
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=316888
-        public void Configuration(IAppBuilder app)
+        public Startup(IConfiguration configuration)
         {
-            ConfigureAuth(app);
+            configuration.GetConnectionString(nameof(PaperWorkerDbContext));
         }
 
-//        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-//        {
-//            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-//            loggerFactory.AddDebug();
-//
-//            if (env.IsDevelopment())
-//            {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddMvc();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.RequireHttpsMetadata = false;
+                    options.SaveToken = true;
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidIssuer = AuthConstants.Issuer,
+                        ValidAudience = AuthConstants.Audience,
+                        IssuerSigningKey = AuthConstants.SymmetricSecurityKey,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ClockSkew = TimeSpan.Zero
+                    };
+                });
+        }
+
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
 //                app.UseWebpackDevMiddleware();
-//            }
-//
-//            app.UseAuthentication();
-//            app.UseStaticFiles();
-//            app.UseMvc(routes =>
-//            {
-//                routes.MapRoute(
-//                    name: "default",
-//                    template: "{controller=Home}/{action=Index}/{id?}");
-//                routes.MapRoute(
-//                    name: "DefaultApi",
-//                    template: "api/{controller}/{action}/{id?}");
-//                routes.MapSpaFallbackRoute("spa-fallback", new {controller = "Home", action = "Index"});
-//            });
-//        }
+            }
+
+            app.UseStaticFiles();
+            app.UseAuthentication();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(
+                    name: "DefaultApi",
+                    template: "api/{controller}/{action}/{id?}");
+                routes.MapSpaFallbackRoute("spa-fallback", new {controller = "Home", action = "Index"});
+            });
+        }
     }
 }

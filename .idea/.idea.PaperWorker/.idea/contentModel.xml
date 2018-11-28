@@ -37,17 +37,18 @@
     <e p="C:\Users\zhelonkin\RiderProjects\PaperWorker" t="IncludeFlat">
       <e p="Api" t="IncludeRecursive">
         <e p="Api.csproj" t="IncludeRecursive" />
-        <e p="App.config" t="Include" />
         <e p="AuthConstants.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="AuthController.cs" t="Include" />
           <e p="UsersController.cs" t="Include" />
         </e>
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="packages.config" t="Include" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="Api.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
         </e>
       </e>
       <e p="Api.Client" t="IncludeRecursive">
@@ -62,32 +63,36 @@
         <e p="User.cs" t="Include" />
       </e>
       <e p="Database" t="IncludeRecursive">
-        <e p="App.config" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Database.csproj" t="IncludeRecursive" />
         <e p="Extensions" t="Include">
           <e p="UsersExtension.cs" t="Include" />
         </e>
-        <e p="Migrations" t="Include">
-          <e p="201811180148021_Init.cs" t="Include" />
-          <e p="201811180148021_Init.Designer.cs" t="Include" />
-          <e p="201811180148021_Init.resx" t="Include" />
-          <e p="Configuration.cs" t="Include" />
-        </e>
-        <e p="Models" t="Include">
-          <e p="Account" t="Include">
-            <e p="Role.cs" t="Include" />
-            <e p="User.cs" t="Include" />
-          </e>
-          <e p="base" t="Include">
-            <e p="Entity.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="Database.AssemblyInfo.cs" t="Include" />
+            </e>
           </e>
         </e>
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="packages.config" t="Include" />
         <e p="PaperWorkerDbContext.cs" t="Include" />
-        <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
+      </e>
+      <e p="Database.Models" t="IncludeRecursive">
+        <e p="Account" t="Include">
+          <e p="Role.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+        </e>
+        <e p="base" t="Include">
+          <e p="Entity.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Database.Models.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="Database.Models.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
         </e>
       </e>
       <e p="Front" t="IncludeRecursive">
@@ -98,12 +103,6 @@
           <e p="app.tsx" t="Include" />
           <e p="bootstrap.minty.css" t="Include" />
           <e p="components" t="Include" />
-          <e p="dist" t="Include">
-            <e p="bundle.js" t="Include" />
-            <e p="favicon.ico" t="Include" />
-            <e p="index.html" t="Include" />
-            <e p="main.css" t="Include" />
-          </e>
           <e p="index.tsx" t="Include" />
           <e p="pages" t="Include">
             <e p="error404" t="Include">
@@ -120,21 +119,14 @@
           <e p="routes.tsx" t="Include" />
           <e p="test" t="Include" />
         </e>
-        <e p="App_Start" t="Include">
-          <e p="FilterConfig.cs" t="Include" />
-          <e p="RouteConfig.cs" t="Include" />
-          <e p="Startup.Auth.cs" t="Include" />
-          <e p="WebApiConfig.cs" t="Include" />
-        </e>
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="HomeController.cs" t="Include" />
         </e>
         <e p="favicon.ico" t="Include" />
         <e p="Front.csproj" t="IncludeRecursive" />
-        <e p="Global.asax" t="Include" />
-        <e p="Global.asax.cs" t="Include" />
-        <e p="Models" t="Include" />
         <e p="node_modules" t="ExcludeRecursive">
           <e p="@babel\cli" t="IncludeRecursive" />
           <e p="@babel\core" t="IncludeRecursive" />
@@ -155,6 +147,7 @@
             <e p="react-router" t="IncludeRecursive" />
             <e p="react-router-dom" t="IncludeRecursive" />
           </e>
+          <e p="aspnet-webpack" t="IncludeRecursive" />
           <e p="babel-loader" t="IncludeRecursive" />
           <e p="chai" t="IncludeRecursive" />
           <e p="clean-webpack-plugin" t="IncludeRecursive" />
@@ -170,6 +163,7 @@
           <e p="react-dom" t="IncludeRecursive" />
           <e p="react-router" t="IncludeRecursive" />
           <e p="react-router-dom" t="IncludeRecursive" />
+          <e p="source-map" t="IncludeRecursive" />
           <e p="source-map-loader" t="IncludeRecursive" />
           <e p="style-loader" t="IncludeRecursive" />
           <e p="svg-url-loader" t="IncludeRecursive" />
@@ -220,14 +214,21 @@
           <e p="uglifyjs-webpack-plugin" t="IncludeRecursive" />
           <e p="webpack" t="IncludeRecursive" />
           <e p="webpack-cli" t="IncludeRecursive" />
+          <e p="webpack-dev-middleware" t="IncludeRecursive" />
           <e p="webpack-merge" t="IncludeRecursive" />
         </e>
-        <e p="obj" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="Front.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="package-lock.json" t="Include" />
         <e p="package.json" t="Include" />
-        <e p="packages.config" t="Include" />
+        <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
-          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="launchSettings.json" t="Include" />
           <e p="PublishProfiles" t="Include">
             <e p="paper-worker - FTP.pubxml" t="Include" />
             <e p="paper-worker - Web Deploy.pubxml" t="Include" />
@@ -237,18 +238,46 @@
         <e p="Startup.cs" t="Include" />
         <e p="tsconfig.json" t="Include" />
         <e p="tslint.json" t="Include" />
-        <e p="Views" t="Include">
+        <e p="VIews" t="Include">
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />
           </e>
-          <e p="Web.config" t="Include" />
         </e>
-        <e p="Web.config" t="Include" />
-        <e p="Web.Debug.config" t="Include" />
-        <e p="Web.Release.config" t="Include" />
         <e p="webpack.config.js" t="Include" />
         <e p="webpack.dev.js" t="Include" />
         <e p="webpack.prod.js" t="Include" />
+        <e p="wwwroot" t="Include">
+          <e p="app.d.ts" t="Include" />
+          <e p="app.js" t="Include" />
+          <e p="app.js.map" t="Include" />
+          <e p="bundle.js" t="Include" />
+          <e p="favicon.ico" t="Include" />
+          <e p="index.d.ts" t="Include" />
+          <e p="index.html" t="Include" />
+          <e p="index.js" t="Include" />
+          <e p="index.js.map" t="Include" />
+          <e p="main.css" t="Include" />
+          <e p="pages" t="Include">
+            <e p="error404" t="Include">
+              <e p="error404.d.ts" t="Include" />
+              <e p="error404.js" t="Include" />
+              <e p="error404.js.map" t="Include" />
+            </e>
+            <e p="Home" t="Include">
+              <e p="home.d.ts" t="Include" />
+              <e p="home.js" t="Include" />
+              <e p="home.js.map" t="Include" />
+            </e>
+            <e p="login" t="Include">
+              <e p="login.d.ts" t="Include" />
+              <e p="login.js" t="Include" />
+              <e p="login.js.map" t="Include" />
+            </e>
+          </e>
+          <e p="routes.d.ts" t="Include" />
+          <e p="routes.js" t="Include" />
+          <e p="routes.js.map" t="Include" />
+        </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="PaperWorker.sln" t="IncludeFlat" />
