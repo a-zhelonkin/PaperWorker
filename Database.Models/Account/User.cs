@@ -17,6 +17,6 @@ namespace Database.Models.Account
         [Required]
         public string Password { get; set; }
 
-        public virtual ICollection<Role> Roles { get; set; }
+        public virtual ICollection<UserRole> Roles { get; set; }
     }
 }

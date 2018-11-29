@@ -50,11 +50,11 @@ namespace Front
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-                routes.MapRoute(
                     name: "DefaultApi",
                     template: "api/{controller}/{action}/{id?}");
+//                routes.MapRoute(
+//                    name: "Default",
+//                    template: "{controller=Home}/{action=Index}/{id?}");
                 routes.MapSpaFallbackRoute("spa-fallback", new {controller = "Home", action = "Index"});
             });
         }

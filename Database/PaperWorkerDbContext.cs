@@ -14,8 +14,7 @@ namespace Database
             if (optionsBuilder.IsConfigured) return;
 
             var connectionString = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
+                .AddJsonFile("dbsettings.json")
                 .Build()
                 .GetConnectionString(nameof(PaperWorkerDbContext));
 
@@ -24,19 +23,31 @@ namespace Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-//            #region User
-//
-//            modelBuilder.Entity<User>()
-//                .HasMany(user => user.Roles)
-//                .WithMany(role => role.Users)
-//                .Map(config =>
-//                {
-//                    config.MapLeftKey("UserId");
-//                    config.MapRightKey("RoleId");
-//                    config.ToTable("UserRoles");
-//                });
-//
-//            #endregion
+            #region Role
+
+            modelBuilder
+                .Entity<Role>()
+                .Property(role => role.Name)
+                .HasConversion<string>();
+
+            #endregion
+
+            #region UserRole
+
+            modelBuilder.Entity<UserRole>()
+                .HasKey(userRole => new {userRole.UserId, userRole.RoleId});
+
+            modelBuilder.Entity<UserRole>()
+                .HasOne(userRole => userRole.User)
+                .WithMany(user => user.Roles)
+                .HasForeignKey(userRole => userRole.UserId);
+
+            modelBuilder.Entity<UserRole>()
+                .HasOne(userRole => userRole.Role)
+                .WithMany(role => role.Users)
+                .HasForeignKey(userRole => userRole.UserId);
+
+            #endregion
 
             base.OnModelCreating(modelBuilder);
         }

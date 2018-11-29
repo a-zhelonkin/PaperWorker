@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "PaperWorkerDbContext": "Server=den1.mssql7.gear.host;Database=paperworkerdb;User Id=paperworkerdb;Password=Pg8nBTrA?-Ro;"
+  }
+}

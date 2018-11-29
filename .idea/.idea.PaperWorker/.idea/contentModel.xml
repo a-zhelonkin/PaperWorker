@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\Extensions" t="IncludeRecursive" />
     <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\_http_incoming.js" t="IncludeRecursive" />
     <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\_http_outgoing.js" t="IncludeRecursive" />
     <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\_http_server.js" t="IncludeRecursive" />
@@ -65,8 +67,14 @@
       <e p="Database" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Database.csproj" t="IncludeRecursive" />
+        <e p="dbsettings.json" t="Include" />
         <e p="Extensions" t="Include">
           <e p="UsersExtension.cs" t="Include" />
+        </e>
+        <e p="Migrations" t="Include">
+          <e p="20181129101036_Init.cs" t="Include" />
+          <e p="20181129101036_Init.Designer.cs" t="Include" />
+          <e p="PaperWorkerDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -81,6 +89,7 @@
         <e p="Account" t="Include">
           <e p="Role.cs" t="Include" />
           <e p="User.cs" t="Include" />
+          <e p="UserRole.cs" t="Include" />
         </e>
         <e p="base" t="Include">
           <e p="Entity.cs" t="Include" />
@@ -247,10 +256,36 @@
         <e p="webpack.dev.js" t="Include" />
         <e p="webpack.prod.js" t="Include" />
         <e p="wwwroot" t="Include">
+          <e p="app.d.ts" t="Include" />
+          <e p="app.js" t="Include" />
+          <e p="app.js.map" t="Include" />
           <e p="bundle.js" t="Include" />
           <e p="favicon.ico" t="Include" />
+          <e p="index.d.ts" t="Include" />
           <e p="index.html" t="Include" />
+          <e p="index.js" t="Include" />
+          <e p="index.js.map" t="Include" />
           <e p="main.css" t="Include" />
+          <e p="pages" t="Include">
+            <e p="error404" t="Include">
+              <e p="error404.d.ts" t="Include" />
+              <e p="error404.js" t="Include" />
+              <e p="error404.js.map" t="Include" />
+            </e>
+            <e p="Home" t="Include">
+              <e p="home.d.ts" t="Include" />
+              <e p="home.js" t="Include" />
+              <e p="home.js.map" t="Include" />
+            </e>
+            <e p="login" t="Include">
+              <e p="login.d.ts" t="Include" />
+              <e p="login.js" t="Include" />
+              <e p="login.js.map" t="Include" />
+            </e>
+          </e>
+          <e p="routes.d.ts" t="Include" />
+          <e p="routes.js" t="Include" />
+          <e p="routes.js.map" t="Include" />
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
