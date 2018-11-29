@@ -1,13 +1,20 @@
-﻿using System.IO;
+﻿using Core;
 using Database.Models.Account;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Configuration;
 
 namespace Database
 {
+    /// <summary>
+    /// dotnet ef migrations add [comment]
+    /// dotnet ef database update [comment]
+    /// </summary>
     public class PaperWorkerDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Role> Roles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -23,12 +30,14 @@ namespace Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            var roleNameConverter = new EnumToStringConverter<RoleName>();
+
             #region Role
 
             modelBuilder
                 .Entity<Role>()
                 .Property(role => role.Name)
-                .HasConversion<string>();
+                .HasConversion(roleNameConverter);
 
             #endregion
 
@@ -45,7 +54,7 @@ namespace Database
             modelBuilder.Entity<UserRole>()
                 .HasOne(userRole => userRole.Role)
                 .WithMany(role => role.Users)
-                .HasForeignKey(userRole => userRole.UserId);
+                .HasForeignKey(userRole => userRole.RoleId);
 
             #endregion
 

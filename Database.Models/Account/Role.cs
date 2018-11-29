@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Core;
 using Database.Models.Base;
 
 namespace Database.Models.Account
@@ -15,23 +16,5 @@ namespace Database.Models.Account
         public RoleName Name { get; set; }
 
         public virtual ICollection<UserRole> Users { get; set; }
-    }
-
-    public enum RoleName : byte
-    {
-        /// <summary>
-        /// Потребитель
-        /// </summary>
-        Consumer,
-
-        /// <summary>
-        /// Слесарь
-        /// </summary>
-        Locksmith,
-
-        /// <summary>
-        /// Администратор
-        /// </summary>
-        Admin
     }
 }

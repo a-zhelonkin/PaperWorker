@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
 using Api;
+using Core;
 using Database;
+using Database.Extensions;
+using Database.Models.Account;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -42,21 +47,31 @@ namespace Front
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-//                app.UseWebpackDevMiddleware();
             }
 
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
-                    name: "DefaultApi",
-                    template: "api/{controller}/{action}/{id?}");
-//                routes.MapRoute(
-//                    name: "Default",
-//                    template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute("DefaultApi", "api/{controller}/{action}/{id?}");
                 routes.MapSpaFallbackRoute("spa-fallback", new {controller = "Home", action = "Index"});
             });
+
+            CreateRoles().Wait();
+        }
+
+        private static async Task CreateRoles()
+        {
+            using (var context = new PaperWorkerDbContext())
+            {
+                var roleNames = Enum.GetValues(typeof(RoleName)).Cast<RoleName>();
+                foreach (var roleName in roleNames)
+                {
+                    if (await context.ExistsRole(roleName)) continue;
+
+                    await context.AddRole(new Role {Name = roleName});
+                }
+            }
         }
     }
 }
