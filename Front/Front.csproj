@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="App\api" />
-    <Folder Include="App\components" />
-    <Folder Include="App\redux" />
-    <Folder Include="App\test" />
     <Folder Include="Views" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
@@ -30,6 +26,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <CopyToPublishDirectory>Always</CopyToPublishDirectory>
     </Content>
+    <Content Include="App\pages\auth\reducer.ts" />
   </ItemGroup>
 
 </Project>

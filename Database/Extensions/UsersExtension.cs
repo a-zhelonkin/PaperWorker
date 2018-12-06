@@ -12,9 +12,9 @@ namespace Database.Extensions
             await context.SaveChangesAsync();
         }
 
-        public static User GetUser(this PaperWorkerDbContext context, string username)
+        public static User GetUser(this PaperWorkerDbContext context, string email)
         {
-            return context.Users.SingleOrDefault(x => x.Username == username);
+            return context.Users.SingleOrDefault(x => x.Email == email);
         }
     }
 }

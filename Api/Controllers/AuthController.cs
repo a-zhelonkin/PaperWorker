@@ -14,16 +14,21 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Api.Controllers
 {
-    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
+        [Authorize]
+        [HttpGet]
+        [Route("verify-token")]
+        public IActionResult VerifyToken() => Ok();
+
+        [AllowAnonymous]
         [HttpPost]
         [Route("token")]
         public IActionResult Token([FromBody] Auth auth)
         {
-            var claims = GetClaims(auth.Username, auth.Password);
+            var claims = GetClaims(auth.Email, auth.Password);
             if (claims == null)
             {
                 return Unauthorized();
@@ -41,17 +46,20 @@ namespace Api.Controllers
 
             var encoded = new JwtSecurityTokenHandler().WriteToken(jwt);
 
-            return Ok(encoded);
+            return Ok(new
+            {
+                token = encoded
+            });
         }
 
-        private static IReadOnlyCollection<Claim> GetClaims(string username, string password)
+        private static IReadOnlyCollection<Claim> GetClaims(string email, string password)
         {
             using (var context = new PaperWorkerDbContext())
             {
                 var user = context.Users
                     .Include(x => x.Roles)
                     .ThenInclude(x => x.Role)
-                    .SingleOrDefault(x => x.Username == username);
+                    .SingleOrDefault(x => x.Email == email);
 
                 if (user == null)
                 {
@@ -60,13 +68,16 @@ namespace Api.Controllers
 
                 var sha256 = new SHA256Managed();
                 var passwordHash = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password)));
-                if (passwordHash != user.Password) return null;
+                if (passwordHash != user.Password)
+                {
+                    return null;
+                }
 
                 var claims = user.Roles
                     .Select(userRole => new Claim(ClaimsIdentity.DefaultRoleClaimType, userRole.Role.Name.ToString()))
                     .ToList();
 
-                claims.Add(new Claim(ClaimsIdentity.DefaultNameClaimType, user.Username));
+                claims.Add(new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email));
 
                 return claims;
             }

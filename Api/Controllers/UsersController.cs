@@ -19,7 +19,7 @@ namespace Api.Controllers
                 return Ok(context.Users.Select(user => new User
                 {
                     Id = user.Id,
-                    Username = user.Username,
+                    Email = user.Email,
                     Password = user.Password
                 }).ToList());
             }

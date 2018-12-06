@@ -1,27 +1,12 @@
 import React, {Component, ReactNode} from "react";
+import Navigation from "../../components/navigation/navigation";
 
 export default class Home extends Component {
 
     public render(): ReactNode {
         return (
             <>
-                <div className="sample navbar navbar-inverse navbar-fixed-top">
-                    <div className="container">
-                        <div className="navbar-header">
-                            <button type="button" className="navbar-toggle" data-toggle="collapse"
-                                    data-target=".navbar-collapse">
-                                <span className="icon-bar"/>
-                                <span className="icon-bar"/>
-                                <span className="icon-bar"/>
-                            </button>
-                        </div>
-                        <div className="navbar-collapse collapse">
-                            <ul className="nav navbar-nav">
-                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <Navigation/>
                 <div className="container body-content">
                     <div className="jumbotron">
                         <h1>ASP.NET</h1>

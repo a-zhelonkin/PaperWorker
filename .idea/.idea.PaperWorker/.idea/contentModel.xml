@@ -87,6 +87,8 @@
           <e p="20181129101036_Init.Designer.cs" t="Include" />
           <e p="20181129144800_RepairRoles.cs" t="Include" />
           <e p="20181129144800_RepairRoles.Designer.cs" t="Include" />
+          <e p="20181205133925_RenameUsernameToEmail.cs" t="Include" />
+          <e p="20181205133925_RenameUsernameToEmail.Designer.cs" t="Include" />
           <e p="PaperWorkerDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -120,26 +122,43 @@
       <e p="Front" t="IncludeRecursive">
         <e p=".babelrc" t="Include" />
         <e p="App" t="Include">
-          <e p="Api" t="Include" />
+          <e p="Api" t="Include">
+            <e p="api-base.ts" t="Include" />
+          </e>
           <e p="app.css" t="Include" />
           <e p="app.tsx" t="Include" />
-          <e p="bootstrap.minty.css" t="Include" />
-          <e p="components" t="Include" />
+          <e p="bootstrap.css" t="Include" />
+          <e p="components" t="Include">
+            <e p="inviter" t="Include">
+              <e p="inviter.tsx" t="Include" />
+            </e>
+            <e p="navigation" t="Include">
+              <e p="navigation.tsx" t="Include" />
+            </e>
+          </e>
           <e p="index.tsx" t="Include" />
           <e p="pages" t="Include">
+            <e p="auth" t="Include">
+              <e p="actions.ts" t="Include" />
+              <e p="auth.api.ts" t="Include" />
+              <e p="auth.css" t="Include" />
+              <e p="auth.tsx" t="Include" />
+              <e p="index.ts" t="Include" />
+              <e p="reducer.ts" t="Include" />
+            </e>
             <e p="error404" t="Include">
               <e p="error404.tsx" t="Include" />
             </e>
             <e p="Home" t="Include">
               <e p="home.tsx" t="Include" />
             </e>
-            <e p="login" t="Include">
-              <e p="login.tsx" t="Include" />
-            </e>
           </e>
-          <e p="redux" t="Include" />
-          <e p="routes.tsx" t="Include" />
-          <e p="test" t="Include" />
+          <e p="store" t="Include">
+            <e p="index.ts" t="Include" />
+            <e p="root-epic.ts" t="Include" />
+            <e p="root-reducer.ts" t="Include" />
+            <e p="store.ts" t="Include" />
+          </e>
         </e>
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
@@ -157,6 +176,9 @@
           <e p="@babel\preset-env" t="IncludeRecursive" />
           <e p="@babel\preset-react" t="IncludeRecursive" />
           <e p="@babel\preset-typescript" t="IncludeRecursive" />
+          <e p="@fortawesome\fontawesome-svg-core" t="IncludeRecursive" />
+          <e p="@fortawesome\free-solid-svg-icons" t="IncludeRecursive" />
+          <e p="@fortawesome\react-fontawesome" t="IncludeRecursive" />
           <e p="@types" t="IncludeRecursive">
             <e p="chai" t="IncludeRecursive" />
             <e p="history" t="IncludeRecursive" />
@@ -166,8 +188,12 @@
             <e p="react" t="IncludeRecursive" />
             <e p="react-bootstrap" t="IncludeRecursive" />
             <e p="react-dom" t="IncludeRecursive" />
+            <e p="react-redux" t="IncludeRecursive" />
             <e p="react-router" t="IncludeRecursive" />
             <e p="react-router-dom" t="IncludeRecursive" />
+            <e p="react-router-redux" t="IncludeRecursive" />
+            <e p="redux" t="IncludeRecursive" />
+            <e p="redux-thunk" t="IncludeRecursive" />
           </e>
           <e p="aspnet-webpack" t="IncludeRecursive" />
           <e p="babel-loader" t="IncludeRecursive" />
@@ -183,8 +209,14 @@
           <e p="react" t="IncludeRecursive" />
           <e p="react-bootstrap" t="IncludeRecursive" />
           <e p="react-dom" t="IncludeRecursive" />
+          <e p="react-redux" t="IncludeRecursive" />
           <e p="react-router" t="IncludeRecursive" />
           <e p="react-router-dom" t="IncludeRecursive" />
+          <e p="react-router-redux" t="IncludeRecursive" />
+          <e p="redux" t="IncludeRecursive" />
+          <e p="redux-observable" t="IncludeRecursive" />
+          <e p="redux-thunk" t="IncludeRecursive" />
+          <e p="rxjs-compat" t="IncludeRecursive" />
           <e p="source-map" t="IncludeRecursive" />
           <e p="source-map-loader" t="IncludeRecursive" />
           <e p="style-loader" t="IncludeRecursive" />
@@ -192,6 +224,7 @@
           <e p="ts-node" t="IncludeRecursive" />
           <e p="tslint" t="IncludeRecursive" />
           <e p="tslint-react" t="IncludeRecursive" />
+          <e p="typesafe-actions" t="IncludeRecursive" />
           <e p="typescript" t="IncludeRecursive">
             <e p="lib\lib.d.ts" t="IncludeRecursive" />
             <e p="lib\lib.dom.d.ts" t="IncludeRecursive" />
@@ -234,6 +267,7 @@
             <e p="lib\lib.webworker.importscripts.d.ts" t="IncludeRecursive" />
           </e>
           <e p="uglifyjs-webpack-plugin" t="IncludeRecursive" />
+          <e p="utility-types" t="IncludeRecursive" />
           <e p="webpack" t="IncludeRecursive" />
           <e p="webpack-cli" t="IncludeRecursive" />
           <e p="webpack-dev-middleware" t="IncludeRecursive" />
@@ -269,17 +303,50 @@
         <e p="webpack.dev.js" t="Include" />
         <e p="webpack.prod.js" t="Include" />
         <e p="wwwroot" t="Include">
+          <e p="Api" t="Include">
+            <e p="api-base.d.ts" t="Include" />
+            <e p="api-base.js" t="Include" />
+            <e p="api-base.js.map" t="Include" />
+          </e>
           <e p="app.d.ts" t="Include" />
           <e p="app.js" t="Include" />
           <e p="app.js.map" t="Include" />
           <e p="bundle.js" t="Include" />
+          <e p="components" t="Include">
+            <e p="inviter" t="Include">
+              <e p="inviter.d.ts" t="Include" />
+              <e p="inviter.js" t="Include" />
+              <e p="inviter.js.map" t="Include" />
+            </e>
+            <e p="navigation" t="Include">
+              <e p="navigation.d.ts" t="Include" />
+              <e p="navigation.js" t="Include" />
+              <e p="navigation.js.map" t="Include" />
+            </e>
+          </e>
           <e p="favicon.ico" t="Include" />
           <e p="index.d.ts" t="Include" />
           <e p="index.html" t="Include" />
           <e p="index.js" t="Include" />
           <e p="index.js.map" t="Include" />
-          <e p="main.css" t="Include" />
           <e p="pages" t="Include">
+            <e p="auth" t="Include">
+              <e p="actions.d.ts" t="Include" />
+              <e p="actions.js" t="Include" />
+              <e p="actions.js.map" t="Include" />
+              <e p="auth.api.d.ts" t="Include" />
+              <e p="auth.api.js" t="Include" />
+              <e p="auth.api.js.map" t="Include" />
+              <e p="auth.d.ts" t="Include" />
+              <e p="auth.js" t="Include" />
+              <e p="auth.js.map" t="Include" />
+              <e p="index.d.ts" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="index.js.map" t="Include" />
+              <e p="reducer.d.ts" t="Include" />
+              <e p="reducer.js" t="Include" />
+              <e p="reducer.js.map" t="Include" />
+            </e>
             <e p="error404" t="Include">
               <e p="error404.d.ts" t="Include" />
               <e p="error404.js" t="Include" />
@@ -290,15 +357,21 @@
               <e p="home.js" t="Include" />
               <e p="home.js.map" t="Include" />
             </e>
-            <e p="login" t="Include">
-              <e p="login.d.ts" t="Include" />
-              <e p="login.js" t="Include" />
-              <e p="login.js.map" t="Include" />
-            </e>
           </e>
-          <e p="routes.d.ts" t="Include" />
-          <e p="routes.js" t="Include" />
-          <e p="routes.js.map" t="Include" />
+          <e p="store" t="Include">
+            <e p="index.d.ts" t="Include" />
+            <e p="index.js" t="Include" />
+            <e p="index.js.map" t="Include" />
+            <e p="root-epic.d.ts" t="Include" />
+            <e p="root-epic.js" t="Include" />
+            <e p="root-epic.js.map" t="Include" />
+            <e p="root-reducer.d.ts" t="Include" />
+            <e p="root-reducer.js" t="Include" />
+            <e p="root-reducer.js.map" t="Include" />
+            <e p="store.d.ts" t="Include" />
+            <e p="store.js" t="Include" />
+            <e p="store.js.map" t="Include" />
+          </e>
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />

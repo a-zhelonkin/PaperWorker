@@ -12,7 +12,7 @@ namespace Database.Models.Account
     public class User : Entity
     {
         [Required]
-        public string Username { get; set; }
+        public string Email { get; set; }
 
         [Required]
         public string Password { get; set; }

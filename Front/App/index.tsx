@@ -1,12 +1,16 @@
-import "./bootstrap.minty.css";
+import "./bootstrap.css";
 import React from "react";
+import store from "./store";
 import {render} from "react-dom";
-import {BrowserRouter} from "react-router-dom";
-import routes from "./routes";
+import {library} from "@fortawesome/fontawesome-svg-core";
+import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
+import {Provider} from "react-redux";
+import {App} from "./app";
 
-const element =
-    <BrowserRouter>
-        {routes}
-    </BrowserRouter>;
+library.add(faEnvelope);
 
-render(element, document.getElementById("app"));
+render((
+    <Provider store={store}>
+        <App/>
+    </Provider>
+), document.getElementById("app"));

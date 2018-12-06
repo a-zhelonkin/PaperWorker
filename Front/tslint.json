@@ -8,6 +8,7 @@
     "no-bitwise": false,
     "no-null-keyword": true,
     "no-switch-case-fall-through": true,
+    "no-submodule-imports": false,
     "radix": false,
     "eofline": false,
     "arrow-parens": false,
