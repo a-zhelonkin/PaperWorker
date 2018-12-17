@@ -8,10 +8,8 @@ export default class LoginApi extends ApiBase {
 
     public static auth(email: string, password: string): Promise<TokenData> {
         return fetch(`${this.SERVER_HOST}/api/auth/token`, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
+            method: this.METHOD_POST,
+            headers: this.DEFAULT_HEADERS,
             body: JSON.stringify({
                 email,
                 password

@@ -10,11 +10,12 @@ import FormControl from "react-bootstrap/lib/FormControl";
 import ControlLabel from "react-bootstrap/lib/ControlLabel";
 import Navigation from "../../components/navigation/navigation";
 import LoginApi, {TokenData} from "./auth.api";
-import {login} from './actions';
+import {updateEmail, updateToken} from './actions';
 
 export interface AuthProps {
     history: History;
-    login: (token: string) => void;
+    updateToken: (token: string) => void;
+    updateEmail: (email: string) => void;
 }
 
 class Auth extends Component<AuthProps> {
@@ -66,13 +67,17 @@ class Auth extends Component<AuthProps> {
         );
     }
 
-    submit = (e: any) => {
+    submit = (e: any): void => {
         e.preventDefault();
 
-        LoginApi.auth(this.inputEmail.value, this.inputPassword.value)
-            .then((data: TokenData) => {
+        const email: string = this.inputEmail.value;
+        const password: string = this.inputPassword.value;
+
+        LoginApi.auth(email, password)
+            .then((data: TokenData): void => {
                 if (data) {
-                    this.props.login(data.token);
+                    this.props.updateToken(data.token);
+                    this.props.updateEmail(email);
                     this.props.history.push("/");
                 }
             });
@@ -81,5 +86,6 @@ class Auth extends Component<AuthProps> {
 }
 
 export default connect(null, {
-    login: login
+    updateToken: updateToken,
+    updateEmail: updateEmail
 })(Auth);

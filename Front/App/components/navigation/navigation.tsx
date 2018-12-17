@@ -2,56 +2,71 @@ import React, {FunctionComponent} from "react";
 import Nav from "react-bootstrap/lib/Nav";
 import Navbar from "react-bootstrap/lib/Navbar";
 import NavItem from "react-bootstrap/lib/NavItem";
-import MenuItem from "react-bootstrap/lib/MenuItem";
 import NavDropdown from "react-bootstrap/lib/NavDropdown";
+import MenuItem from "react-bootstrap/lib/MenuItem";
+import LinkContainer from "react-router-bootstrap/lib/LinkContainer";
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
-import {login, logout} from "../../pages/auth/actions";
+import {logout} from "../../pages/auth/actions";
+import {RootState} from "../../store";
 
 export interface NavigationProps {
+    email: string;
+    isLoggedIn: boolean;
     logout: () => void;
 }
 
-const Navigation: FunctionComponent<NavigationProps> = (props: NavigationProps) => {
-    return (
-        <header>
-            <Navbar inverse collapseOnSelect>
-                <Navbar.Header>
-                    <Navbar.Brand>
-                        <NavLink to="/">PaperWorker</NavLink>
-                    </Navbar.Brand>
-                    <Navbar.Toggle/>
-                </Navbar.Header>
-                <Navbar.Collapse>
-                    <Nav>
-                        <NavItem eventKey={1} href="/home">
+const Navigation: FunctionComponent<NavigationProps> = (props: NavigationProps) =>
+    <header>
+        <Navbar inverse collapseOnSelect>
+            <Navbar.Header>
+                <Navbar.Brand>
+                    <NavLink to="/">PaperWorker</NavLink>
+                </Navbar.Brand>
+                <Navbar.Toggle/>
+            </Navbar.Header>
+            <Navbar.Collapse>
+                <Nav>
+                    <LinkContainer to="/home">
+                        <NavItem>
                             Home
                         </NavItem>
-                        <NavItem eventKey={2} href="/login">
-                            Login
-                        </NavItem>
-                        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                            <MenuItem eventKey={3.1}>Action</MenuItem>
-                            <MenuItem eventKey={3.2}>Another action</MenuItem>
-                            <MenuItem eventKey={3.3}>Something else here</MenuItem>
-                            <MenuItem divider/>
-                            <MenuItem eventKey={3.3}>Separated link</MenuItem>
-                        </NavDropdown>
-                    </Nav>
-                    <Nav pullRight>
-                        <NavItem eventKey={1} href="#">
-                            Link Right
-                        </NavItem>
-                        <NavItem eventKey={2} href="/" onClick={props.logout}>
-                            Выход
-                        </NavItem>
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
-        </header>
-    );
+                    </LinkContainer>
+                </Nav>
+                <Nav pullRight>
+                    {
+                        props.isLoggedIn ? (
+                            <NavDropdown title={props.email} id="nav-dropdown">
+                                <LinkContainer to="/cabinet">
+                                    <MenuItem>
+                                        Профиль
+                                    </MenuItem>
+                                </LinkContainer>
+                                <MenuItem divider/>
+                                <MenuItem onClick={props.logout}>
+                                    Выйти
+                                </MenuItem>
+                            </NavDropdown>
+                        ) : (
+                            <LinkContainer to="/login">
+                                <NavItem>
+                                    Войти
+                                </NavItem>
+                            </LinkContainer>
+                        )
+                    }
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
+    </header>;
+
+const mapStateToProps = (state: RootState) => ({
+    email: state.auth.email,
+    isLoggedIn: state.auth.isLoggedIn
+});
+
+const mapDispatchToProps = {
+    logout: logout
 };
 
-export default connect(null, {
-    logout: logout
-})(Navigation);
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

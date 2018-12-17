@@ -27,6 +27,7 @@
       <CopyToPublishDirectory>Always</CopyToPublishDirectory>
     </Content>
     <Content Include="App\pages\auth\reducer.ts" />
+    <Content Include="App\pages\cabinet\reducer.ts" />
   </ItemGroup>
 
 </Project>
