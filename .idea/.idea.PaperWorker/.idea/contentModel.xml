@@ -39,15 +39,19 @@
     <e p="C:\Users\zhelonkin\RiderProjects\PaperWorker" t="IncludeFlat">
       <e p="Api" t="IncludeRecursive">
         <e p="Api.csproj" t="IncludeRecursive" />
-        <e p="AuthConstants.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="AuthController.cs" t="Include" />
+          <e p="InvitesController.cs" t="Include" />
+          <e p="ProfilesController.cs" t="Include" />
           <e p="RolesController.cs" t="Include" />
           <e p="UsersController.cs" t="Include" />
         </e>
+        <e p="Mappers" t="Include">
+          <e p="ProfileMapper.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="release" t="Include">
             <e p="netcoreapp2.1" t="Include">
               <e p="Api.AssemblyInfo.cs" t="Include" />
             </e>
@@ -60,25 +64,45 @@
         <e p="PaperWorkerClient.cs" t="Include" />
       </e>
       <e p="Api.Models" t="IncludeRecursive">
+        <e p="Account" t="Include">
+          <e p="AuthDto.cs" t="Include" />
+          <e p="RoleDto.cs" t="Include" />
+          <e p="UserDto.cs" t="Include" />
+        </e>
         <e p="Api.Models.projitems" t="Include" />
         <e p="Api.Models.shproj" t="IncludeRecursive" />
-        <e p="Auth.cs" t="Include" />
         <e p="base" t="Include">
-          <e p="Entity.cs" t="Include" />
+          <e p="EntityDto.cs" t="Include" />
         </e>
-        <e p="Role.cs" t="Include" />
-        <e p="User.cs" t="Include" />
+        <e p="InviteDto.cs" t="Include" />
+        <e p="ProfileDto.cs" t="Include" />
+      </e>
+      <e p="auth" t="IncludeRecursive">
+        <e p="Auth.csproj" t="IncludeRecursive" />
+        <e p="AuthConstants.cs" t="Include" />
+        <e p="AuthUtils.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="release" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="Auth.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="TokenGenerator.cs" t="Include" />
       </e>
       <e p="core" t="IncludeRecursive">
         <e p="Core.projitems" t="Include" />
         <e p="Core.shproj" t="IncludeRecursive" />
         <e p="RoleName.cs" t="Include" />
+        <e p="UserStatus.cs" t="Include" />
       </e>
       <e p="Database" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Database.csproj" t="IncludeRecursive" />
-        <e p="dbsettings.json" t="Include" />
+        <e p="db.settings.json" t="Include" />
         <e p="Extensions" t="Include">
+          <e p="ProfilesExtension.cs" t="Include" />
           <e p="RolesExtension.cs" t="Include" />
           <e p="UsersExtension.cs" t="Include" />
         </e>
@@ -89,16 +113,21 @@
           <e p="20181129144800_RepairRoles.Designer.cs" t="Include" />
           <e p="20181205133925_RenameUsernameToEmail.cs" t="Include" />
           <e p="20181205133925_RenameUsernameToEmail.Designer.cs" t="Include" />
+          <e p="20181219153622_AddedInviteAndProfile.cs" t="Include" />
+          <e p="20181219153622_AddedInviteAndProfile.Designer.cs" t="Include" />
+          <e p="20190104104053_MoveStatusToUser.cs" t="Include" />
+          <e p="20190104104053_MoveStatusToUser.Designer.cs" t="Include" />
           <e p="PaperWorkerDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="release" t="Include">
             <e p="netcoreapp2.1" t="Include">
               <e p="Database.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
         <e p="PaperWorkerDbContext.cs" t="Include" />
+        <e p="utils" t="Include" />
       </e>
       <e p="Database.Models" t="IncludeRecursive">
         <e p="Account" t="Include">
@@ -112,12 +141,13 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Database.Models.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="release" t="Include">
             <e p="netcoreapp2.1" t="Include">
               <e p="Database.Models.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
+        <e p="Profile.cs" t="Include" />
       </e>
       <e p="Front" t="IncludeRecursive">
         <e p=".babelrc" t="Include" />
@@ -160,6 +190,9 @@
             <e p="Home" t="Include">
               <e p="home.tsx" t="Include" />
             </e>
+            <e p="invite" t="Include">
+              <e p="invite.tsx" t="Include" />
+            </e>
           </e>
           <e p="store" t="Include">
             <e p="index.ts" t="Include" />
@@ -175,48 +208,115 @@
         </e>
         <e p="favicon.ico" t="Include" />
         <e p="Front.csproj" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.dom.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.dom.iterable.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2015.collection.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2015.core.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2015.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2015.generator.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2015.iterable.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2015.promise.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2015.proxy.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2015.reflect.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2015.symbol.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2015.symbol.wellknown.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2016.array.include.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2016.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2016.full.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2017.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2017.full.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2017.intl.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2017.object.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2017.sharedmemory.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2017.string.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2017.typedarrays.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2018.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2018.full.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2018.intl.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2018.promise.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es2018.regexp.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es5.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.es6.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.esnext.array.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.esnext.asynciterable.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.esnext.bigint.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.esnext.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.esnext.full.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.esnext.intl.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.esnext.symbol.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.scripthost.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.webworker.d.ts" t="IncludeRecursive" />
-        <e p="node_modules\typescript\lib\lib.webworker.importscripts.d.ts" t="IncludeRecursive" />
+        <e p="log4net.config" t="Include" />
+        <e p="logs" t="Include">
+          <e p="2019-01-05.log" t="Include" />
+        </e>
+        <e p="node_modules" t="ExcludeRecursive">
+          <e p="@babel\cli" t="IncludeRecursive" />
+          <e p="@babel\core" t="IncludeRecursive" />
+          <e p="@babel\plugin-proposal-class-properties" t="IncludeRecursive" />
+          <e p="@babel\plugin-proposal-object-rest-spread" t="IncludeRecursive" />
+          <e p="@babel\preset-env" t="IncludeRecursive" />
+          <e p="@babel\preset-react" t="IncludeRecursive" />
+          <e p="@babel\preset-typescript" t="IncludeRecursive" />
+          <e p="@fortawesome\fontawesome-svg-core" t="IncludeRecursive" />
+          <e p="@fortawesome\free-solid-svg-icons" t="IncludeRecursive" />
+          <e p="@fortawesome\react-fontawesome" t="IncludeRecursive" />
+          <e p="@types" t="IncludeRecursive">
+            <e p="history" t="IncludeRecursive" />
+            <e p="node" t="IncludeRecursive" />
+            <e p="prop-types" t="IncludeRecursive" />
+            <e p="query-string" t="IncludeRecursive" />
+            <e p="react" t="IncludeRecursive" />
+            <e p="react-bootstrap" t="IncludeRecursive" />
+            <e p="react-dom" t="IncludeRecursive" />
+            <e p="react-redux" t="IncludeRecursive" />
+            <e p="react-router" t="IncludeRecursive" />
+            <e p="react-router-bootstrap" t="IncludeRecursive" />
+            <e p="react-router-dom" t="IncludeRecursive" />
+            <e p="react-router-redux" t="IncludeRecursive" />
+            <e p="redux" t="IncludeRecursive" />
+            <e p="redux-thunk" t="IncludeRecursive" />
+          </e>
+          <e p="babel-loader" t="IncludeRecursive" />
+          <e p="clean-webpack-plugin" t="IncludeRecursive" />
+          <e p="css-loader" t="IncludeRecursive" />
+          <e p="csstype" t="IncludeRecursive" />
+          <e p="html-webpack-plugin" t="IncludeRecursive" />
+          <e p="image-webpack-loader" t="IncludeRecursive" />
+          <e p="mini-css-extract-plugin" t="IncludeRecursive" />
+          <e p="optimize-css-assets-webpack-plugin" t="IncludeRecursive" />
+          <e p="query-string" t="IncludeRecursive" />
+          <e p="react" t="IncludeRecursive" />
+          <e p="react-bootstrap" t="IncludeRecursive" />
+          <e p="react-dom" t="IncludeRecursive" />
+          <e p="react-redux" t="IncludeRecursive" />
+          <e p="react-router" t="IncludeRecursive" />
+          <e p="react-router-bootstrap" t="IncludeRecursive" />
+          <e p="react-router-dom" t="IncludeRecursive" />
+          <e p="react-router-redux" t="IncludeRecursive" />
+          <e p="redux" t="IncludeRecursive" />
+          <e p="redux-thunk" t="IncludeRecursive" />
+          <e p="source-map" t="IncludeRecursive" />
+          <e p="source-map-loader" t="IncludeRecursive" />
+          <e p="style-loader" t="IncludeRecursive" />
+          <e p="svg-url-loader" t="IncludeRecursive" />
+          <e p="ts-node" t="IncludeRecursive" />
+          <e p="tslint" t="IncludeRecursive" />
+          <e p="tslint-react" t="IncludeRecursive" />
+          <e p="typesafe-actions" t="IncludeRecursive" />
+          <e p="typescript" t="IncludeRecursive">
+            <e p="lib\lib.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.dom.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.dom.iterable.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.collection.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.core.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.generator.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.iterable.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.promise.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.proxy.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.reflect.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.symbol.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2015.symbol.wellknown.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2016.array.include.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2016.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2016.full.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2017.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2017.full.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2017.intl.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2017.object.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2017.sharedmemory.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2017.string.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2017.typedarrays.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2018.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2018.full.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2018.intl.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2018.promise.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es2018.regexp.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es5.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.es6.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.esnext.array.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.esnext.asynciterable.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.esnext.bigint.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.esnext.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.esnext.full.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.esnext.intl.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.esnext.symbol.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.scripthost.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.webworker.d.ts" t="IncludeRecursive" />
+            <e p="lib\lib.webworker.importscripts.d.ts" t="IncludeRecursive" />
+          </e>
+          <e p="uglifyjs-webpack-plugin" t="IncludeRecursive" />
+          <e p="utility-types" t="IncludeRecursive" />
+          <e p="webpack" t="IncludeRecursive" />
+          <e p="webpack-cli" t="IncludeRecursive" />
+          <e p="webpack-dev-middleware" t="IncludeRecursive" />
+          <e p="webpack-merge" t="IncludeRecursive" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="release" t="Include">
             <e p="netcoreapp2.1" t="Include">
               <e p="Front.AssemblyInfo.cs" t="Include" />
             </e>
@@ -245,93 +345,29 @@
         <e p="webpack.dev.js" t="Include" />
         <e p="webpack.prod.js" t="Include" />
         <e p="wwwroot" t="Include">
-          <e p="Api" t="Include">
-            <e p="api-base.d.ts" t="Include" />
-            <e p="api-base.js" t="Include" />
-            <e p="api-base.js.map" t="Include" />
-          </e>
-          <e p="app.d.ts" t="Include" />
-          <e p="app.js" t="Include" />
-          <e p="app.js.map" t="Include" />
           <e p="bundle.js" t="Include" />
-          <e p="components" t="Include">
-            <e p="inviter" t="Include">
-              <e p="inviter.d.ts" t="Include" />
-              <e p="inviter.js" t="Include" />
-              <e p="inviter.js.map" t="Include" />
-            </e>
-            <e p="navigation" t="Include">
-              <e p="navigation.d.ts" t="Include" />
-              <e p="navigation.js" t="Include" />
-              <e p="navigation.js.map" t="Include" />
-            </e>
-          </e>
           <e p="favicon.ico" t="Include" />
-          <e p="index.d.ts" t="Include" />
           <e p="index.html" t="Include" />
-          <e p="index.js" t="Include" />
-          <e p="index.js.map" t="Include" />
-          <e p="pages" t="Include">
-            <e p="auth" t="Include">
-              <e p="actions.d.ts" t="Include" />
-              <e p="actions.js" t="Include" />
-              <e p="actions.js.map" t="Include" />
-              <e p="auth.api.d.ts" t="Include" />
-              <e p="auth.api.js" t="Include" />
-              <e p="auth.api.js.map" t="Include" />
-              <e p="auth.d.ts" t="Include" />
-              <e p="auth.js" t="Include" />
-              <e p="auth.js.map" t="Include" />
-              <e p="index.d.ts" t="Include" />
-              <e p="index.js" t="Include" />
-              <e p="index.js.map" t="Include" />
-              <e p="reducer.d.ts" t="Include" />
-              <e p="reducer.js" t="Include" />
-              <e p="reducer.js.map" t="Include" />
-            </e>
-            <e p="cabinet" t="Include">
-              <e p="actions.d.ts" t="Include" />
-              <e p="actions.js" t="Include" />
-              <e p="actions.js.map" t="Include" />
-              <e p="cabinet.api.d.ts" t="Include" />
-              <e p="cabinet.api.js" t="Include" />
-              <e p="cabinet.api.js.map" t="Include" />
-              <e p="cabinet.d.ts" t="Include" />
-              <e p="cabinet.js" t="Include" />
-              <e p="cabinet.js.map" t="Include" />
-              <e p="index.d.ts" t="Include" />
-              <e p="index.js" t="Include" />
-              <e p="index.js.map" t="Include" />
-              <e p="reducer.d.ts" t="Include" />
-              <e p="reducer.js" t="Include" />
-              <e p="reducer.js.map" t="Include" />
-            </e>
-            <e p="error404" t="Include">
-              <e p="error404.d.ts" t="Include" />
-              <e p="error404.js" t="Include" />
-              <e p="error404.js.map" t="Include" />
-            </e>
-            <e p="Home" t="Include">
-              <e p="home.d.ts" t="Include" />
-              <e p="home.js" t="Include" />
-              <e p="home.js.map" t="Include" />
-            </e>
-          </e>
-          <e p="store" t="Include">
-            <e p="index.d.ts" t="Include" />
-            <e p="index.js" t="Include" />
-            <e p="index.js.map" t="Include" />
-            <e p="reducer.d.ts" t="Include" />
-            <e p="reducer.js" t="Include" />
-            <e p="reducer.js.map" t="Include" />
-            <e p="store.d.ts" t="Include" />
-            <e p="store.js" t="Include" />
-            <e p="store.js.map" t="Include" />
-          </e>
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="PaperWorker.sln" t="IncludeFlat" />
+      <e p="Services" t="Include" />
+      <e p="Services.Email" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="email.settings.json" t="Include" />
+        <e p="EmailConfiguration.cs" t="Include" />
+        <e p="EmailService.cs" t="Include" />
+        <e p="MailKitProvider.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="release" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="Services.Email.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Services.Email.csproj" t="IncludeRecursive" />
+      </e>
     </e>
   </component>
 </project>

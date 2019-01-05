@@ -1,4 +1,5 @@
 ﻿using Core;
+using Database.Models;
 using Database.Models.Account;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
@@ -16,12 +17,14 @@ namespace Database
 
         public DbSet<Role> Roles { get; set; }
 
+        public DbSet<Profile> Profiles { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (optionsBuilder.IsConfigured) return;
 
             var connectionString = new ConfigurationBuilder()
-                .AddJsonFile("dbsettings.json")
+                .AddJsonFile("db.settings.json")
                 .Build()
                 .GetConnectionString(nameof(PaperWorkerDbContext));
 
@@ -31,11 +34,30 @@ namespace Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             var roleNameConverter = new EnumToStringConverter<RoleName>();
+            var userStatusConverter = new EnumToStringConverter<UserStatus>();
+
+            #region User
+
+            modelBuilder.Entity<User>()
+                .HasOne(user => user.Profile)
+                .WithOne(profile => profile.User)
+                .HasForeignKey<Profile>(profile => profile.UserId);
+
+            modelBuilder.Entity<User>()
+                .Property(user => user.Status)
+                .HasConversion(userStatusConverter);
+
+            #endregion
 
             #region Role
 
-            modelBuilder
-                .Entity<Role>()
+            modelBuilder.Entity<Role>().HasData(
+                new Role {Id = RoleNameExtension.ConsumerRoleId, Name = RoleName.Consumer},
+                new Role {Id = RoleNameExtension.LocksmithRoleId, Name = RoleName.Locksmith},
+                new Role {Id = RoleNameExtension.AdminRoleId, Name = RoleName.Admin}
+            );
+
+            modelBuilder.Entity<Role>()
                 .Property(role => role.Name)
                 .HasConversion(roleNameConverter);
 

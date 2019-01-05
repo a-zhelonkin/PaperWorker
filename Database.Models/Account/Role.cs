@@ -12,9 +12,15 @@ namespace Database.Models.Account
     [Table("Roles")]
     public class Role : Entity
     {
+        /// <summary>
+        /// Имя роли
+        /// </summary>
         [Required]
         public RoleName Name { get; set; }
 
+        /// <summary>
+        /// Список владельцев данной роли
+        /// </summary>
         public virtual ICollection<UserRole> Users { get; set; }
     }
 }

@@ -9,9 +9,13 @@
     <Import_RootNamespace>Api.Models</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Auth.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Base\Entity.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Role.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Base\EntityDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InviteDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProfileDto.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Account\AuthDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Account\RoleDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Account\UserDto.cs" />
   </ItemGroup>
 </Project>

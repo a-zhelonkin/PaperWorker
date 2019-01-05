@@ -1,20 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
 using Api.Models;
-using Database;
+using Auth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 
 namespace Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -26,61 +17,15 @@ namespace Api.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("token")]
-        public IActionResult Token([FromBody] Auth auth)
+        public IActionResult Token([FromBody] AuthDto authDto)
         {
-            var claims = GetClaims(auth.Email, auth.Password);
-            if (claims == null)
+            var token = TokenGenerator.GetToken(authDto.Email, authDto.Password);
+            if (token == null)
             {
                 return Unauthorized();
             }
 
-            var now = DateTime.UtcNow;
-            var jwt = new JwtSecurityToken(
-                AuthConstants.Issuer,
-                AuthConstants.Audience,
-                claims,
-                now,
-                now.Add(TimeSpan.FromMinutes(AuthConstants.Lifetime)),
-                new SigningCredentials(AuthConstants.SymmetricSecurityKey, SecurityAlgorithms.HmacSha256)
-            );
-
-            var encoded = new JwtSecurityTokenHandler().WriteToken(jwt);
-
-            return Ok(new
-            {
-                token = encoded
-            });
-        }
-
-        private static IReadOnlyCollection<Claim> GetClaims(string email, string password)
-        {
-            using (var context = new PaperWorkerDbContext())
-            {
-                var user = context.Users
-                    .Include(x => x.Roles)
-                    .ThenInclude(x => x.Role)
-                    .SingleOrDefault(x => x.Email == email);
-
-                if (user == null)
-                {
-                    return null;
-                }
-
-                var sha256 = new SHA256Managed();
-                var passwordHash = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password)));
-                if (passwordHash != user.Password)
-                {
-                    return null;
-                }
-
-                var claims = user.Roles
-                    .Select(userRole => new Claim(ClaimsIdentity.DefaultRoleClaimType, userRole.Role.Name.ToString()))
-                    .ToList();
-
-                claims.Add(new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email));
-
-                return claims;
-            }
+            return Ok(new {token});
         }
     }
 }

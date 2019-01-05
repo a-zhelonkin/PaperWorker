@@ -1,13 +1,14 @@
+using Core;
 using Newtonsoft.Json;
 
 namespace Api.Models
 {
-    public class Auth
+    public class InviteDto
     {
         [JsonProperty("email")]
         public string Email { get; set; }
 
-        [JsonProperty("password")]
-        public string Password { get; set; }
+        [JsonProperty("roles")]
+        public RoleName[] Roles { get; set; }
     }
 }

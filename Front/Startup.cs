@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Api;
+using Auth;
 using Core;
 using Database;
 using Database.Extensions;
@@ -11,7 +11,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Services.Email;
 
 namespace Front
 {
@@ -24,6 +26,8 @@ namespace Front
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHostedService<EmailService>();
+
             services.AddMvc();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -42,7 +46,7 @@ namespace Front
                 });
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {

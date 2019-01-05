@@ -1,9 +1,8 @@
-﻿using Api.Models.Base;
 using Newtonsoft.Json;
 
 namespace Api.Models
 {
-    public class User : Entity
+    public class AuthDto
     {
         [JsonProperty("email")]
         public string Email { get; set; }

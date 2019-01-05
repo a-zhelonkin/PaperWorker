@@ -5,8 +5,9 @@ using Newtonsoft.Json.Converters;
 
 namespace Api.Models
 {
-    public class Role : Entity
+    public class RoleDto : EntityDto
     {
+        [JsonProperty("name")]
         [JsonConverter(typeof(StringEnumConverter))]
         public RoleName Name { get; set; }
     }

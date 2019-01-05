@@ -4,14 +4,16 @@ using Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Database.Migrations
 {
     [DbContext(typeof(PaperWorkerDbContext))]
-    partial class PaperWorkerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181219153622_AddedInviteAndProfile")]
+    partial class AddedInviteAndProfile
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,12 +34,6 @@ namespace Database.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
-
-                    b.HasData(
-                        new { Id = new Guid("aba45201-df85-44b5-bf6c-18c88a53bcdf"), Name = "Consumer" },
-                        new { Id = new Guid("80e1eac8-73c1-4521-b7b1-d17432863986"), Name = "Locksmith" },
-                        new { Id = new Guid("c112f70e-1a4b-4abf-86b2-dcbd9b78b37b"), Name = "Admin" }
-                    );
                 });
 
             modelBuilder.Entity("Database.Models.Account.User", b =>
@@ -51,9 +47,6 @@ namespace Database.Migrations
                         .IsRequired();
 
                     b.Property<string>("Password")
-                        .IsRequired();
-
-                    b.Property<string>("Status")
                         .IsRequired();
 
                     b.HasKey("Id");
@@ -72,6 +65,26 @@ namespace Database.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("UserRoles");
+                });
+
+            modelBuilder.Entity("Database.Models.Invite", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("Deleted");
+
+                    b.Property<string>("Status")
+                        .IsRequired();
+
+                    b.Property<Guid>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Invites");
                 });
 
             modelBuilder.Entity("Database.Models.Profile", b =>
@@ -103,6 +116,14 @@ namespace Database.Migrations
                     b.HasOne("Database.Models.Account.User", "User")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Database.Models.Invite", b =>
+                {
+                    b.HasOne("Database.Models.Account.User", "User")
+                        .WithOne("Invite")
+                        .HasForeignKey("Database.Models.Invite", "UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

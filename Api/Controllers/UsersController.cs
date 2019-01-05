@@ -16,7 +16,7 @@ namespace Api.Controllers
         {
             using (var context = new PaperWorkerDbContext())
             {
-                return Ok(context.Users.Select(user => new User
+                return Ok(context.Users.Select(user => new UserDto
                 {
                     Id = user.Id,
                     Email = user.Email,
