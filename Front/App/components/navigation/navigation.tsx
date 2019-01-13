@@ -17,48 +17,48 @@ export interface NavigationProps {
 }
 
 const Navigation: FunctionComponent<NavigationProps> = (props: NavigationProps) =>
-    <header>
-        <Navbar inverse collapseOnSelect>
-            <Navbar.Header>
-                <Navbar.Brand>
-                    <NavLink to="/">PaperWorker</NavLink>
-                </Navbar.Brand>
-                <Navbar.Toggle/>
-            </Navbar.Header>
-            <Navbar.Collapse>
-                <Nav>
-                    <LinkContainer to="/home">
-                        <NavItem>
-                            Home
-                        </NavItem>
-                    </LinkContainer>
-                </Nav>
-                <Nav pullRight>
-                    {
-                        props.isLoggedIn ? (
-                            <NavDropdown title={props.email} id="nav-dropdown">
-                                <LinkContainer to="/cabinet">
-                                    <MenuItem>
-                                        Профиль
-                                    </MenuItem>
-                                </LinkContainer>
-                                <MenuItem divider/>
+    <Navbar inverse collapseOnSelect>
+        <Navbar.Header>
+            <Navbar.Brand>
+                <NavLink to="/">PaperWorker</NavLink>
+            </Navbar.Brand>
+            <Navbar.Toggle/>
+        </Navbar.Header>
+        <Navbar.Collapse>
+            <Nav>
+                <LinkContainer to="/home">
+                    <NavItem>
+                        Home
+                    </NavItem>
+                </LinkContainer>
+            </Nav>
+            <Nav pullRight>
+                {
+                    props.isLoggedIn ? (
+                        <NavDropdown id="nav-dropdown" title={props.email}>
+                            <LinkContainer to="/cabinet">
+                                <MenuItem>
+                                    Профиль
+                                </MenuItem>
+                            </LinkContainer>
+                            <MenuItem divider/>
+                            <LinkContainer to="/login">
                                 <MenuItem onClick={props.logout}>
                                     Выйти
                                 </MenuItem>
-                            </NavDropdown>
-                        ) : (
-                            <LinkContainer to="/login">
-                                <NavItem>
-                                    Войти
-                                </NavItem>
                             </LinkContainer>
-                        )
-                    }
-                </Nav>
-            </Navbar.Collapse>
-        </Navbar>
-    </header>;
+                        </NavDropdown>
+                    ) : (
+                        <LinkContainer to="/login">
+                            <NavItem>
+                                Войти
+                            </NavItem>
+                        </LinkContainer>
+                    )
+                }
+            </Nav>
+        </Navbar.Collapse>
+    </Navbar>;
 
 const mapStateToProps = (state: RootState) => ({
     email: state.auth.email,
