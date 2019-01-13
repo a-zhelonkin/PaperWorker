@@ -11,5 +11,7 @@ namespace Services.Email
         public string Password { get; set; }
 
         public string InviteUrl { get; set; }
+
+        public string ChangePasswordUrl { get; set; }
     }
 }

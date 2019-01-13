@@ -1,5 +1,5 @@
 import {createStandardAction} from "typesafe-actions";
-import {Profile} from "./cabinet.api";
+import {Profile} from "../../api/profiles-api";
 
 const PROFILE_LOAD: string = "cabinet/PROFILE_LOAD";
 

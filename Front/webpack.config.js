@@ -39,6 +39,10 @@ module.exports = {
                     limit: 10 * 1024,
                     noquotes: true
                 }
+            },
+            {
+                test: /\.(woff2?|ttf|eot|svg)$/,
+                loader: "url-loader"
             }
         ]
     },

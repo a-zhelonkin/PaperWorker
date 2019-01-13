@@ -1,6 +1,7 @@
 import {combineReducers} from "redux";
 import {ActionType, getType} from "typesafe-actions";
 import {authActions} from "./";
+import {LS_KEY_TOKEN} from "../../api/api-base";
 
 export type AuthAction = ActionType<typeof authActions>;
 
@@ -52,17 +53,17 @@ export default combineReducers<AuthState, AuthAction>({
 });
 
 function isTokenExists(): boolean {
-    return !!getToken();
+    return getToken() != null;
 }
 
 function getToken(): string {
-    return localStorage.getItem("auth.token") || null;
+    return localStorage.getItem(LS_KEY_TOKEN) || null;
 }
 
 function setToken(token: string): void {
-    localStorage.setItem("auth.token", token);
+    localStorage.setItem(LS_KEY_TOKEN, token);
 }
 
 function removeToken() {
-    localStorage.removeItem("auth.token")
+    localStorage.removeItem(LS_KEY_TOKEN)
 }

@@ -1,13 +1,14 @@
-import ApiBase from "../../api/api-base";
+import ApiBase from "./api-base";
+import {HttpMethod} from "../constants/http-method";
 
 export interface Profile {
 }
 
-export default class CabinetApi extends ApiBase {
+export default class ProfilesApi extends ApiBase {
 
-    public static auth(email: string, password: string): Promise<Profile> {
+    public static get(): Promise<Profile> {
         return fetch(`${this.SERVER_HOST}/api/profile`, {
-            method: this.METHOD_GET,
+            method: HttpMethod.Get,
             headers: this.authorizedHeaders()
         })
             .then((response: Response) => {

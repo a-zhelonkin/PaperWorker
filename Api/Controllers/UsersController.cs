@@ -1,5 +1,6 @@
-﻿using System.Linq;
-using Api.Models;
+﻿using System.Threading.Tasks;
+using Api.Extensions;
+using Auth;
 using Database;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,17 +12,24 @@ namespace Api.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Get()
+        [Authorize]
+        [HttpPut]
+        [Route("change-password")]
+        public async Task<IActionResult> ChangePassword([FromBody] string password)
         {
             using (var context = new PaperWorkerDbContext())
             {
-                return Ok(context.Users.Select(user => new UserDto
+                var user = this.GetUser(context);
+                if (user == null)
                 {
-                    Id = user.Id,
-                    Email = user.Email,
-                    Password = user.Password
-                }).ToList());
+                    return Unauthorized();
+                }
+
+                user.Password = password.ToHash();
+                context.Users.Update(user);
+                await context.SaveChangesAsync();
+
+                return Ok();
             }
         }
     }

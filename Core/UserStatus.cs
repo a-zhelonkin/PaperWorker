@@ -3,27 +3,27 @@ namespace Core
     public enum UserStatus : byte
     {
         /// <summary>
-        /// Просрочено
+        /// Время приглашения вышло
         /// </summary>
         Expired,
 
         /// <summary>
-        /// В подготовке
+        /// Ожидает отправки приглашения
         /// </summary>
         Prepared,
 
         /// <summary>
-        /// В ожидании
+        /// Ожидает регистрации пользователя
         /// </summary>
         Pending,
 
         /// <summary>
-        /// Принято
+        /// В восстановлении пароля
         /// </summary>
-        Accepted,
+        Restoring,
 
         /// <summary>
-        /// Подтверждено
+        /// Зарегистрированный пользователь
         /// </summary>
         Confirmed
     }

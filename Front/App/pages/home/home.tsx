@@ -6,7 +6,6 @@ export default class Home extends Component {
     public render(): ReactNode {
         return (
             <>
-                <Navigation/>
                 <div className="container body-content">
                     <div className="jumbotron">
                         <h1>ASP.NET</h1>

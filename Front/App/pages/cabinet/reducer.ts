@@ -1,7 +1,7 @@
 import {combineReducers} from "redux";
 import {ActionType, getType} from "typesafe-actions";
 import {cabinetActions} from "./";
-import {Profile} from "./cabinet.api";
+import {Profile} from "../../api/profiles-api";
 
 export type CabinetAction = ActionType<typeof cabinetActions>;
 

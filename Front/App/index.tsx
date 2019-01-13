@@ -1,11 +1,11 @@
-import "./bootstrap.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import store from "./store";
 import {render} from "react-dom";
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import {Provider} from "react-redux";
-import {App} from "./app";
+import {App} from "./App";
 
 library.add(faEnvelope);
 

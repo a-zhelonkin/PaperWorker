@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Api.Models;
 using Auth;
@@ -18,6 +19,27 @@ namespace Api.Controllers
     [ApiController]
     public class InvitesController : ControllerBase
     {
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var email = HttpContext.User.FindFirst(ClaimsIdentity.DefaultNameClaimType)?.Value;
+            if (email == null)
+            {
+                return Unauthorized();
+            }
+
+            using (var context = new PaperWorkerDbContext())
+            {
+                var user = context.GetUser(email);
+                if (user == null)
+                {
+                    return Unauthorized();
+                }
+
+                return Ok(user.Status);
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] InviteDto invite)
         {

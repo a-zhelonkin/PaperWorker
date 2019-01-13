@@ -1,4 +1,4 @@
-import Auth from "./auth"
+import Auth from "./Auth"
 import * as authActions from "./actions";
 import authReducer, {AuthAction, AuthState} from "./reducer";
 

@@ -4,3 +4,8 @@
     left: 50%;
     transform: translate(-50%, -50%) !important;
 }
+
+.input-form {
+    min-width: 200px;
+    max-width: 500px;
+}

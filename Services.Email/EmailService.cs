@@ -43,17 +43,26 @@ namespace Services.Email
             {
                 foreach (var user in context.Users)
                 {
-                    if (user.Status != UserStatus.Prepared)
+                    switch (user.Status)
                     {
-                        continue;
+                        case UserStatus.Prepared:
+                        {
+                            if (_emailProvider.SendInvite(user.Email))
+                            {
+                                user.Status = UserStatus.Pending;
+                            }
+
+                            break;
+                        }
+                        case UserStatus.Restoring:
+                            if (_emailProvider.SendRestore(user.Email))
+                            {
+                                user.Status = UserStatus.Pending;
+                            }
+
+                            break;
                     }
 
-                    if (!_emailProvider.SendInvite(user.Email))
-                    {
-                        continue;
-                    }
-
-                    user.Status = UserStatus.Pending;
                     context.Users.Update(user);
                 }
 
@@ -72,7 +81,6 @@ namespace Services.Email
 
         public void Dispose()
         {
-            _emailProvider.Dispose();
             _timer?.Dispose();
         }
     }

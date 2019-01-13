@@ -1,14 +1,10 @@
 import store from "../store"
 
+export const LS_KEY_TOKEN: string = "auth.token";
+
 export default abstract class ApiBase {
 
     public static readonly SERVER_HOST: string = window.location.origin;
-
-    public static readonly METHOD_GET: string = "GET";
-
-    public static readonly METHOD_POST: string = "POST";
-
-    public static readonly LS_KEY_TOKEN: string = "token";
 
     public static readonly DEFAULT_HEADERS: Headers = ApiBase.defaultHeaders();
 
@@ -18,9 +14,9 @@ export default abstract class ApiBase {
         return headers;
     }
 
-    public static authorizedHeaders(): Headers {
+    public static authorizedHeaders(token: string = store.getState().auth.token): Headers {
         const headers: Headers = ApiBase.defaultHeaders();
-        headers.append("Authorization", `Bearer ${store.getState().auth.token}`);
+        headers.append("Authorization", `Bearer ${token}`);
         return headers;
     }
 

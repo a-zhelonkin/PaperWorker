@@ -1,5 +1,9 @@
+using System.Threading.Tasks;
 using Api.Models;
 using Auth;
+using Core;
+using Database;
+using Database.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,6 +30,27 @@ namespace Api.Controllers
             }
 
             return Ok(new {token});
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("restore-password")]
+        public async Task<IActionResult> RestorePassword([FromBody] string email)
+        {
+            using (var context = new PaperWorkerDbContext())
+            {
+                var user = context.GetUser(email);
+                if (user == null)
+                {
+                    return BadRequest();
+                }
+
+                user.Status = UserStatus.Restoring;
+                context.Users.Update(user);
+                await context.SaveChangesAsync();
+
+                return Ok();
+            }
         }
     }
 }
