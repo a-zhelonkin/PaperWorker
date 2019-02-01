@@ -1,5 +1,3 @@
-using System.Linq;
-using Api.Models;
 using Core;
 using Database;
 using Microsoft.AspNetCore.Authorization;
@@ -10,19 +8,10 @@ namespace Api.Controllers
     [Authorize(Roles = nameof(RoleName.Admin))]
     [Route("api/roles")]
     [ApiController]
-    public class RolesController : ControllerBase
+    public class RolesController : DbController
     {
-        [HttpGet]
-        public IActionResult Get()
+        public RolesController(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            using (var context = new PaperWorkerDbContext())
-            {
-                return Ok(context.Roles.Select(role => new RoleDto
-                {
-                    Id = role.Id,
-                    Name = role.Name
-                }).ToList());
-            }
         }
     }
 }

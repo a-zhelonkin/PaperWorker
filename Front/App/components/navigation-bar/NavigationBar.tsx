@@ -10,13 +10,13 @@ import {connect} from "react-redux";
 import {logout} from "../../pages/auth/actions";
 import {RootState} from "../../store";
 
-export interface NavigationProps {
+export interface NavigationBarProps {
     email: string;
     isLoggedIn: boolean;
     logout: () => void;
 }
 
-const Navigation: FunctionComponent<NavigationProps> = (props: NavigationProps) =>
+const NavigationBar: FunctionComponent<NavigationBarProps> = (props: NavigationBarProps) =>
     <Navbar inverse collapseOnSelect>
         <Navbar.Header>
             <Navbar.Brand>
@@ -69,4 +69,4 @@ const mapDispatchToProps = {
     logout: logout
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
+export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);

@@ -1,10 +1,7 @@
 using System;
-using System.Linq;
-using System.Threading.Tasks;
 using Api.Mappers;
 using Api.Models;
 using Database;
-using Database.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,27 +10,23 @@ namespace Api.Controllers
     [Authorize]
     [Route("api/profiles")]
     [ApiController]
-    public class ProfileController : ControllerBase
+    public class ProfilesController : DbController
     {
+        public ProfilesController(IUnitOfWork unitOfWork) : base(unitOfWork)
+        {
+        }
+
         [HttpGet("{userId}")]
         public IActionResult Get([FromQuery] Guid userId)
         {
-            using (var context = new PaperWorkerDbContext())
-            {
-                return Ok(context.Profiles
-                    .Select(ProfileMapper.Map)
-                    .FirstOrDefault(profile => profile.UserId == userId)
-                );
-            }
+            return Ok(UnitOfWork.ProfilesRepository.GetProfile(userId).Map());
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] ProfileDto profileDto)
+        public IActionResult Put([FromBody] ProfileDto profileDto)
         {
-            using (var context = new PaperWorkerDbContext())
-            {
-                await context.UpdateProfile(profileDto.Map());
-            }
+            UnitOfWork.ProfilesRepository.UpdateProfile(profileDto.Map());
+            UnitOfWork.Save();
 
             return Ok();
         }

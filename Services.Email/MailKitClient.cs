@@ -1,3 +1,4 @@
+using System;
 using Auth;
 using log4net;
 using MailKit.Net.Smtp;
@@ -6,29 +7,31 @@ using MimeKit.Text;
 
 namespace Services.Email
 {
-    public class MailKitProvider
+    public class MailKitClient : IDisposable
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(MailKitProvider));
+        private static readonly ILog Log = LogManager.GetLogger(typeof(MailKitClient));
 
+        private readonly TokenGenerator _tokenGenerator;
         private readonly EmailConfiguration _configuration;
+        private readonly SmtpClient _client;
 
-        public MailKitProvider(EmailConfiguration configuration)
+        public MailKitClient(TokenGenerator tokenGenerator,
+                             EmailConfiguration configuration)
         {
+            _tokenGenerator = tokenGenerator;
             _configuration = configuration;
+
+            _client = new SmtpClient();
+            _client.Connect(_configuration.Server, _configuration.Port);
+            _client.AuthenticationMechanisms.Remove("XOAUTH2");
+            _client.Authenticate(_configuration.Username, _configuration.Password);
         }
 
-        private SmtpClient CreateEmailClient()
-        {
-            var emailClient = new SmtpClient();
-            emailClient.Connect(_configuration.Server, _configuration.Port);
-            emailClient.AuthenticationMechanisms.Remove("XOAUTH2");
-            emailClient.Authenticate(_configuration.Username, _configuration.Password);
-            return emailClient;
-        }
+        public void Dispose() => _client?.Dispose();
 
         public bool SendInvite(string email)
         {
-            var token = TokenGenerator.GetToken(email);
+            var token = _tokenGenerator.GetToken(email);
             if (token == null)
             {
                 return false;
@@ -39,27 +42,22 @@ namespace Services.Email
                 Subject = "Приглашение",
                 Body = new TextPart(TextFormat.Html)
                 {
-                    Text =
-                        $"Приходи <b style='color: red'>скорее</b> к <a href='{_configuration.InviteUrl}?token={token}'>нам</a>"
+                    Text = $"Приходи <b style='color: red'>скорее</b> к <a href='{_configuration.InviteUrl}?token={token}'>нам</a>"
                 }
             };
 
             message.To.Add(new MailboxAddress(email, email));
             message.From.Add(new MailboxAddress("PaperWorker", _configuration.Username));
 
-            using (var client = CreateEmailClient())
-            {
-                client.Send(message);
-            }
+            _client.Send(message);
 
             Log.Debug($"Mail send invite to {email}");
-
             return true;
         }
 
         public bool SendRestore(string email)
         {
-            var token = TokenGenerator.GetToken(email);
+            var token = _tokenGenerator.GetToken(email);
             if (token == null)
             {
                 return false;
@@ -70,21 +68,16 @@ namespace Services.Email
                 Subject = "Восстановление пароля",
                 Body = new TextPart(TextFormat.Html)
                 {
-                    Text =
-                        $"Для восстановления пароля <b style='color: red'>скорее</b> к <a href='{_configuration.ChangePasswordUrl}?token={token}'>сюда</a>"
+                    Text = $"Для восстановления пароля <b style='color: red'>скорее</b> к <a href='{_configuration.ChangePasswordUrl}?token={token}'>сюда</a>"
                 }
             };
 
             message.To.Add(new MailboxAddress(email, email));
             message.From.Add(new MailboxAddress("PaperWorker", _configuration.Username));
 
-            using (var client = CreateEmailClient())
-            {
-                client.Send(message);
-            }
+            _client.Send(message);
 
             Log.Debug($"Mail send change password to {email}");
-
             return true;
         }
     }

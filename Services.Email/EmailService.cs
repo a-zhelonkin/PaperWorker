@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 using Core;
 using Database;
 using log4net;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Services.Core;
 
 namespace Services.Email
 {
@@ -13,19 +13,22 @@ namespace Services.Email
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(EmailService));
 
-        private readonly MailKitProvider _emailProvider;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IFactory<MailKitClient> _mailKitClientFactory;
 
         private Timer _timer;
 
-        public EmailService()
+        public EmailService(IUnitOfWork unitOfWork,
+                            IFactory<MailKitClient> mailKitClientFactory)
         {
-            _emailProvider = new MailKitProvider(
-                new ConfigurationBuilder()
-                    .AddJsonFile("email.settings.json")
-                    .Build()
-                    .GetSection(nameof(EmailConfiguration))
-                    .Get<EmailConfiguration>()
-            );
+            _unitOfWork = unitOfWork;
+            _mailKitClientFactory = mailKitClientFactory;
+        }
+
+        public void Dispose()
+        {
+            _unitOfWork?.Dispose();
+            _timer?.Dispose();
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
@@ -39,23 +42,22 @@ namespace Services.Email
 
         private void DoWork(object state)
         {
-            using (var context = new PaperWorkerDbContext())
+            var userRepository = _unitOfWork.UserRepository;
+            using (var client = _mailKitClientFactory.Create())
             {
-                foreach (var user in context.Users)
+                foreach (var user in userRepository.Get())
                 {
                     switch (user.Status)
                     {
                         case UserStatus.Prepared:
-                        {
-                            if (_emailProvider.SendInvite(user.Email))
+                            if (client.SendInvite(user.Email))
                             {
                                 user.Status = UserStatus.Pending;
                             }
 
                             break;
-                        }
                         case UserStatus.Restoring:
-                            if (_emailProvider.SendRestore(user.Email))
+                            if (client.SendRestore(user.Email))
                             {
                                 user.Status = UserStatus.Pending;
                             }
@@ -63,10 +65,10 @@ namespace Services.Email
                             break;
                     }
 
-                    context.Users.Update(user);
+                    userRepository.Update(user);
                 }
 
-                context.SaveChanges();
+                _unitOfWork.Save();
             }
         }
 
@@ -77,11 +79,6 @@ namespace Services.Email
             _timer?.Change(Timeout.Infinite, 0);
 
             return Task.CompletedTask;
-        }
-
-        public void Dispose()
-        {
-            _timer?.Dispose();
         }
     }
 }

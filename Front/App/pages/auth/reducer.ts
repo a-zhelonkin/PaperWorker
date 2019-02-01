@@ -2,6 +2,9 @@ import {combineReducers} from "redux";
 import {ActionType, getType} from "typesafe-actions";
 import {authActions} from "./";
 import {LS_KEY_TOKEN} from "../../api/api-base";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 export type AuthAction = ActionType<typeof authActions>;
 
@@ -57,13 +60,19 @@ function isTokenExists(): boolean {
 }
 
 function getToken(): string {
-    return localStorage.getItem(LS_KEY_TOKEN) || null;
+    // return localStorage.getItem(LS_KEY_TOKEN) || null;
+
+    return cookies.get(LS_KEY_TOKEN) || null;
 }
 
 function setToken(token: string): void {
-    localStorage.setItem(LS_KEY_TOKEN, token);
+    // localStorage.setItem(LS_KEY_TOKEN, token);
+
+    cookies.set(LS_KEY_TOKEN, token, {path: "/"});
 }
 
 function removeToken() {
-    localStorage.removeItem(LS_KEY_TOKEN)
+    // localStorage.removeItem(LS_KEY_TOKEN);
+
+    cookies.remove(LS_KEY_TOKEN);
 }

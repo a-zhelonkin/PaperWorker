@@ -1,5 +1,4 @@
 import React, {Component, ReactNode} from "react";
-import Navigation from "../../components/navigation/navigation";
 
 export default class Home extends Component {
 

@@ -80,7 +80,9 @@ class Auth extends Component<AuthProps> {
 
 }
 
-export default connect(null, {
+const mapDispatchToProps = {
     updateToken: updateToken,
     updateEmail: updateEmail
-})(Auth);
+};
+
+export default connect(null, mapDispatchToProps)(Auth);

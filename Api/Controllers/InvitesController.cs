@@ -1,12 +1,10 @@
 using System;
 using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Api.Models;
 using Auth;
 using Core;
 using Database;
-using Database.Extensions;
 using Database.Models;
 using Database.Models.Account;
 using Microsoft.AspNetCore.Authorization;
@@ -17,8 +15,12 @@ namespace Api.Controllers
     [Authorize(Roles = nameof(RoleName.Admin))]
     [Route("api/invites")]
     [ApiController]
-    public class InvitesController : ControllerBase
+    public class InvitesController : DbController
     {
+        public InvitesController(IUnitOfWork unitOfWork) : base(unitOfWork)
+        {
+        }
+
         [HttpGet]
         public IActionResult Get()
         {
@@ -28,45 +30,39 @@ namespace Api.Controllers
                 return Unauthorized();
             }
 
-            using (var context = new PaperWorkerDbContext())
+            var user = UnitOfWork.UserRepository.Get(email);
+            if (user == null)
             {
-                var user = context.GetUser(email);
-                if (user == null)
-                {
-                    return Unauthorized();
-                }
-
-                return Ok(user.Status);
+                return Unauthorized();
             }
+
+            return Ok(user.Status);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] InviteDto invite)
+        public IActionResult Post([FromBody] InviteDto invite)
         {
-            using (var context = new PaperWorkerDbContext())
+            var userId = Guid.NewGuid();
+
+            UnitOfWork.UserRepository.Add(new User
             {
-                var userId = Guid.NewGuid();
-
-                await context.AddUser(new User
+                Id = userId,
+                Email = invite.Email,
+                Password = Guid.NewGuid().ToString().ToHash(),
+                Status = UserStatus.Prepared,
+                Roles = invite.Roles.Select(roleName => new UserRole
                 {
-                    Id = userId,
-                    Email = invite.Email,
-                    Password = Guid.NewGuid().ToString().ToHash(),
-                    Status = UserStatus.Prepared,
-                    Roles = invite.Roles.Select(roleName => new UserRole
-                    {
-                        UserId = userId,
-                        RoleId = roleName.GetId()
-                    }).ToArray(),
-                    Profile = new Profile
-                    {
-                        UserId = userId,
-                        EmploymentDateTime = DateTime.Now
-                    }
-                });
+                    UserId = userId,
+                    RoleId = roleName.GetId()
+                }).ToArray(),
+                Profile = new Profile
+                {
+                    UserId = userId,
+                    EmploymentDateTime = DateTime.Now
+                }
+            });
 
-                return Ok(new {userId});
-            }
+            return Ok(new {userId});
         }
     }
 }

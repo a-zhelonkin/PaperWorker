@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Linq;
-using System.Threading.Tasks;
 using Auth;
 using Core;
 using Database;
-using Database.Extensions;
 using Database.Models.Account;
+using Database.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Services.Email;
 
@@ -46,7 +44,7 @@ namespace Front
                 });
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IUnitOfWork unitOfWork)
         {
             if (env.IsDevelopment())
             {
@@ -61,20 +59,21 @@ namespace Front
                 routes.MapSpaFallbackRoute("spa-fallback", new {controller = "Home", action = "Index"});
             });
 
-            CreateRoles().Wait();
+            using (unitOfWork)
+            {
+                CreateRoles(unitOfWork.RolesRepository);
+            }
         }
 
-        private static async Task CreateRoles()
+        private static void CreateRoles(IRolesRepository rolesRepository)
         {
-            using (var context = new PaperWorkerDbContext())
-            {
-                var roleNames = Enum.GetValues(typeof(RoleName)).Cast<RoleName>();
-                foreach (var roleName in roleNames)
-                {
-                    if (await context.ExistsRole(roleName)) continue;
+            var roleNames = Enum.GetValues(typeof(RoleName)).Cast<RoleName>();
 
-                    await context.AddRole(new Role {Name = roleName});
-                }
+            foreach (var roleName in roleNames)
+            {
+                if (rolesRepository.ExistsRole(roleName)) continue;
+
+                rolesRepository.AddRole(new Role {Name = roleName});
             }
         }
     }

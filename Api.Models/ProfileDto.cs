@@ -5,6 +5,9 @@ namespace Api.Models
 {
     public class ProfileDto
     {
+        [JsonProperty("email")]
+        public string Email { get; set; }
+
         [JsonProperty("userId")]
         public Guid UserId { get; set; }
 

@@ -1,4 +1,4 @@
-enum UserStatus {
+export enum UserStatus {
 
     Expired = "Expired",
 

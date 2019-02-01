@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Email", "Services.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth", "Auth\Auth.csproj", "{16F3D6AB-A6D6-4189-9BC8-0AAB506EEB12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Core", "Services.Core\Services.Core.csproj", "{7C361F0C-9D07-4B5C-8EC5-D30D09445B13}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Api.Models\Api.Models.projitems*{006b13b9-4727-4c48-98ee-957f4fdfdd08}*SharedItemsImports = 13
@@ -58,6 +60,10 @@ Global
 		{16F3D6AB-A6D6-4189-9BC8-0AAB506EEB12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16F3D6AB-A6D6-4189-9BC8-0AAB506EEB12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16F3D6AB-A6D6-4189-9BC8-0AAB506EEB12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C361F0C-9D07-4B5C-8EC5-D30D09445B13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C361F0C-9D07-4B5C-8EC5-D30D09445B13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C361F0C-9D07-4B5C-8EC5-D30D09445B13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C361F0C-9D07-4B5C-8EC5-D30D09445B13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,5 +73,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{ED601BCF-D140-4F38-89F2-04487E066473} = {4E693690-FB94-488F-A62A-C033FEA04F32}
+		{7C361F0C-9D07-4B5C-8EC5-D30D09445B13} = {4E693690-FB94-488F-A62A-C033FEA04F32}
 	EndGlobalSection
 EndGlobal

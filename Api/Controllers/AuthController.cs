@@ -1,9 +1,7 @@
-using System.Threading.Tasks;
 using Api.Models;
 using Auth;
 using Core;
 using Database;
-using Database.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,8 +9,16 @@ namespace Api.Controllers
 {
     [Route("api/auth")]
     [ApiController]
-    public class AuthController : ControllerBase
+    public class AuthController : DbController
     {
+        private readonly ITokenGenerator _tokenGenerator;
+
+        public AuthController(IUnitOfWork unitOfWork,
+                              ITokenGenerator tokenGenerator) : base(unitOfWork)
+        {
+            _tokenGenerator = tokenGenerator;
+        }
+
         [Authorize]
         [HttpGet]
         [Route("verify-token")]
@@ -23,7 +29,7 @@ namespace Api.Controllers
         [Route("token")]
         public IActionResult Token([FromBody] AuthDto authDto)
         {
-            var token = TokenGenerator.GetToken(authDto.Email, authDto.Password);
+            var token = _tokenGenerator.GetToken(authDto.Email, authDto.Password);
             if (token == null)
             {
                 return Unauthorized();
@@ -35,22 +41,18 @@ namespace Api.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("restore-password")]
-        public async Task<IActionResult> RestorePassword([FromBody] string email)
+        public IActionResult RestorePassword([FromBody] string email)
         {
-            using (var context = new PaperWorkerDbContext())
+            var user = UnitOfWork.UserRepository.Get(email);
+            if (user == null)
             {
-                var user = context.GetUser(email);
-                if (user == null)
-                {
-                    return BadRequest();
-                }
-
-                user.Status = UserStatus.Restoring;
-                context.Users.Update(user);
-                await context.SaveChangesAsync();
-
-                return Ok();
+                return BadRequest();
             }
+
+            user.Status = UserStatus.Restoring;
+            UnitOfWork.UserRepository.Update(user);
+
+            return Ok();
         }
     }
 }

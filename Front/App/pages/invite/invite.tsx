@@ -6,6 +6,7 @@ import Jumbotron from "react-bootstrap/lib/Jumbotron";
 import Label from "react-bootstrap/lib/Label";
 import InvitesApi, {InviteStatus} from "../../api/invites-api";
 import {Link} from "react-router-dom";
+import {UserStatus} from "../../constants/user-status";
 
 export interface InviteProps {
     history: History;

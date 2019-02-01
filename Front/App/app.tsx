@@ -8,14 +8,14 @@ import {Cabinet} from "./pages/cabinet";
 import {Invite} from "./pages/invite";
 import AuthRoute from "./components/auth-route/AuthRoute";
 import {ChangePassword} from "./pages/change-password";
-import Navigation from "./components/navigation/navigation";
+import NavigationBar from "./components/navigation-bar/NavigationBar";
 import {RestorePassword} from "./pages/restore-password";
 
 export const App: FunctionComponent = () =>
     <BrowserRouter>
         <>
             <header>
-                <Navigation/>
+                <NavigationBar/>
             </header>
             <main>
                 <Switch>
