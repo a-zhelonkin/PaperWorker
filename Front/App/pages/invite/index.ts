@@ -1,4 +1,4 @@
-import Invite from "./Invite"
+import Invite from "./Invite";
 
 export {
     Invite,

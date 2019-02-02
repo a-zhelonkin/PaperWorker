@@ -11,7 +11,7 @@ import {ChangePassword} from "./pages/change-password";
 import NavigationBar from "./components/navigation-bar/NavigationBar";
 import {RestorePassword} from "./pages/restore-password";
 
-export const App: FunctionComponent = () =>
+export const App: FunctionComponent = () => (
     <BrowserRouter>
         <>
             <header>
@@ -29,4 +29,5 @@ export const App: FunctionComponent = () =>
                 </Switch>
             </main>
         </>
-    </BrowserRouter>;
+    </BrowserRouter>
+);

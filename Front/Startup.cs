@@ -24,24 +24,28 @@ namespace Front
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHostedService<EmailService>();
+            services.AddScoped<PaperWorkerDbContext>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ITokenGenerator, TokenGenerator>();
+
+            services.AddEmailService();
 
             services.AddMvc();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    options.RequireHttpsMetadata = false;
-                    options.SaveToken = true;
-                    options.TokenValidationParameters = new TokenValidationParameters
+                    .AddJwtBearer(options =>
                     {
-                        ValidIssuer = AuthConstants.Issuer,
-                        ValidAudience = AuthConstants.Audience,
-                        IssuerSigningKey = AuthConstants.SymmetricSecurityKey,
-                        ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true,
-                        ClockSkew = TimeSpan.Zero
-                    };
-                });
+                        options.RequireHttpsMetadata = false;
+                        options.SaveToken = true;
+                        options.TokenValidationParameters = new TokenValidationParameters
+                        {
+                            ValidIssuer = AuthConstants.Issuer,
+                            ValidAudience = AuthConstants.Audience,
+                            IssuerSigningKey = AuthConstants.SymmetricSecurityKey,
+                            ValidateLifetime = true,
+                            ValidateIssuerSigningKey = true,
+                            ClockSkew = TimeSpan.Zero
+                        };
+                    });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IUnitOfWork unitOfWork)

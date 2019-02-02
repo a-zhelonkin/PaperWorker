@@ -3,7 +3,7 @@ using Services.Core;
 
 namespace Services.Email
 {
-    public class EmailConfigurationProvider : IConfigurationProvider<EmailConfiguration>
+    internal class EmailConfigurationProvider : IConfigurationProvider<EmailConfiguration>
     {
         public EmailConfiguration Provide() =>
             new ConfigurationBuilder()

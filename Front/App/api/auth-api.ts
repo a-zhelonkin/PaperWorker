@@ -2,7 +2,7 @@ import ApiBase from "./api-base";
 import {HttpMethod} from "../constants/http-method";
 
 export interface TokenData {
-    readonly token: string
+    readonly token: string;
 }
 
 export default class AuthApi extends ApiBase {

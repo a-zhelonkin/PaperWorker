@@ -19,7 +19,7 @@ export interface InviteState {
 
 class Invite extends Component<InviteProps, InviteState> {
 
-    componentDidMount() {
+    public componentDidMount() {
         const params: any = queryString.parse(this.props.location.search.slice(1));
         const token: string = params.token;
 
@@ -34,7 +34,7 @@ class Invite extends Component<InviteProps, InviteState> {
             });
     }
 
-    render(): ReactNode {
+    public render(): ReactNode {
         return (
             <Jumbotron>
                 {this.state.status === UserStatus.Expired && (
@@ -55,4 +55,4 @@ class Invite extends Component<InviteProps, InviteState> {
 
 }
 
-export default connect(null, null)(Invite);
+export default connect(undefined, undefined)(Invite);

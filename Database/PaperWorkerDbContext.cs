@@ -14,9 +14,7 @@ namespace Database
     public class PaperWorkerDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-
         public DbSet<Role> Roles { get; set; }
-
         public DbSet<Profile> Profiles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -24,9 +22,9 @@ namespace Database
             if (optionsBuilder.IsConfigured) return;
 
             var connectionString = new ConfigurationBuilder()
-                .AddJsonFile("db.settings.json")
-                .Build()
-                .GetConnectionString(nameof(PaperWorkerDbContext));
+                                   .AddJsonFile("db.settings.json")
+                                   .Build()
+                                   .GetConnectionString(nameof(PaperWorkerDbContext));
 
             optionsBuilder.UseSqlServer(connectionString);
         }
@@ -39,13 +37,13 @@ namespace Database
             #region User
 
             modelBuilder.Entity<User>()
-                .HasOne(user => user.Profile)
-                .WithOne(profile => profile.User)
-                .HasForeignKey<Profile>(profile => profile.UserId);
+                        .HasOne(user => user.Profile)
+                        .WithOne(profile => profile.User)
+                        .HasForeignKey<Profile>(profile => profile.UserId);
 
             modelBuilder.Entity<User>()
-                .Property(user => user.Status)
-                .HasConversion(userStatusConverter);
+                        .Property(user => user.Status)
+                        .HasConversion(userStatusConverter);
 
             #endregion
 
@@ -58,25 +56,25 @@ namespace Database
             );
 
             modelBuilder.Entity<Role>()
-                .Property(role => role.Name)
-                .HasConversion(roleNameConverter);
+                        .Property(role => role.Name)
+                        .HasConversion(roleNameConverter);
 
             #endregion
 
             #region UserRole
 
             modelBuilder.Entity<UserRole>()
-                .HasKey(userRole => new {userRole.UserId, userRole.RoleId});
+                        .HasKey(userRole => new {userRole.UserId, userRole.RoleId});
 
             modelBuilder.Entity<UserRole>()
-                .HasOne(userRole => userRole.User)
-                .WithMany(user => user.Roles)
-                .HasForeignKey(userRole => userRole.UserId);
+                        .HasOne(userRole => userRole.User)
+                        .WithMany(user => user.Roles)
+                        .HasForeignKey(userRole => userRole.UserId);
 
             modelBuilder.Entity<UserRole>()
-                .HasOne(userRole => userRole.Role)
-                .WithMany(role => role.Users)
-                .HasForeignKey(userRole => userRole.RoleId);
+                        .HasOne(userRole => userRole.Role)
+                        .WithMany(role => role.Users)
+                        .HasForeignKey(userRole => userRole.RoleId);
 
             #endregion
 

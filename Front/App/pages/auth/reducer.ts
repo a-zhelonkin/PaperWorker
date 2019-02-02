@@ -23,7 +23,7 @@ export default combineReducers<AuthState, AuthAction>({
 
             case getType(authActions.logout):
                 removeToken();
-                return null;
+                return undefined;
 
             default:
                 return token;
@@ -56,23 +56,17 @@ export default combineReducers<AuthState, AuthAction>({
 });
 
 function isTokenExists(): boolean {
-    return getToken() != null;
+    return getToken() !== undefined;
 }
 
 function getToken(): string {
-    // return localStorage.getItem(LS_KEY_TOKEN) || null;
-
-    return cookies.get(LS_KEY_TOKEN) || null;
+    return cookies.get(LS_KEY_TOKEN) || undefined;
 }
 
 function setToken(token: string): void {
-    // localStorage.setItem(LS_KEY_TOKEN, token);
-
     cookies.set(LS_KEY_TOKEN, token, {path: "/"});
 }
 
 function removeToken() {
-    // localStorage.removeItem(LS_KEY_TOKEN);
-
     cookies.remove(LS_KEY_TOKEN);
 }

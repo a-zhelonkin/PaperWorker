@@ -16,7 +16,7 @@ export interface NavigationBarProps {
     logout: () => void;
 }
 
-const NavigationBar: FunctionComponent<NavigationBarProps> = (props: NavigationBarProps) =>
+const NavigationBar: FunctionComponent<NavigationBarProps> = (props: NavigationBarProps) => (
     <Navbar inverse collapseOnSelect>
         <Navbar.Header>
             <Navbar.Brand>
@@ -58,7 +58,8 @@ const NavigationBar: FunctionComponent<NavigationBarProps> = (props: NavigationB
                 }
             </Nav>
         </Navbar.Collapse>
-    </Navbar>;
+    </Navbar>
+);
 
 const mapStateToProps = (state: RootState) => ({
     email: state.auth.email,

@@ -1,4 +1,4 @@
-import Cabinet from "./Cabinet"
+import Cabinet from "./Cabinet";
 import * as cabinetActions from "./actions";
 import cabinetReducer, {CabinetAction, CabinetState} from "./reducer";
 

@@ -7,7 +7,7 @@ import Button from "react-bootstrap/lib/Button";
 import FormGroup from "react-bootstrap/lib/FormGroup";
 import FormControl from "react-bootstrap/lib/FormControl";
 import ControlLabel from "react-bootstrap/lib/ControlLabel";
-import {updateEmail, updateToken} from './actions';
+import {updateEmail, updateToken} from "./actions";
 import AuthApi, {TokenData} from "../../api/auth-api";
 
 export interface AuthProps {
@@ -33,7 +33,7 @@ class Auth extends Component<AuthProps> {
                         <FormControl
                             type="email"
                             placeholder="Почтовый адрес"
-                            inputRef={input => this.inputEmail = input}
+                            inputRef={this.setInputEmail}
                         />
                     </Col>
                 </FormGroup>
@@ -46,7 +46,7 @@ class Auth extends Component<AuthProps> {
                         <FormControl
                             type="password"
                             placeholder="Пароль"
-                            inputRef={input => this.inputPassword = input}
+                            inputRef={this.setInputPassword}
                         />
                     </Col>
                 </FormGroup>
@@ -62,7 +62,11 @@ class Auth extends Component<AuthProps> {
         );
     }
 
-    submit = (e: any): void => {
+    private setInputEmail = (input: HTMLInputElement) => this.inputEmail = input;
+
+    private setInputPassword = (input: HTMLInputElement) => this.inputPassword = input;
+
+    private submit = (e: any): void => {
         e.preventDefault();
 
         const email: string = this.inputEmail.value;
@@ -76,7 +80,7 @@ class Auth extends Component<AuthProps> {
                     this.props.history.push("/cabinet");
                 }
             });
-    };
+    }
 
 }
 
@@ -85,4 +89,4 @@ const mapDispatchToProps = {
     updateEmail: updateEmail
 };
 
-export default connect(null, mapDispatchToProps)(Auth);
+export default connect(undefined, mapDispatchToProps)(Auth);

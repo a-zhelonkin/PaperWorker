@@ -5,8 +5,8 @@ namespace Database.Repositories
 {
     public interface IProfilesRepository
     {
-        Profile GetProfile(Guid userId);
+        Profile Get(Guid userId);
 
-        void UpdateProfile(Profile profileDto);
+        void Update(Profile profileDto);
     }
 }

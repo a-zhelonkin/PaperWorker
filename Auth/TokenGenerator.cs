@@ -46,7 +46,7 @@ namespace Auth
                 return null;
             }
 
-            if (!(password == null || user.Password == password.ToHash()))
+            if (!(password == null || user.Password == password.ToSha256()))
             {
                 return null;
             }

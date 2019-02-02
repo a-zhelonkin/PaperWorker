@@ -9,10 +9,13 @@ namespace Api.Controllers
     [Authorize]
     [Route("api/users")]
     [ApiController]
-    public class UsersController : DbController
+    public class UsersController : ControllerBase
     {
-        public UsersController(IUnitOfWork unitOfWork) : base(unitOfWork)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public UsersController(IUnitOfWork unitOfWork)
         {
+            _unitOfWork = unitOfWork;
         }
 
         [Authorize]
@@ -26,16 +29,16 @@ namespace Api.Controllers
                 return Unauthorized();
             }
 
-            var userRepository = UnitOfWork.UserRepository;
+            var userRepository = _unitOfWork.UserRepository;
             var user = userRepository.Get(email);
             if (user == null)
             {
                 return Unauthorized();
             }
 
-            user.Password = password.ToHash();
+            user.Password = password.ToSha256();
             userRepository.Update(user);
-            UnitOfWork.Save();
+            _unitOfWork.Save();
 
             return Ok();
         }

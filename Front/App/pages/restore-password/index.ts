@@ -1,4 +1,4 @@
-import RestorePassword from "./RestorePassword"
+import RestorePassword from "./RestorePassword";
 
 export {
     RestorePassword,

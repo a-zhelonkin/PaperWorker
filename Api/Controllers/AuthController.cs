@@ -9,13 +9,15 @@ namespace Api.Controllers
 {
     [Route("api/auth")]
     [ApiController]
-    public class AuthController : DbController
+    public class AuthController : ControllerBase
     {
+        private readonly IUnitOfWork _unitOfWork;
         private readonly ITokenGenerator _tokenGenerator;
 
         public AuthController(IUnitOfWork unitOfWork,
-                              ITokenGenerator tokenGenerator) : base(unitOfWork)
+                              ITokenGenerator tokenGenerator)
         {
+            _unitOfWork = unitOfWork;
             _tokenGenerator = tokenGenerator;
         }
 
@@ -43,14 +45,15 @@ namespace Api.Controllers
         [Route("restore-password")]
         public IActionResult RestorePassword([FromBody] string email)
         {
-            var user = UnitOfWork.UserRepository.Get(email);
+            var user = _unitOfWork.UserRepository.Get(email);
             if (user == null)
             {
                 return BadRequest();
             }
 
             user.Status = UserStatus.Restoring;
-            UnitOfWork.UserRepository.Update(user);
+            _unitOfWork.UserRepository.Update(user);
+            _unitOfWork.Save();
 
             return Ok();
         }

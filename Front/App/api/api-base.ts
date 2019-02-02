@@ -1,4 +1,4 @@
-import store from "../store"
+import store from "../store";
 
 export const LS_KEY_TOKEN: string = "auth.token";
 

@@ -18,11 +18,17 @@
     "member-ordering": false,
     "object-literal-shorthand": false,
     "object-literal-sort-keys": false,
+    "jsx-no-multiline-js": false,
+    "jsx-boolean-value": [
+      true,
+      "never"
+    ],
     "variable-name": [
       true,
       "ban-keywords",
       "check-format",
-      "allow-leading-underscore"
+      "allow-leading-underscore",
+      "allow-pascal-case"
     ],
     "interface-name": [
       true,

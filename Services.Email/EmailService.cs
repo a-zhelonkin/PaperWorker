@@ -9,7 +9,7 @@ using Services.Core;
 
 namespace Services.Email
 {
-    public class EmailService : IHostedService, IDisposable
+    internal class EmailService : IHostedService, IDisposable
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(EmailService));
 

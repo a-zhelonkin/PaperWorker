@@ -45,6 +45,6 @@ namespace Database.Models
         /// <summary>
         /// Пользователь
         /// </summary>
-        public User User { get; set; }
+        public virtual User User { get; set; }
     }
 }

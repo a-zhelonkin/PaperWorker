@@ -10,23 +10,26 @@ namespace Api.Controllers
     [Authorize]
     [Route("api/profiles")]
     [ApiController]
-    public class ProfilesController : DbController
+    public class ProfilesController : ControllerBase
     {
-        public ProfilesController(IUnitOfWork unitOfWork) : base(unitOfWork)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public ProfilesController(IUnitOfWork unitOfWork)
         {
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet("{userId}")]
         public IActionResult Get([FromQuery] Guid userId)
         {
-            return Ok(UnitOfWork.ProfilesRepository.GetProfile(userId).Map());
+            return Ok(_unitOfWork.ProfilesRepository.Get(userId).Map());
         }
 
         [HttpPut]
         public IActionResult Put([FromBody] ProfileDto profileDto)
         {
-            UnitOfWork.ProfilesRepository.UpdateProfile(profileDto.Map());
-            UnitOfWork.Save();
+            _unitOfWork.ProfilesRepository.Update(profileDto.Map());
+            _unitOfWork.Save();
 
             return Ok();
         }

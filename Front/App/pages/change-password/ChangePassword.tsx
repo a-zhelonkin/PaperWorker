@@ -65,35 +65,35 @@ class ChangePassword extends Component<ChangePasswordProps, ChangePasswordState>
         );
     }
 
-    onPasswordChange = (e: any) => {
+    private onPasswordChange = (e: any) => {
         this.setState({password: e.target.value});
 
         if (this.state.confirmPassword) {
             this.checkPasswordsIdentical();
         }
-    };
+    }
 
-    onConfirmPasswordChange = (e: any) => {
+    private onConfirmPasswordChange = (e: any) => {
         this.setState({confirmPassword: e.target.value});
         this.checkPasswordsIdentical();
-    };
+    }
 
-    checkPasswordsIdentical = () => {
+    private checkPasswordsIdentical = () => {
         this.setState({passwordsIdentical: true});
-    };
+    }
 
-    submit = (e: any): void => {
+    private submit = (e: any): void => {
         e.preventDefault();
 
         if (this.state.confirmPassword) {
             UsersApi.changePassword(this.state.password)
                 .then(console.log);
         }
-    };
+    }
 
 }
 
-export default connect(null, {
+export default connect(undefined, {
     updateToken: updateToken,
     updateEmail: updateEmail
 })(ChangePassword);

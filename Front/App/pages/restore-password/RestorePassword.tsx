@@ -67,15 +67,15 @@ export default class RestorePassword extends Component<any, RestorePasswordState
             email,
             valid: validateEmail(email)
         });
-    };
+    }
 
     private getEmailValidationState = (): "success" | "error" | null => {
         return this.state.email
             ? this.state.valid
                 ? "success"
                 : "error"
-            : null;
-    };
+            : undefined;
+    }
 
     private submit = (e: any): void => {
         e.preventDefault();
@@ -88,6 +88,6 @@ export default class RestorePassword extends Component<any, RestorePasswordState
                     }
                 });
         }
-    };
+    }
 
 }

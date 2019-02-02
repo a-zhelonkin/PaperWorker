@@ -10,7 +10,7 @@ export type CabinetState = Readonly<{
 }>;
 
 export default combineReducers<CabinetState, CabinetAction>({
-    profile: (profile: Profile = null, action: any) => {
+    profile: (profile: Profile = undefined, action: any) => {
         switch (action.type) {
             case getType(cabinetActions.loadProfile):
                 return action.payload;

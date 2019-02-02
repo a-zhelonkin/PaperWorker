@@ -3,12 +3,12 @@ using Services.Core;
 
 namespace Services.Email
 {
-    public class MailKitClientFactory : IFactory<MailKitClient>
+    internal class MailKitClientFactory : IFactory<MailKitClient>
     {
-        private readonly TokenGenerator _tokenGenerator;
+        private readonly ITokenGenerator _tokenGenerator;
         private readonly EmailConfiguration _emailConfiguration;
 
-        public MailKitClientFactory(TokenGenerator tokenGenerator,
+        public MailKitClientFactory(ITokenGenerator tokenGenerator,
                                     IConfigurationProvider<EmailConfiguration> configurationProvider)
         {
             _tokenGenerator = tokenGenerator;

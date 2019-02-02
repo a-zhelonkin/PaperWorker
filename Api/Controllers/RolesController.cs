@@ -8,10 +8,13 @@ namespace Api.Controllers
     [Authorize(Roles = nameof(RoleName.Admin))]
     [Route("api/roles")]
     [ApiController]
-    public class RolesController : DbController
+    public class RolesController : ControllerBase
     {
-        public RolesController(IUnitOfWork unitOfWork) : base(unitOfWork)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public RolesController(IUnitOfWork unitOfWork)
         {
+            _unitOfWork = unitOfWork;
         }
     }
 }

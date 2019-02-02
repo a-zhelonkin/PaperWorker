@@ -7,15 +7,15 @@ using MimeKit.Text;
 
 namespace Services.Email
 {
-    public class MailKitClient : IDisposable
+    internal class MailKitClient : IDisposable
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(MailKitClient));
 
-        private readonly TokenGenerator _tokenGenerator;
+        private readonly ITokenGenerator _tokenGenerator;
         private readonly EmailConfiguration _configuration;
         private readonly SmtpClient _client;
 
-        public MailKitClient(TokenGenerator tokenGenerator,
+        public MailKitClient(ITokenGenerator tokenGenerator,
                              EmailConfiguration configuration)
         {
             _tokenGenerator = tokenGenerator;

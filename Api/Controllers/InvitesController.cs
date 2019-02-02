@@ -15,10 +15,13 @@ namespace Api.Controllers
     [Authorize(Roles = nameof(RoleName.Admin))]
     [Route("api/invites")]
     [ApiController]
-    public class InvitesController : DbController
+    public class InvitesController : ControllerBase
     {
-        public InvitesController(IUnitOfWork unitOfWork) : base(unitOfWork)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public InvitesController(IUnitOfWork unitOfWork)
         {
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
@@ -30,7 +33,7 @@ namespace Api.Controllers
                 return Unauthorized();
             }
 
-            var user = UnitOfWork.UserRepository.Get(email);
+            var user = _unitOfWork.UserRepository.Get(email);
             if (user == null)
             {
                 return Unauthorized();
@@ -44,11 +47,11 @@ namespace Api.Controllers
         {
             var userId = Guid.NewGuid();
 
-            UnitOfWork.UserRepository.Add(new User
+            _unitOfWork.UserRepository.Add(new User
             {
                 Id = userId,
                 Email = invite.Email,
-                Password = Guid.NewGuid().ToString().ToHash(),
+                Password = Guid.NewGuid().ToString().ToSha256(),
                 Status = UserStatus.Prepared,
                 Roles = invite.Roles.Select(roleName => new UserRole
                 {
@@ -61,6 +64,8 @@ namespace Api.Controllers
                     EmploymentDateTime = DateTime.Now
                 }
             });
+
+            _unitOfWork.Save();
 
             return Ok(new {userId});
         }

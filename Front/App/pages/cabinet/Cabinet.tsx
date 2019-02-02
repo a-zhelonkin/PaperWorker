@@ -1,7 +1,7 @@
 import React, {Component, ReactNode} from "react";
 import {History} from "history";
 import {connect} from "react-redux";
-import {loadProfile} from './actions';
+import {loadProfile} from "./actions";
 import {Profile} from "../../api/profiles-api";
 
 export interface CabinetProps {
