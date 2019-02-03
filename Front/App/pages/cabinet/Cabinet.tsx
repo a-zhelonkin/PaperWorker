@@ -21,6 +21,8 @@ class Cabinet extends Component<CabinetProps> {
 
 }
 
-export default connect(null, {
+const mapDispatchToProps = {
     loadProfile: loadProfile
-})(Cabinet);
+};
+
+export default connect(undefined, mapDispatchToProps)(Cabinet);

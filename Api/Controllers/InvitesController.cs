@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using System.Security.Claims;
+using Api.Extensions;
 using Api.Models;
 using Auth;
 using Core;
@@ -27,7 +27,7 @@ namespace Api.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var email = HttpContext.User.FindFirst(ClaimsIdentity.DefaultNameClaimType)?.Value;
+            var email = this.GetEmail();
             if (email == null)
             {
                 return Unauthorized();

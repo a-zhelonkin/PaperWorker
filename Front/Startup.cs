@@ -5,6 +5,7 @@ using Core;
 using Database;
 using Database.Models.Account;
 using Database.Repositories;
+using Front.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,8 +35,8 @@ namespace Front
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(options =>
                     {
-                        options.RequireHttpsMetadata = false;
                         options.SaveToken = true;
+                        options.RequireHttpsMetadata = false;
                         options.TokenValidationParameters = new TokenValidationParameters
                         {
                             ValidIssuer = AuthConstants.Issuer,
@@ -50,6 +51,8 @@ namespace Front
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IUnitOfWork unitOfWork)
         {
+            app.UseMiddleware<JwtFromCookieMiddleware>();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -59,7 +62,7 @@ namespace Front
             app.UseAuthentication();
             app.UseMvc(routes =>
             {
-                routes.MapRoute("DefaultApi", "api/{controller}/{action}/{id?}");
+                routes.MapRoute("api", "api/{controller}/{action}/{id?}");
                 routes.MapSpaFallbackRoute("spa-fallback", new {controller = "Home", action = "Index"});
             });
 

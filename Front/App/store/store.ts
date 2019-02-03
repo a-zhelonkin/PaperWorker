@@ -1,8 +1,15 @@
 import {createStore} from "redux";
 import rootReducer from "./reducer";
 
-const store = createStore(rootReducer);
+const _window: any = window;
 
-(window as any).store = store;
+const email: string = _window._INITIAL_STATE_.email;
+const store = createStore(rootReducer, {
+    auth: {
+        email: email
+    }
+});
+
+_window.store = store;
 
 export default store;
