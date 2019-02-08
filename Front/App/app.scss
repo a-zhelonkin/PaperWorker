@@ -1,0 +1,19 @@
+$spacing-0: 6px;
+$spacing-1: 12px;
+$spacing-2: 18px;
+$spacing-3: 24px;
+$spacing-4: 30px;
+$spacing-5: 36px;
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+}
+
+.input-form {
+  min-width: 200px;
+  max-width: 400px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+}

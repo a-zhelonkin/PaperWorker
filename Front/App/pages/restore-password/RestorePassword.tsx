@@ -32,7 +32,7 @@ export default class RestorePassword extends Component<any, RestorePasswordState
             <Jumbotron className="center input-form text-center">
                 {this.state.success ? (
                     <Label className="text-primary">
-                        Ссылка для смены пароля выслана на Ваш почтовый адрес
+                        Ссылка для восстановления пароля выслана на Ваш электронный адрес
                     </Label>
                 ) : (
                     <Form horizontal className="container">

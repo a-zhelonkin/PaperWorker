@@ -1,7 +1,7 @@
 import React, {Component, ReactNode} from "react";
 import {connect} from "react-redux";
+import history from "../../store/history";
 import queryString from "querystring";
-import {History} from "history";
 import Jumbotron from "react-bootstrap/lib/Jumbotron";
 import Label from "react-bootstrap/lib/Label";
 import InvitesApi, {InviteStatus} from "../../api/invites-api";
@@ -9,7 +9,6 @@ import {Link} from "react-router-dom";
 import {UserStatus} from "../../constants/user-status";
 
 export interface InviteProps {
-    history: History;
     location: Location;
 }
 
@@ -26,7 +25,7 @@ class Invite extends Component<InviteProps, InviteState> {
         InvitesApi.getStatus(token)
             .then((status: InviteStatus) => {
                 if (status.status === UserStatus.Pending) {
-                    this.props.history.push("/change-password");
+                    history.push("/change-password");
                     return;
                 }
 

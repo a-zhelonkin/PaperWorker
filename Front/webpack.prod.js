@@ -13,6 +13,10 @@ module.exports = merge(config, {
     module: {
         rules: [
             {
+                test: /\.scss$/,
+                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+            },
+            {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, "css-loader"]
             }
@@ -30,7 +34,8 @@ module.exports = merge(config, {
         }),
         new OptimizeCSSAssetsPlugin({}),
         new MiniCssExtractPlugin({
-            filename: "[name].css"
+            filename: "[name].css",
+            chunkFilename: "[id].css"
         })
     ],
 });

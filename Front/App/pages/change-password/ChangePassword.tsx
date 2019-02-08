@@ -1,6 +1,5 @@
 import React, {Component, ReactNode} from "react";
 import {connect} from "react-redux";
-import {History} from "history";
 import {updateEmail, updateToken} from "../auth/actions";
 import Form from "react-bootstrap/lib/Form";
 import FormGroup from "react-bootstrap/lib/FormGroup";
@@ -11,7 +10,6 @@ import Button from "react-bootstrap/lib/Button";
 import UsersApi from "../../api/users-api";
 
 export interface ChangePasswordProps {
-    history: History;
     updateToken: (token: string) => void;
 }
 

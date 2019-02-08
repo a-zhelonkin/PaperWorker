@@ -37,6 +37,7 @@
   },
   "linterOptions": {
     "exclude": [
+      "./wwwroot/**",
       "./node_modules/**"
     ]
   }

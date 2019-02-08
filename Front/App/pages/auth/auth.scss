@@ -1,0 +1,28 @@
+@import "../../app";
+
+.auth {
+  .logo-header {
+    padding: 40px;
+  }
+
+  .input-form {
+    margin: 0 auto;
+
+    .tab-content {
+      padding: $spacing-3 $spacing-5 $spacing-0;
+    }
+
+    .nav-tabs {
+      display: flex;
+
+      li {
+        flex: 1;
+
+        a {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
