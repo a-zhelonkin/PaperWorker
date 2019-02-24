@@ -228,7 +228,7 @@
             </e>
             <e p="invite" t="Include">
               <e p="index.ts" t="Include" />
-              <e p="invite.tsx" t="Include" />
+              <e p="invite1.tsx" t="Include" />
             </e>
             <e p="restore-password" t="Include">
               <e p="index.ts" t="Include" />
