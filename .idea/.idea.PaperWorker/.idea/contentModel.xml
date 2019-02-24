@@ -174,7 +174,7 @@
             <e p="users-api.ts" t="Include" />
           </e>
           <e p="app.scss" t="Include" />
-          <e p="app.tsx" t="Include" />
+          <e p="app1.tsx" t="Include" />
           <e p="components" t="Include">
             <e p="auth-link" t="Include">
               <e p="AuthLink.tsx" t="Include" />
@@ -228,7 +228,7 @@
             </e>
             <e p="invite" t="Include">
               <e p="index.ts" t="Include" />
-              <e p="invite1.tsx" t="Include" />
+              <e p="invite.tsx" t="Include" />
             </e>
             <e p="restore-password" t="Include">
               <e p="index.ts" t="Include" />
