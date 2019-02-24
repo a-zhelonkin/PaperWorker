@@ -8,6 +8,7 @@ namespace Database
         IUserRepository UserRepository { get; }
         IRolesRepository RolesRepository { get; }
         IProfilesRepository ProfilesRepository { get; }
+        IEmailMessagesRepository EmailMessagesRepository { get; }
 
         void Save();
     }

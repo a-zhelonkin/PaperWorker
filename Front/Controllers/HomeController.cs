@@ -12,7 +12,7 @@ namespace Front.Controllers
         {
             return View(new HomeIndexModel
             {
-                Email = this.GetEmail()
+                Email = this.GetEmail() ?? "guest"
             });
         }
     }

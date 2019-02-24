@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Database.Models.Account;
@@ -8,39 +7,38 @@ namespace Database.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly PaperWorkerDbContext _context;
+        private readonly DbSet<User> _users;
 
-        public UserRepository(PaperWorkerDbContext context)
+        public UserRepository(DbSet<User> users)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _users = users;
         }
 
         public IEnumerable<User> Get()
         {
-            return _context.Users;
+            return _users;
         }
 
         public void Add(User user)
         {
-            _context.Users.Add(user);
+            _users.Add(user);
         }
 
         public void Update(User user)
         {
-            _context.Users.Update(user);
+            _users.Update(user);
         }
 
         public User Get(string email)
         {
-            return _context.Users.SingleOrDefault(x => x.Email == email);
+            return _users.SingleOrDefault(x => x.Email == email);
         }
 
         public User GetWithRoles(string email)
         {
-            return _context.Users
-                           .Include(x => x.Roles)
-                           .ThenInclude(x => x.Role)
-                           .SingleOrDefault(x => x.Email == email);
+            return _users.Include(x => x.Roles)
+                         .ThenInclude(x => x.Role)
+                         .SingleOrDefault(x => x.Email == email);
         }
     }
 }

@@ -1,26 +1,27 @@
 using System;
 using System.Linq;
 using Database.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Database.Repositories
 {
     public class ProfilesRepository : IProfilesRepository
     {
-        private readonly PaperWorkerDbContext _context;
+        private readonly DbSet<Profile> _profiles;
 
-        public ProfilesRepository(PaperWorkerDbContext context)
+        public ProfilesRepository(DbSet<Profile> profiles)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _profiles = profiles;
         }
 
         public Profile Get(Guid userId)
         {
-            return _context.Profiles.FirstOrDefault(profile => profile.UserId == userId);
+            return _profiles.FirstOrDefault(profile => profile.UserId == userId);
         }
 
         public void Update(Profile profile)
         {
-            _context.Profiles.Update(profile);
+            _profiles.Update(profile);
         }
     }
 }

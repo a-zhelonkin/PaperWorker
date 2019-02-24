@@ -1,27 +1,27 @@
-using System;
 using System.Linq;
 using Core;
 using Database.Models.Account;
+using Microsoft.EntityFrameworkCore;
 
 namespace Database.Repositories
 {
     public class RolesRepository : IRolesRepository
     {
-        private readonly PaperWorkerDbContext _context;
+        private readonly DbSet<Role> _roles;
 
-        public RolesRepository(PaperWorkerDbContext context)
+        public RolesRepository(DbSet<Role> roles)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _roles = roles;
         }
 
-        public void AddRole(Role role)
+        public void Add(Role role)
         {
-            _context.Roles.Add(role);
+            _roles.Add(role);
         }
 
-        public bool ExistsRole(RoleName roleName)
+        public bool Exists(RoleName roleName)
         {
-            return _context.Roles.Any(role => role.Name == roleName);
+            return _roles.Any(role => role.Name == roleName);
         }
     }
 }

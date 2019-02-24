@@ -15,6 +15,7 @@ namespace Services.Email
 
         private readonly IUnitOfWork _unitOfWork;
         private readonly IFactory<MailKitClient> _mailKitClientFactory;
+        private readonly Mutex _mutex;
 
         private Timer _timer;
 
@@ -23,6 +24,7 @@ namespace Services.Email
         {
             _unitOfWork = unitOfWork;
             _mailKitClientFactory = mailKitClientFactory;
+            _mutex = new Mutex();
         }
 
         public void Dispose()
@@ -35,14 +37,33 @@ namespace Services.Email
         {
             Log.Info("Email service started");
 
-            _timer = new Timer(DoWork, null, TimeSpan.Zero, TimeSpan.FromSeconds(30));
+            _timer = new Timer(DoWorkSafe, null, TimeSpan.Zero, TimeSpan.FromSeconds(30));
 
             return Task.CompletedTask;
         }
 
-        private void DoWork(object state)
+        private void DoWorkSafe(object state)
+        {
+            try
+            {
+                _mutex.WaitOne();
+
+                DoWork();
+            }
+            catch (Exception e)
+            {
+                Log.Error("Error while email service working", e);
+            }
+            finally
+            {
+                _mutex.ReleaseMutex();
+            }
+        }
+
+        private void DoWork()
         {
             var userRepository = _unitOfWork.UserRepository;
+            var emailMessagesRepository = _unitOfWork.EmailMessagesRepository;
             using (var client = _mailKitClientFactory.Create())
             {
                 foreach (var user in userRepository.Get())
@@ -63,9 +84,29 @@ namespace Services.Email
                             }
 
                             break;
+                        default:
+                            continue;
                     }
 
                     userRepository.Update(user);
+                }
+
+                foreach (var emailMessage in emailMessagesRepository.Get())
+                {
+                    switch (emailMessage.Type)
+                    {
+                        case MessageType.AuthLinkRequest:
+                            if (client.SendAuthLink(emailMessage.User.Email))
+                            {
+                                emailMessage.Deleted = DateTime.Now;
+                            }
+
+                            break;
+                        default:
+                            continue;
+                    }
+
+                    emailMessagesRepository.Update(emailMessage);
                 }
 
                 _unitOfWork.Save();

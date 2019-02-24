@@ -78,9 +78,9 @@ namespace Front
 
             foreach (var roleName in roleNames)
             {
-                if (rolesRepository.ExistsRole(roleName)) continue;
+                if (rolesRepository.Exists(roleName)) continue;
 
-                rolesRepository.AddRole(new Role {Name = roleName});
+                rolesRepository.Add(new Role {Name = roleName});
             }
         }
     }

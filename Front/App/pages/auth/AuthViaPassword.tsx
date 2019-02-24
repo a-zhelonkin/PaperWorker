@@ -73,7 +73,7 @@ class AuthViaPassword extends Component<AuthViaPasswordProps> {
         const email: string = this.inputEmail.value;
         const password: string = this.inputPassword.value;
 
-        AuthApi.auth(email, password)
+        AuthApi.token(email, password)
             .then((data: TokenData): void => {
                 if (data) {
                     this.props.updateToken(data.token);

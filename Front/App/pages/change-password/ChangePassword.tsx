@@ -23,43 +23,41 @@ class ChangePassword extends Component<ChangePasswordProps, ChangePasswordState>
 
     public render(): ReactNode {
         return (
-            <>
-                <Form horizontal className="container center input-form">
-                    <FormGroup>
-                        <Col sm={4} componentClass={ControlLabel}>
-                            Новый пароль
-                        </Col>
-                        <Col sm={8}>
-                            <FormControl
-                                type="password"
-                                placeholder="Новый пароль"
-                                onChange={this.onPasswordChange}
-                            />
-                        </Col>
-                    </FormGroup>
+            <Form horizontal className="container center input-form">
+                <FormGroup>
+                    <Col sm={4} componentClass={ControlLabel}>
+                        Новый пароль
+                    </Col>
+                    <Col sm={8}>
+                        <FormControl
+                            type="password"
+                            placeholder="Новый пароль"
+                            onChange={this.onPasswordChange}
+                        />
+                    </Col>
+                </FormGroup>
 
-                    <FormGroup>
-                        <Col sm={4} componentClass={ControlLabel}>
-                            Подтверждение пароля
-                        </Col>
-                        <Col sm={8}>
-                            <FormControl
-                                type="password"
-                                placeholder="Подтверждение пароля"
-                                onChange={this.onConfirmPasswordChange}
-                            />
-                        </Col>
-                    </FormGroup>
+                <FormGroup>
+                    <Col sm={4} componentClass={ControlLabel}>
+                        Подтверждение пароля
+                    </Col>
+                    <Col sm={8}>
+                        <FormControl
+                            type="password"
+                            placeholder="Подтверждение пароля"
+                            onChange={this.onConfirmPasswordChange}
+                        />
+                    </Col>
+                </FormGroup>
 
-                    <FormGroup>
-                        <Col smOffset={4} sm={8}>
-                            <Button type="submit" onClick={this.submit}>
-                                Войти
-                            </Button>
-                        </Col>
-                    </FormGroup>
-                </Form>
-            </>
+                <FormGroup>
+                    <Col smOffset={4} sm={8}>
+                        <Button type="submit" onClick={this.submit}>
+                            Войти
+                        </Button>
+                    </Col>
+                </FormGroup>
+            </Form>
         );
     }
 

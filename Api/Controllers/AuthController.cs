@@ -1,7 +1,9 @@
+using Api.Extensions;
 using Api.Models;
 using Auth;
 using Core;
 using Database;
+using Database.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,6 +27,20 @@ namespace Api.Controllers
         [HttpGet]
         [Route("verify-token")]
         public IActionResult VerifyToken() => Ok();
+
+        [Authorize]
+        [HttpGet]
+        [Route("email")]
+        public IActionResult Email()
+        {
+            var email = this.GetEmail();
+            if (email == null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(new {email});
+        }
 
         [AllowAnonymous]
         [HttpPost]
@@ -53,6 +69,27 @@ namespace Api.Controllers
 
             user.Status = UserStatus.Restoring;
             _unitOfWork.UserRepository.Update(user);
+            _unitOfWork.Save();
+
+            return Ok();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("send-auth-link")]
+        public IActionResult SendAuthLink([FromBody] string email)
+        {
+            var user = _unitOfWork.UserRepository.Get(email);
+            if (user == null)
+            {
+                return BadRequest();
+            }
+
+            _unitOfWork.EmailMessagesRepository.Add(new EmailMessage
+            {
+                UserId = user.Id,
+                Type = MessageType.AuthLinkRequest
+            });
             _unitOfWork.Save();
 
             return Ok();

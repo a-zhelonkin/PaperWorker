@@ -1,5 +1,4 @@
 import React, {Component, ReactNode} from "react";
-import {History} from "history";
 import {connect} from "react-redux";
 import Col from "react-bootstrap/lib/Col";
 import Form from "react-bootstrap/lib/Form";
@@ -7,11 +6,11 @@ import Button from "react-bootstrap/lib/Button";
 import FormGroup from "react-bootstrap/lib/FormGroup";
 import FormControl from "react-bootstrap/lib/FormControl";
 import ControlLabel from "react-bootstrap/lib/ControlLabel";
-import AuthApi, {TokenData} from "../../api/auth-api";
+import AuthApi from "../../api/auth-api";
 import {Link} from "react-router-dom";
 
 export interface AuthViaLinkProps {
-    history: History;
+    location?: Location;
 }
 
 class AuthViaLink extends Component<AuthViaLinkProps> {
@@ -53,12 +52,10 @@ class AuthViaLink extends Component<AuthViaLinkProps> {
 
         const email: string = this.inputEmail.value;
 
-        AuthApi.auth(email, "")
-            .then((data: TokenData): void => {
-                if (data) {
-                    // this.props.updateToken(data.token);
-                    // this.props.updateEmail(email);
-                    this.props.history.push("/cabinet");
+        AuthApi.sendAuthLink(email)
+            .then((isSuccessful: boolean): void => {
+                if (isSuccessful) {
+                    console.log("eeeeeeeeeee");
                 }
             });
     }

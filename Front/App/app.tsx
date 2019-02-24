@@ -11,6 +11,7 @@ import {Invite} from "./pages/invite";
 import AuthRoute from "./components/auth-route/AuthRoute";
 import {ChangePassword} from "./pages/change-password";
 import {RestorePassword} from "./pages/restore-password";
+import AuthLink from "./components/auth-link/AuthLink";
 
 export const App: FunctionComponent = () => (
     <Router history={history}>
@@ -24,6 +25,7 @@ export const App: FunctionComponent = () => (
                     <Route component={Auth} path="/login"/>
                     <Route component={ChangePassword} path="/change-password"/>
                     <Route component={RestorePassword} path="/restore-password"/>
+                    <Route component={AuthLink} path="/auth-link"/>
                     <AuthRoute component={Cabinet} path="/cabinet"/>
                     <AuthRoute component={Invite} path="/invite"/>
                     <AuthRoute component={Error404}/>

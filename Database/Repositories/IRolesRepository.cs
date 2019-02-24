@@ -5,8 +5,7 @@ namespace Database.Repositories
 {
     public interface IRolesRepository
     {
-        void AddRole(Role role);
-
-        bool ExistsRole(RoleName roleName);
+        void Add(Role role);
+        bool Exists(RoleName roleName);
     }
 }

@@ -74,7 +74,7 @@ export default class RestorePassword extends Component<any, RestorePasswordState
             ? this.state.valid
                 ? "success"
                 : "error"
-            : undefined;
+            : null;
     }
 
     private submit = (e: any): void => {

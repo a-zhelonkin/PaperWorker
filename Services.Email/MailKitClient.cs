@@ -68,7 +68,7 @@ namespace Services.Email
                 Subject = "Восстановление пароля",
                 Body = new TextPart(TextFormat.Html)
                 {
-                    Text = $"Для восстановления пароля <b style='color: red'>скорее</b> к <a href='{_configuration.ChangePasswordUrl}?token={token}'>сюда</a>"
+                    Text = $"Для восстановления пароля <b style='color: red'>скорее</b> <a href='{_configuration.ChangePasswordUrl}?token={token}'>сюда</a>"
                 }
             };
 
@@ -78,6 +78,32 @@ namespace Services.Email
             _client.Send(message);
 
             Log.Debug($"Mail send change password to {email}");
+            return true;
+        }
+
+        public bool SendAuthLink(string email)
+        {
+            var token = _tokenGenerator.GetToken(email);
+            if (token == null)
+            {
+                return false;
+            }
+
+            var message = new MimeMessage
+            {
+                Subject = "Вход",
+                Body = new TextPart(TextFormat.Html)
+                {
+                    Text = $"Для входа <b style='color: red'>скорее</b> <a href='{_configuration.AuthLinkUrl}?token={token}'>сюда</a>"
+                }
+            };
+
+            message.To.Add(new MailboxAddress(email, email));
+            message.From.Add(new MailboxAddress("PaperWorker", _configuration.Username));
+
+            _client.Send(message);
+
+            Log.Debug($"Mail send auth link {email}");
             return true;
         }
     }

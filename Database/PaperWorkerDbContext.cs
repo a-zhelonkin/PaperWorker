@@ -9,13 +9,14 @@ namespace Database
 {
     /// <summary>
     /// dotnet ef migrations add [comment]
-    /// dotnet ef database update [comment]
+    /// dotnet ef database update [[comment]]
     /// </summary>
     public class PaperWorkerDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Profile> Profiles { get; set; }
+        public DbSet<EmailMessage> EmailMessages { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
