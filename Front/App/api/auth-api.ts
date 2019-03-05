@@ -1,13 +1,7 @@
 import ApiBase from "./api-base";
 import {HttpMethod} from "../constants/http-method";
-
-export interface TokenData {
-    readonly token: string;
-}
-
-export interface EmailData {
-    readonly email: string;
-}
+import TokenData from "./models/token-data";
+import EmailData from "./models/email-data";
 
 export default class AuthApi extends ApiBase {
 

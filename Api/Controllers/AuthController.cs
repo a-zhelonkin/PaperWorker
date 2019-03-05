@@ -67,8 +67,11 @@ namespace Api.Controllers
                 return BadRequest();
             }
 
-            user.Status = UserStatus.Restoring;
-            _unitOfWork.UserRepository.Update(user);
+            _unitOfWork.EmailMessagesRepository.Add(new EmailMessage
+            {
+                UserId = user.Id,
+                Type = MessageType.RestoreRequest
+            });
             _unitOfWork.Save();
 
             return Ok();

@@ -18,11 +18,6 @@ namespace Core
         Pending,
 
         /// <summary>
-        /// В восстановлении пароля
-        /// </summary>
-        Restoring,
-
-        /// <summary>
         /// Зарегистрированный пользователь
         /// </summary>
         Confirmed

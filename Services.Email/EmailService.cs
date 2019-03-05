@@ -77,13 +77,6 @@ namespace Services.Email
                             }
 
                             break;
-                        case UserStatus.Restoring:
-                            if (client.SendRestore(user.Email))
-                            {
-                                user.Status = UserStatus.Pending;
-                            }
-
-                            break;
                         default:
                             continue;
                     }
@@ -95,6 +88,13 @@ namespace Services.Email
                 {
                     switch (emailMessage.Type)
                     {
+                        case MessageType.RestoreRequest:
+                            if (client.SendRestore(emailMessage.User.Email))
+                            {
+                                emailMessage.Deleted = DateTime.Now;
+                            }
+
+                            break;
                         case MessageType.AuthLinkRequest:
                             if (client.SendAuthLink(emailMessage.User.Email))
                             {

@@ -37,7 +37,7 @@ export default class RestorePassword extends Component<any, RestorePasswordState
                 ) : (
                     <Form horizontal className="container">
                         <FormGroup controlId="email" validationState={this.getEmailValidationState()}>
-                            <Col smOffset={3} sm={6}>
+                            <Col smOffset={1} sm={10}>
                                 <ControlLabel>Введите Ваш почтовый адрес</ControlLabel>
                                 <FormControl
                                     type="email"

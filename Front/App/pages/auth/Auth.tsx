@@ -7,7 +7,7 @@ import AuthViaLink from "./AuthViaLink";
 import LogoHeader from "../../components/logo-header/LogoHeader";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-export default class Auth extends Component<{}> {
+export default class Auth extends Component {
 
     public render(): ReactNode {
         return (

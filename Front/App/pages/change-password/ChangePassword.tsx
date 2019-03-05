@@ -8,9 +8,14 @@ import ControlLabel from "react-bootstrap/lib/ControlLabel";
 import FormControl from "react-bootstrap/lib/FormControl";
 import Button from "react-bootstrap/lib/Button";
 import UsersApi from "../../api/users-api";
+import queryString from "querystring";
+import EmailData from "../../api/models/email-data";
+import history from "../../store/history";
 
 export interface ChangePasswordProps {
+    location: Location;
     updateToken: (token: string) => void;
+    updateEmail: (email: string) => void;
 }
 
 export interface ChangePasswordState {
@@ -20,6 +25,14 @@ export interface ChangePasswordState {
 }
 
 class ChangePassword extends Component<ChangePasswordProps, ChangePasswordState> {
+
+    private token?: string;
+
+    public componentDidMount() {
+        const params: any = queryString.parse(this.props.location.search.slice(1));
+
+        this.token = params.token;
+    }
 
     public render(): ReactNode {
         return (
@@ -62,34 +75,52 @@ class ChangePassword extends Component<ChangePasswordProps, ChangePasswordState>
     }
 
     private onPasswordChange = (e: any) => {
-        this.setState({password: e.target.value});
+        const password: string = e.target.value;
+        const confirmPassword: string = this.state.confirmPassword;
 
-        if (this.state.confirmPassword) {
-            this.checkPasswordsIdentical();
+        this.setState({password});
+
+        if (confirmPassword) {
+            this.checkPasswordsIdentical(password, confirmPassword);
         }
     }
 
     private onConfirmPasswordChange = (e: any) => {
-        this.setState({confirmPassword: e.target.value});
-        this.checkPasswordsIdentical();
+        const password: string = this.state.password;
+        const confirmPassword: string = e.target.value;
+
+        this.setState({confirmPassword});
+
+        if (password) {
+            this.checkPasswordsIdentical(password, confirmPassword);
+        }
     }
 
-    private checkPasswordsIdentical = () => {
-        this.setState({passwordsIdentical: true});
-    }
+    private checkPasswordsIdentical = (password: string, confirmPassword: string) =>
+        this.setState({passwordsIdentical: password === confirmPassword})
 
     private submit = (e: any): void => {
         e.preventDefault();
 
-        if (this.state.confirmPassword) {
+        if (this.state.passwordsIdentical) {
             UsersApi.changePassword(this.state.password)
-                .then(console.log);
+                .then((data: EmailData) => {
+                    if (data) {
+                        this.props.updateToken(this.token);
+                        this.props.updateEmail(data.email);
+                        history.push("/cabinet");
+                    } else {
+                        // todo реакция на ошибку
+                    }
+                });
         }
     }
 
 }
 
-export default connect(undefined, {
+const mapDispatchToProps = {
     updateToken: updateToken,
     updateEmail: updateEmail
-})(ChangePassword);
+};
+
+export default connect(undefined, mapDispatchToProps)(ChangePassword);

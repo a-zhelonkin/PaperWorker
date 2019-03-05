@@ -9,11 +9,7 @@ import ControlLabel from "react-bootstrap/lib/ControlLabel";
 import AuthApi from "../../api/auth-api";
 import {Link} from "react-router-dom";
 
-export interface AuthViaLinkProps {
-    location?: Location;
-}
-
-class AuthViaLink extends Component<AuthViaLinkProps> {
+class AuthViaLink extends Component {
 
     private inputEmail: HTMLInputElement;
 
@@ -55,7 +51,7 @@ class AuthViaLink extends Component<AuthViaLinkProps> {
         AuthApi.sendAuthLink(email)
             .then((isSuccessful: boolean): void => {
                 if (isSuccessful) {
-                    console.log("eeeeeeeeeee");
+                    // todo реакция на успешность отправки ссылки
                 }
             });
     }

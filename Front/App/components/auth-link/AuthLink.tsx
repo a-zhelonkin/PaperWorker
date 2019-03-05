@@ -1,10 +1,11 @@
 import React, {Component, ReactNode} from "react";
 import queryString from "querystring";
 import Loading from "../loading/Loading";
-import AuthApi, {EmailData} from "../../api/auth-api";
+import AuthApi from "../../api/auth-api";
 import history from "../../store/history";
 import {updateEmail, updateToken} from "../../pages/auth/actions";
 import {connect} from "react-redux";
+import EmailData from "../../api/models/email-data";
 
 export interface AuthLinkProps {
     location: Location;
@@ -24,6 +25,8 @@ class AuthLink extends Component<AuthLinkProps> {
                     this.props.updateToken(token);
                     this.props.updateEmail(data.email);
                     history.push("/cabinet");
+                } else {
+                    history.push("/login");
                 }
             });
     }

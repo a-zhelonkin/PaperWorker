@@ -170,11 +170,15 @@
             <e p="api-base.ts" t="Include" />
             <e p="auth-api.ts" t="Include" />
             <e p="invites-api.ts" t="Include" />
+            <e p="Models" t="Include">
+              <e p="email-data.ts" t="Include" />
+              <e p="token-data.ts" t="Include" />
+            </e>
             <e p="profiles-api.ts" t="Include" />
             <e p="users-api.ts" t="Include" />
           </e>
           <e p="app.scss" t="Include" />
-          <e p="app1.tsx" t="Include" />
+          <e p="app.tsx" t="Include" />
           <e p="components" t="Include">
             <e p="auth-link" t="Include">
               <e p="AuthLink.tsx" t="Include" />
@@ -259,6 +263,8 @@
           <e p="2019-02-04.log" t="Include" />
           <e p="2019-02-24.log" t="Include" />
           <e p="2019-02-25.log" t="Include" />
+          <e p="2019-02-26.log" t="Include" />
+          <e p="2019-03-05.log" t="Include" />
         </e>
         <e p="Middleware" t="Include">
           <e p="JwtFromCookieMiddleware.cs" t="Include" />
@@ -320,6 +326,7 @@
           <e p="source-map-loader" t="IncludeRecursive" />
           <e p="style-loader" t="IncludeRecursive" />
           <e p="svg-url-loader" t="IncludeRecursive" />
+          <e p="terser" t="IncludeRecursive" />
           <e p="ts-node" t="IncludeRecursive" />
           <e p="tslint" t="IncludeRecursive" />
           <e p="tslint-react" t="IncludeRecursive" />
@@ -416,6 +423,14 @@
             <e p="invites-api.d.ts" t="Include" />
             <e p="invites-api.js" t="Include" />
             <e p="invites-api.js.map" t="Include" />
+            <e p="Models" t="Include">
+              <e p="email-data.d.ts" t="Include" />
+              <e p="email-data.js" t="Include" />
+              <e p="email-data.js.map" t="Include" />
+              <e p="token-data.d.ts" t="Include" />
+              <e p="token-data.js" t="Include" />
+              <e p="token-data.js.map" t="Include" />
+            </e>
             <e p="profiles-api.d.ts" t="Include" />
             <e p="profiles-api.js" t="Include" />
             <e p="profiles-api.js.map" t="Include" />

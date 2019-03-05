@@ -8,8 +8,9 @@ import FormGroup from "react-bootstrap/lib/FormGroup";
 import FormControl from "react-bootstrap/lib/FormControl";
 import ControlLabel from "react-bootstrap/lib/ControlLabel";
 import {updateEmail, updateToken} from "./actions";
-import AuthApi, {TokenData} from "../../api/auth-api";
+import AuthApi from "../../api/auth-api";
 import {Link} from "react-router-dom";
+import TokenData from "../../api/models/token-data";
 
 export interface AuthViaPasswordProps {
     updateToken: (token: string) => void;
@@ -91,3 +92,4 @@ const mapDispatchToProps = {
 };
 
 export default connect(undefined, mapDispatchToProps)(AuthViaPassword);
+// todo проверить восстановление пароля
