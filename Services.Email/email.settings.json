@@ -4,8 +4,7 @@
     "Port": 587,
     "Username": "paper-worker@yandex.ru",
     "Password": "005a0c27-45b1-4f33-bae7-4d93cf71a3de",
-    "InviteUrl": "https://localhost:5001/invite",
-    "ChangePasswordUrl": "https://localhost:5001/change-password",
-    "AuthLinkUrl": "https://localhost:5001/auth-link"
+    "CabinetUrl": "https://localhost:5001/cabinet",
+    "ChangePasswordUrl": "https://localhost:5001/change-password"
   }
 }

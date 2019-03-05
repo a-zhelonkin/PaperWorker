@@ -42,7 +42,7 @@ namespace Services.Email
                 Subject = "Приглашение",
                 Body = new TextPart(TextFormat.Html)
                 {
-                    Text = $"Приходи <b style='color: red'>скорее</b> к <a href='{_configuration.InviteUrl}?token={token}'>нам</a>"
+                    Text = $"Приходи <b style='color: red'>скорее</b> к <a href='{_configuration.CabinetUrl}?token={token}'>нам</a>"
                 }
             };
 
@@ -94,7 +94,7 @@ namespace Services.Email
                 Subject = "Вход",
                 Body = new TextPart(TextFormat.Html)
                 {
-                    Text = $"Для входа <b style='color: red'>скорее</b> <a href='{_configuration.AuthLinkUrl}?token={token}'>сюда</a>"
+                    Text = $"Для входа <b style='color: red'>скорее</b> <a href='{_configuration.CabinetUrl}?token={token}'>сюда</a>"
                 }
             };
 

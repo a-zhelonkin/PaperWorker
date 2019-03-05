@@ -40,7 +40,7 @@ namespace Api.Controllers
             userRepository.Update(user);
             _unitOfWork.Save();
 
-            return Ok(new {email});
+            return Ok();
         }
     }
 }

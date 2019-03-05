@@ -28,6 +28,15 @@ class ChangePassword extends Component<ChangePasswordProps, ChangePasswordState>
 
     private token?: string;
 
+    constructor(props: ChangePasswordProps, context?: any) {
+        super(props, context);
+        this.state = {
+            password: "",
+            confirmPassword: "",
+            passwordsIdentical: false
+        };
+    }
+
     public componentDidMount() {
         const params: any = queryString.parse(this.props.location.search.slice(1));
 
@@ -104,13 +113,11 @@ class ChangePassword extends Component<ChangePasswordProps, ChangePasswordState>
 
         if (this.state.passwordsIdentical) {
             UsersApi.changePassword(this.state.password)
-                .then((data: EmailData) => {
-                    if (data) {
-                        this.props.updateToken(this.token);
-                        this.props.updateEmail(data.email);
+                .then((isSuccess: boolean) => {
+                    if (isSuccess) {
                         history.push("/cabinet");
                     } else {
-                        // todo реакция на ошибку
+                        alert("Не удалось сменить пароль");
                     }
                 });
         }

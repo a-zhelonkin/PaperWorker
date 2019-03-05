@@ -6,8 +6,7 @@ namespace Services.Email
         public int Port { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public string InviteUrl { get; set; }
+        public string CabinetUrl { get; set; }
         public string ChangePasswordUrl { get; set; }
-        public string AuthLinkUrl { get; set; }
     }
 }

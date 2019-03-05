@@ -180,9 +180,6 @@
           <e p="app.scss" t="Include" />
           <e p="app.tsx" t="Include" />
           <e p="components" t="Include">
-            <e p="auth-link" t="Include">
-              <e p="AuthLink.tsx" t="Include" />
-            </e>
             <e p="auth-route" t="Include">
               <e p="AuthRoute.tsx" t="Include" />
             </e>
