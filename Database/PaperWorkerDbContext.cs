@@ -8,8 +8,8 @@ using Microsoft.Extensions.Configuration;
 namespace Database
 {
     /// <summary>
-    /// dotnet ef migrations add [comment]
-    /// dotnet ef database update [[comment]]
+    /// dotnet ef migrations add (comment)
+    /// dotnet ef database update [(comment)]
     /// </summary>
     public class PaperWorkerDbContext : DbContext
     {

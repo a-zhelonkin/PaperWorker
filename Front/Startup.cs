@@ -12,15 +12,21 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Services.Core.Configurations;
 using Services.Email;
 
 namespace Front
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IConfigurationRoot _configuration;
+
+        public Startup(IHostingEnvironment env)
         {
-            configuration.GetConnectionString(nameof(PaperWorkerDbContext));
+            _configuration = new ConfigurationBuilder()
+                             .SetBasePath(env.ContentRootPath)
+                             .AddJsonFile($"appsettings.{env.EnvironmentName}.json")
+                             .Build();
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -28,6 +34,8 @@ namespace Front
             services.AddScoped<PaperWorkerDbContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ITokenGenerator, TokenGenerator>();
+            services.AddScoped<IAppConfigurations, AppConfigurations>();
+            services.Configure<AppConfigurations>(_configuration.GetSection(nameof(AppConfigurations)));
 
             services.AddEmailService();
 
@@ -66,10 +74,8 @@ namespace Front
                 routes.MapSpaFallbackRoute("spa-fallback", new {controller = "Home", action = "Index"});
             });
 
-            using (unitOfWork)
-            {
-                CreateRoles(unitOfWork.RolesRepository);
-            }
+            CreateRoles(unitOfWork.RolesRepository);
+            unitOfWork.Save();
         }
 
         private static void CreateRoles(IRolesRepository rolesRepository)

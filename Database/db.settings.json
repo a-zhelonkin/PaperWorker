@@ -1,5 +1,5 @@
 {
   "ConnectionStrings": {
-    "PaperWorkerDbContext": "workstation id=paper-worker-db.mssql.somee.com;packet size=4096;user id=zhelonkin_SQLLogin_1;pwd=wrgi51haq7;data source=paper-worker-db.mssql.somee.com;persist security info=False;initial catalog=paper-worker-db;"
+    "PaperWorkerDbContext": "Server=den1.mssql7.gear.host;Database=paperworkerdb;User Id=paperworkerdb;Password=Pg8nBTrA?-Ro;"
   }
 }
