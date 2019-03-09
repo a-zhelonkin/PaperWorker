@@ -9,6 +9,9 @@
     <Import_RootNamespace>Core</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Infra\IConfigurationProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infra\IFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infra\IMapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MessageType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RoleName.cs" />

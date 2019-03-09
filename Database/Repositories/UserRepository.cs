@@ -19,6 +19,15 @@ namespace Database.Repositories
             return _users;
         }
 
+        public IEnumerable<User> Get(int start, int size)
+        {
+            return _users.Skip(start)
+                         .Take(size)
+                         .Include(x => x.Profile)
+                         .Include(x => x.Roles)
+                         .ThenInclude(x => x.Role);
+        }
+
         public void Add(User user)
         {
             _users.Add(user);

@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Configuration;
-using Services.Core;
+using Core;
 using Services.Core.Configurations;
 
 namespace Services.Email

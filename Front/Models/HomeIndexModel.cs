@@ -1,4 +1,6 @@
+using Core;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Front.Models
 {
@@ -7,7 +9,7 @@ namespace Front.Models
         [JsonProperty("email")]
         public string Email { get; set; } = "guest";
 
-        [JsonProperty("roles")]
-        public string[] Roles { get; set; }
+        [JsonProperty("roles", ItemConverterType = typeof(StringEnumConverter))]
+        public RoleName[] Roles { get; set; }
     }
 }

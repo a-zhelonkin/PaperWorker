@@ -1,5 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
-using Services.Core;
+using Core;
 
 namespace Services.Email
 {

@@ -1,4 +1,4 @@
-namespace Services.Core
+namespace Core
 {
     public interface IFactory<out TProduct> where TProduct : class
     {

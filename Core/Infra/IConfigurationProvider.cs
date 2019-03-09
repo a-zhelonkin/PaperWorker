@@ -1,4 +1,4 @@
-﻿namespace Services.Core
+﻿namespace Core
 {
     public interface IConfigurationProvider<out TConfiguration> where TConfiguration : class
     {

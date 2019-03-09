@@ -1,10 +1,11 @@
 import {createStore} from "redux";
 import rootReducer from "./reducer";
 
-const email: string = (window as any)._INITIAL_STATE_.email;
+const state: any = (window as any)._INITIAL_STATE_;
 const store = createStore(rootReducer, {
     auth: {
-        email: email
+        email: state.email,
+        roles: state.roles
     }
 });
 

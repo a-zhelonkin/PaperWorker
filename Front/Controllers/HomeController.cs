@@ -1,7 +1,5 @@
-using System;
 using System.Linq;
 using Api.Extensions;
-using Core;
 using Database;
 using Front.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -37,7 +35,7 @@ namespace Front.Controllers
             {
                 Email = email,
                 Roles = user.Roles
-                            .Select(x => Enum.GetName(typeof(RoleName), x.Role.Name))
+                            .Select(x => x.Role.Name)
                             .ToArray()
             });
         }

@@ -6,6 +6,7 @@ namespace Database.Repositories
     public interface IUserRepository
     {
         IEnumerable<User> Get();
+        IEnumerable<User> Get(int start, int size);
         void Add(User user);
         void Update(User user);
         User Get(string email);

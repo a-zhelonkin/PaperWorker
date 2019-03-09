@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Linq;
+using Api.Mappers;
+using Api.Models;
 using Auth;
 using Core;
 using Database;
+using Database.Models;
 using Database.Models.Account;
 using Database.Repositories;
 using Front.Middleware;
@@ -34,6 +37,9 @@ namespace Front
             services.AddScoped<PaperWorkerDbContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ITokenGenerator, TokenGenerator>();
+            services.AddScoped<IMapper<User, UserDto>, UserDtoMapper>();
+            services.AddScoped<IMapper<Profile, ProfileDto>, ProfileDtoMapper>();
+            services.AddScoped<IMapper<ProfileDto, Profile>, DtoProfileMapper>();
             services.AddScoped<IAppConfigurations, AppConfigurations>();
             services.Configure<AppConfigurations>(_configuration.GetSection(nameof(AppConfigurations)));
 

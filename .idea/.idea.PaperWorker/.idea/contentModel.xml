@@ -51,7 +51,9 @@
           <e p="ControllerBaseExtension.cs" t="Include" />
         </e>
         <e p="Mappers" t="Include">
-          <e p="ProfileMapper.cs" t="Include" />
+          <e p="DtoProfileMapper.cs" t="Include" />
+          <e p="ProfileDtoMapper.cs" t="Include" />
+          <e p="UserDtoMapper.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -98,6 +100,11 @@
       <e p="core" t="IncludeRecursive">
         <e p="Core.projitems" t="Include" />
         <e p="Core.shproj" t="IncludeRecursive" />
+        <e p="Infra" t="Include">
+          <e p="IConfigurationProvider.cs" t="Include" />
+          <e p="IFactory.cs" t="Include" />
+          <e p="IMapper.cs" t="Include" />
+        </e>
         <e p="MessageType.cs" t="Include" />
         <e p="RoleName.cs" t="Include" />
         <e p="UserStatus.cs" t="Include" />
@@ -173,6 +180,7 @@
             <e p="Models" t="Include">
               <e p="email-data.ts" t="Include" />
               <e p="token-data.ts" t="Include" />
+              <e p="user-model.ts" t="Include" />
             </e>
             <e p="profiles-api.ts" t="Include" />
             <e p="users-api.ts" t="Include" />
@@ -182,6 +190,18 @@
           <e p="components" t="Include">
             <e p="auth-route" t="Include">
               <e p="AuthRoute.tsx" t="Include" />
+            </e>
+            <e p="cabinet-admin" t="Include">
+              <e p="CabinetAdmin.tsx" t="Include" />
+            </e>
+            <e p="cabinet-admin-users" t="Include">
+              <e p="CabinetAdminUsers.tsx" t="Include" />
+            </e>
+            <e p="cabinet-consumer" t="Include">
+              <e p="CabinetConsumer.tsx" t="Include" />
+            </e>
+            <e p="cabinet-locksmith" t="Include">
+              <e p="CabinetLocksmith.tsx" t="Include" />
             </e>
             <e p="loading" t="Include">
               <e p="Loading.tsx" t="Include" />
@@ -198,6 +218,7 @@
           </e>
           <e p="constants" t="Include">
             <e p="http-method.ts" t="Include" />
+            <e p="role-name.ts" t="Include" />
             <e p="user-status.ts" t="Include" />
           </e>
           <e p="index.tsx" t="Include" />
@@ -263,6 +284,7 @@
           <e p="2019-02-26.log" t="Include" />
           <e p="2019-03-05.log" t="Include" />
           <e p="2019-03-08.log" t="Include" />
+          <e p="2019-03-09.log" t="Include" />
         </e>
         <e p="Middleware" t="Include">
           <e p="JwtFromCookieMiddleware.cs" t="Include" />
@@ -283,19 +305,19 @@
           <e p="@fortawesome\react-fontawesome" t="IncludeRecursive" />
           <e p="@types" t="IncludeRecursive">
             <e p="history" t="IncludeRecursive" />
+            <e p="hoist-non-react-statics" t="IncludeRecursive" />
             <e p="node" t="IncludeRecursive" />
             <e p="prop-types" t="IncludeRecursive" />
             <e p="query-string" t="IncludeRecursive" />
             <e p="react" t="IncludeRecursive" />
             <e p="react-bootstrap" t="IncludeRecursive" />
+            <e p="react-bootstrap-table" t="IncludeRecursive" />
             <e p="react-dom" t="IncludeRecursive" />
             <e p="react-redux" t="IncludeRecursive" />
             <e p="react-router" t="IncludeRecursive" />
             <e p="react-router-bootstrap" t="IncludeRecursive" />
             <e p="react-router-dom" t="IncludeRecursive" />
             <e p="react-router-redux" t="IncludeRecursive" />
-            <e p="redux" t="IncludeRecursive" />
-            <e p="redux-thunk" t="IncludeRecursive" />
           </e>
           <e p="babel-loader" t="IncludeRecursive" />
           <e p="bootstrap" t="IncludeRecursive" />
@@ -303,6 +325,7 @@
           <e p="css-loader" t="IncludeRecursive" />
           <e p="csstype" t="IncludeRecursive" />
           <e p="history" t="IncludeRecursive" />
+          <e p="hoist-non-react-statics" t="IncludeRecursive" />
           <e p="html-webpack-plugin" t="IncludeRecursive" />
           <e p="image-webpack-loader" t="IncludeRecursive" />
           <e p="mini-css-extract-plugin" t="IncludeRecursive" />
@@ -311,7 +334,9 @@
           <e p="query-string" t="IncludeRecursive" />
           <e p="react" t="IncludeRecursive" />
           <e p="react-bootstrap" t="IncludeRecursive" />
+          <e p="react-bootstrap-table" t="IncludeRecursive" />
           <e p="react-dom" t="IncludeRecursive" />
+          <e p="react-is" t="IncludeRecursive" />
           <e p="react-redux" t="IncludeRecursive" />
           <e p="react-router" t="IncludeRecursive" />
           <e p="react-router-bootstrap" t="IncludeRecursive" />
@@ -428,6 +453,9 @@
               <e p="token-data.d.ts" t="Include" />
               <e p="token-data.js" t="Include" />
               <e p="token-data.js.map" t="Include" />
+              <e p="user-model.d.ts" t="Include" />
+              <e p="user-model.js" t="Include" />
+              <e p="user-model.js.map" t="Include" />
             </e>
             <e p="profiles-api.d.ts" t="Include" />
             <e p="profiles-api.js" t="Include" />
@@ -445,6 +473,26 @@
               <e p="AuthRoute.d.ts" t="Include" />
               <e p="AuthRoute.js" t="Include" />
               <e p="AuthRoute.js.map" t="Include" />
+            </e>
+            <e p="cabinet-admin" t="Include">
+              <e p="CabinetAdmin.d.ts" t="Include" />
+              <e p="CabinetAdmin.js" t="Include" />
+              <e p="CabinetAdmin.js.map" t="Include" />
+            </e>
+            <e p="cabinet-admin-users" t="Include">
+              <e p="CabinetAdminUsers.d.ts" t="Include" />
+              <e p="CabinetAdminUsers.js" t="Include" />
+              <e p="CabinetAdminUsers.js.map" t="Include" />
+            </e>
+            <e p="cabinet-consumer" t="Include">
+              <e p="CabinetConsumer.d.ts" t="Include" />
+              <e p="CabinetConsumer.js" t="Include" />
+              <e p="CabinetConsumer.js.map" t="Include" />
+            </e>
+            <e p="cabinet-locksmith" t="Include">
+              <e p="CabinetLocksmith.d.ts" t="Include" />
+              <e p="CabinetLocksmith.js" t="Include" />
+              <e p="CabinetLocksmith.js.map" t="Include" />
             </e>
             <e p="loading" t="Include">
               <e p="Loading.d.ts" t="Include" />
@@ -471,6 +519,9 @@
             <e p="http-method.d.ts" t="Include" />
             <e p="http-method.js" t="Include" />
             <e p="http-method.js.map" t="Include" />
+            <e p="role-name.d.ts" t="Include" />
+            <e p="role-name.js" t="Include" />
+            <e p="role-name.js.map" t="Include" />
             <e p="user-status.d.ts" t="Include" />
             <e p="user-status.js" t="Include" />
             <e p="user-status.js.map" t="Include" />
@@ -580,8 +631,6 @@
           <e p="AppConfigurations.cs" t="Include" />
           <e p="IAppConfigurations.cs" t="Include" />
         </e>
-        <e p="IConfigurationProvider.cs" t="Include" />
-        <e p="IFactory.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.1" t="Include">

@@ -1,9 +1,10 @@
 using System;
-using Api.Mappers;
 using Api.Models;
 using Database;
+using Database.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Core;
 
 namespace Api.Controllers
 {
@@ -13,22 +14,30 @@ namespace Api.Controllers
     public class ProfilesController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper<Profile, ProfileDto> _profileDtoMapper;
+        private readonly IMapper<ProfileDto, Profile> _dtoProfileMapper;
 
-        public ProfilesController(IUnitOfWork unitOfWork)
+        public ProfilesController(IUnitOfWork unitOfWork,
+                                  IMapper<Profile, ProfileDto> profileDtoMapper,
+                                  IMapper<ProfileDto, Profile> dtoProfileMapper)
         {
             _unitOfWork = unitOfWork;
+            _profileDtoMapper = profileDtoMapper;
+            _dtoProfileMapper = dtoProfileMapper;
         }
 
         [HttpGet("{userId}")]
         public IActionResult Get([FromQuery] Guid userId)
         {
-            return Ok(_unitOfWork.ProfilesRepository.Get(userId).Map());
+            var profile = _unitOfWork.ProfilesRepository.Get(userId);
+
+            return Ok(_profileDtoMapper.Map(profile));
         }
 
         [HttpPut]
         public IActionResult Put([FromBody] ProfileDto profileDto)
         {
-            _unitOfWork.ProfilesRepository.Update(profileDto.Map());
+            _unitOfWork.ProfilesRepository.Update(_dtoProfileMapper.Map(profileDto));
             _unitOfWork.Save();
 
             return Ok();

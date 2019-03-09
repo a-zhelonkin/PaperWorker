@@ -1,5 +1,5 @@
 using Auth;
-using Services.Core;
+using Core;
 
 namespace Services.Email
 {
