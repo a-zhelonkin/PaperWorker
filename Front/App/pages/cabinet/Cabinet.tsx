@@ -1,9 +1,7 @@
 import React, {Component, ReactNode} from "react";
 import {connect} from "react-redux";
-import {loadProfile} from "./actions";
-import {Profile} from "../../api/profiles-api";
 import {RootState} from "../../store";
-import {RoleName} from "../../constants/role-name";
+import {RoleName, roleNameDetails} from "../../constants/role-name";
 import Tabs from "react-bootstrap/lib/Tabs";
 import Tab from "react-bootstrap/lib/Tab";
 import CabinetAdmin from "../../components/cabinet-admin/CabinetAdmin";
@@ -12,7 +10,6 @@ import CabinetLocksmith from "../../components/cabinet-locksmith/CabinetLocksmit
 
 export interface CabinetProps {
     roles: RoleName[];
-    loadProfile: (profile: Profile) => void;
 }
 
 class Cabinet extends Component<CabinetProps> {
@@ -23,17 +20,17 @@ class Cabinet extends Component<CabinetProps> {
                 Кабинет
                 <Tabs defaultActiveKey={this.props.roles[0]} id="uncontrolled-tab-example">
                     {this.props.roles.includes(RoleName.Admin) && (
-                        <Tab eventKey={RoleName.Admin} title="Администратор">
+                        <Tab eventKey={RoleName.Admin} title={roleNameDetails[RoleName.Admin].name}>
                             <CabinetAdmin/>
                         </Tab>
                     )}
                     {this.props.roles.includes(RoleName.Consumer) && (
-                        <Tab eventKey={RoleName.Consumer} title="Потребитель">
+                        <Tab eventKey={RoleName.Consumer} title={roleNameDetails[RoleName.Consumer].name}>
                             <CabinetConsumer/>
                         </Tab>
                     )}
                     {this.props.roles.includes(RoleName.Locksmith) && (
-                        <Tab eventKey={RoleName.Locksmith} title="Слесарь">
+                        <Tab eventKey={RoleName.Locksmith} title={roleNameDetails[RoleName.Locksmith].name}>
                             <CabinetLocksmith/>
                         </Tab>
                     )}
@@ -48,8 +45,4 @@ const mapStateToProps = (state: RootState) => ({
     roles: state.auth.roles
 });
 
-const mapDispatchToProps = {
-    loadProfile: loadProfile
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Cabinet);
+export default connect(mapStateToProps)(Cabinet);

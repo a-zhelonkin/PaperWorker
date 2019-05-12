@@ -1,5 +1,5 @@
 using System.Linq;
-using Api.Models;
+using Api.Models.Account;
 using Core;
 using Database.Models.Account;
 

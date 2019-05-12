@@ -25,7 +25,8 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        [Route("get-status")]
+        public IActionResult GetStatus()
         {
             var email = this.GetEmail();
             if (email == null)
@@ -43,7 +44,8 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] InviteDto invite)
+        [Route("invite")]
+        public IActionResult Invite([FromBody] InviteDto invite)
         {
             var userId = Guid.NewGuid();
 

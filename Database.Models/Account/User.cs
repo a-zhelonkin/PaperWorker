@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using Core;
 using Database.Models.Base;
 
@@ -38,5 +39,11 @@ namespace Database.Models.Account
         /// Профиль
         /// </summary>
         public virtual Profile Profile { get; set; }
+
+        /// <summary>
+        /// Получение непосредственно ролей пользователя
+        /// </summary>
+        /// <returns>Роли пользователя</returns>
+        public RoleName[] GetRoleNames() => Roles.Select(x => x.Role.Name).ToArray();
     }
 }

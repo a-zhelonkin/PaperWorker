@@ -23,8 +23,8 @@ export const App: FunctionComponent = () => (
                     <AuthRoute component={Home} exact path="/"/>
                     <Route component={Auth} path="/login"/>
                     <Route component={RestorePassword} path="/restore-password"/>
-                    <AuthRoute component={ChangePassword} path="/change-password"/>
-                    <AuthRoute component={Cabinet} path="/cabinet"/>
+                    <Route component={ChangePassword} path="/change-password"/>
+                    <AuthRoute component={Cabinet} path="/cabinet" autoLogin/>
                     <AuthRoute component={Invite} path="/invite"/>
                     <AuthRoute component={Error404}/>
                 </Switch>

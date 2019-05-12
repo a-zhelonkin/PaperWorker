@@ -1,6 +1,6 @@
 import React, {Component, ReactNode} from "react";
 import {connect} from "react-redux";
-import {updateEmail, updateToken} from "../auth/actions";
+import {updateEmail, updateRoles, updateToken} from "../auth/actions";
 import Form from "react-bootstrap/lib/Form";
 import FormGroup from "react-bootstrap/lib/FormGroup";
 import Col from "react-bootstrap/lib/Col";
@@ -9,13 +9,15 @@ import FormControl from "react-bootstrap/lib/FormControl";
 import Button from "react-bootstrap/lib/Button";
 import UsersApi from "../../api/users-api";
 import queryString from "querystring";
-import EmailData from "../../api/models/email-data";
 import history from "../../store/history";
+import {RoleName} from "../../constants/role-name";
+import AuthData from "../../api/models/auth-data";
 
 export interface ChangePasswordProps {
     location: Location;
     updateToken: (token: string) => void;
     updateEmail: (email: string) => void;
+    updateRoles: (roles: RoleName[]) => void;
 }
 
 export interface ChangePasswordState {
@@ -28,18 +30,17 @@ class ChangePassword extends Component<ChangePasswordProps, ChangePasswordState>
 
     private token?: string;
 
-    constructor(props: ChangePasswordProps, context?: any) {
-        super(props, context);
+    public constructor(props: ChangePasswordProps) {
+        super(props);
         this.state = {
             password: "",
             confirmPassword: "",
-            passwordsIdentical: false
+            passwordsIdentical: true
         };
     }
 
     public componentDidMount() {
         const params: any = queryString.parse(this.props.location.search.slice(1));
-
         this.token = params.token;
     }
 
@@ -112,9 +113,12 @@ class ChangePassword extends Component<ChangePasswordProps, ChangePasswordState>
         e.preventDefault();
 
         if (this.state.passwordsIdentical) {
-            UsersApi.changePassword(this.state.password)
-                .then((isSuccess: boolean) => {
-                    if (isSuccess) {
+            UsersApi.changePassword(this.state.password, this.token)
+                .then((data: AuthData) => {
+                    if (data) {
+                        this.props.updateToken(this.token);
+                        this.props.updateEmail(data.email);
+                        this.props.updateRoles(data.roles);
                         history.push("/cabinet");
                     } else {
                         alert("Не удалось сменить пароль");
@@ -127,7 +131,8 @@ class ChangePassword extends Component<ChangePasswordProps, ChangePasswordState>
 
 const mapDispatchToProps = {
     updateToken: updateToken,
-    updateEmail: updateEmail
+    updateEmail: updateEmail,
+    updateRoles: updateRoles
 };
 
 export default connect(undefined, mapDispatchToProps)(ChangePassword);

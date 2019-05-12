@@ -1,6 +1,7 @@
 import React, {Component, ReactNode} from "react";
 import {connect} from "react-redux";
 import {RootState} from "../../store";
+import "react-bootstrap-table/css/react-bootstrap-table.css";
 import {BootstrapTable, TableHeaderColumn} from "react-bootstrap-table";
 import UserModel from "../../api/models/user-model";
 import UsersApi from "../../api/users-api";
@@ -14,14 +15,15 @@ export interface CabinetAdminUsersState {
 
 class CabinetAdminUsers extends Component<CabinetAdminUsersProps, CabinetAdminUsersState> {
 
-    constructor(props: CabinetAdminUsersProps, context: any) {
-        super(props, context);
+    public constructor(props: CabinetAdminUsersProps) {
+        super(props);
         this.state = {
             users: []
         };
     }
 
     public componentDidMount(): void {
+        // todo Реализовать серверную пагинацию
         UsersApi.get(0, 10)
             .then(users => {
                 this.setState({users});
@@ -30,18 +32,16 @@ class CabinetAdminUsers extends Component<CabinetAdminUsersProps, CabinetAdminUs
 
     public render(): ReactNode {
         return (
-            <div>
-                <BootstrapTable data={this.state.users}>
-                    <TableHeaderColumn dataField="id" isKey>Id</TableHeaderColumn>
-                    <TableHeaderColumn dataField="email">Email</TableHeaderColumn>
-                    <TableHeaderColumn dataField="status">Status</TableHeaderColumn>
-                    <TableHeaderColumn dataField="firstName">Имя</TableHeaderColumn>
-                    <TableHeaderColumn dataField="lastName">Фамилия</TableHeaderColumn>
-                    <TableHeaderColumn dataField="patronymic">Отчество</TableHeaderColumn>
-                    <TableHeaderColumn dataField="birthDateTime">Дата рождения</TableHeaderColumn>
-                    <TableHeaderColumn dataField="employmentDateTime">Дата трудоустройства</TableHeaderColumn>
-                </BootstrapTable>
-            </div>
+            <BootstrapTable data={this.state.users} pagination>
+                <TableHeaderColumn dataField="id" isKey>Id</TableHeaderColumn>
+                <TableHeaderColumn dataField="email">Email</TableHeaderColumn>
+                <TableHeaderColumn dataField="status">Status</TableHeaderColumn>
+                <TableHeaderColumn dataField="firstName">Имя</TableHeaderColumn>
+                <TableHeaderColumn dataField="lastName">Фамилия</TableHeaderColumn>
+                <TableHeaderColumn dataField="patronymic">Отчество</TableHeaderColumn>
+                <TableHeaderColumn dataField="birthDateTime">Дата рождения</TableHeaderColumn>
+                <TableHeaderColumn dataField="employmentDateTime">Дата трудоустройства</TableHeaderColumn>
+            </BootstrapTable>
         );
     }
 

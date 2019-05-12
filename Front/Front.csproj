@@ -33,6 +33,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <CopyToPublishDirectory>Always</CopyToPublishDirectory>
     </Content>
+    <Content Include="App\components\cabinet-admin-invite\CabinetAdminInvite.tsx" />
     <Content Include="App\components\cabinet-admin-users\CabinetAdminUsers.tsx" />
     <Content Include="App\components\cabinet-admin\CabinetAdmin.tsx" />
     <Content Include="App\components\cabinet-consumer\CabinetConsumer.tsx" />

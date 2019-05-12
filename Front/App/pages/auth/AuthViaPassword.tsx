@@ -7,14 +7,16 @@ import Button from "react-bootstrap/lib/Button";
 import FormGroup from "react-bootstrap/lib/FormGroup";
 import FormControl from "react-bootstrap/lib/FormControl";
 import ControlLabel from "react-bootstrap/lib/ControlLabel";
-import {updateEmail, updateToken} from "./actions";
+import {updateEmail, updateRoles, updateToken} from "./actions";
 import AuthApi from "../../api/auth-api";
 import {Link} from "react-router-dom";
-import TokenData from "../../api/models/token-data";
+import {RoleName} from "../../constants/role-name";
+import AuthData from "../../api/models/auth-data";
 
 export interface AuthViaPasswordProps {
     updateToken: (token: string) => void;
     updateEmail: (email: string) => void;
+    updateRoles: (roles: RoleName[]) => void;
 }
 
 class AuthViaPassword extends Component<AuthViaPasswordProps> {
@@ -49,14 +51,14 @@ class AuthViaPassword extends Component<AuthViaPasswordProps> {
 
                 <FormGroup>
                     <Col smOffset={2} sm={8}>
-                        <Button block className="btn-primary" onClick={this.submit}>
+                        <Button block className="btn-primary" onClick={this.login}>
                             Войти
                         </Button>
                     </Col>
                 </FormGroup>
 
                 <FormGroup>
-                    <Button className="btn-link pull-right" onClick={this.submit}>
+                    <Button className="btn-link pull-right" onClick={this.register}>
                         Зарегистрироваться
                     </Button>
                 </FormGroup>
@@ -68,27 +70,35 @@ class AuthViaPassword extends Component<AuthViaPasswordProps> {
 
     private setInputPassword = (input: HTMLInputElement) => this.inputPassword = input;
 
-    private submit = (e: any): void => {
+    private login = (e: any): void => {
         e.preventDefault();
 
         const email: string = this.inputEmail.value;
         const password: string = this.inputPassword.value;
 
         AuthApi.token(email, password)
-            .then((data: TokenData): void => {
+            .then((data: AuthData): void => {
                 if (data) {
                     this.props.updateToken(data.token);
-                    this.props.updateEmail(email);
+                    this.props.updateEmail(data.email);
+                    this.props.updateRoles(data.roles);
                     history.push("/cabinet");
                 }
             });
+    }
+
+    private register = (e: any): void => {
+        e.preventDefault();
+
+        // todo Реализовать подачу заявки на регистрацию
     }
 
 }
 
 const mapDispatchToProps = {
     updateToken: updateToken,
-    updateEmail: updateEmail
+    updateEmail: updateEmail,
+    updateRoles: updateRoles
 };
 
 export default connect(undefined, mapDispatchToProps)(AuthViaPassword);

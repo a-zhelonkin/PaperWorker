@@ -1,6 +1,7 @@
 import ApiBase from "./api-base";
 import {HttpMethod} from "../constants/http-method";
 import UserModel from "./models/user-model";
+import AuthData from "./models/auth-data";
 
 export default class UsersApi extends ApiBase {
 
@@ -16,13 +17,17 @@ export default class UsersApi extends ApiBase {
             });
     }
 
-    public static changePassword(password: string): Promise<boolean> {
+    public static changePassword(password: string, token?: string): Promise<AuthData> {
         return fetch(`${this.SERVER_HOST}/api/users/change-password`, {
             method: HttpMethod.Put,
-            headers: this.authorizedHeaders(),
+            headers: this.authorizedHeaders(token),
             body: JSON.stringify(password)
         })
-            .then((response: Response) => response.ok);
+            .then((response: Response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+            });
     }
 
 }

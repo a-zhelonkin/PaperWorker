@@ -15,6 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Account\AuthDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Account\AuthInfoDto.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Account\RoleDto.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Account\UserDto.cs" />
   </ItemGroup>

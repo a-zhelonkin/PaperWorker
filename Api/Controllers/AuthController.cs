@@ -1,5 +1,5 @@
 using Api.Extensions;
-using Api.Models;
+using Api.Models.Account;
 using Auth;
 using Core;
 using Database;
@@ -39,7 +39,17 @@ namespace Api.Controllers
                 return Unauthorized();
             }
 
-            return Ok(new {email});
+            var user = _unitOfWork.UserRepository.GetWithRoles(email);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(new AuthInfoDto
+            {
+                Email = email,
+                Roles = user.GetRoleNames()
+            });
         }
 
         [AllowAnonymous]
@@ -53,7 +63,18 @@ namespace Api.Controllers
                 return Unauthorized();
             }
 
-            return Ok(new {token});
+            var user = _unitOfWork.UserRepository.GetWithRoles(authDto.Email);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(new AuthInfoDto
+            {
+                Token = token,
+                Email = authDto.Email,
+                Roles = user.GetRoleNames()
+            });
         }
 
         [AllowAnonymous]

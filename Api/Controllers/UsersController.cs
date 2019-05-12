@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using Api.Extensions;
-using Api.Models;
+using Api.Models.Account;
 using Auth;
 using Core;
 using Database;
@@ -37,7 +37,7 @@ namespace Api.Controllers
             }
 
             var userRepository = _unitOfWork.UserRepository;
-            var user = userRepository.Get(email);
+            var user = userRepository.GetWithRoles(email);
             if (user == null)
             {
                 return Unauthorized();
@@ -47,7 +47,11 @@ namespace Api.Controllers
             userRepository.Update(user);
             _unitOfWork.Save();
 
-            return Ok();
+            return Ok(new AuthInfoDto
+            {
+                Email = email,
+                Roles = user.GetRoleNames()
+            });
         }
 
         [Authorize(Roles = nameof(RoleName.Admin))]

@@ -71,6 +71,7 @@
       <e p="Api.Models" t="IncludeRecursive">
         <e p="Account" t="Include">
           <e p="AuthDto.cs" t="Include" />
+          <e p="AuthInfoDto.cs" t="Include" />
           <e p="RoleDto.cs" t="Include" />
           <e p="UserDto.cs" t="Include" />
         </e>
@@ -178,8 +179,7 @@
             <e p="auth-api.ts" t="Include" />
             <e p="invites-api.ts" t="Include" />
             <e p="Models" t="Include">
-              <e p="email-data.ts" t="Include" />
-              <e p="token-data.ts" t="Include" />
+              <e p="auth-data.ts" t="Include" />
               <e p="user-model.ts" t="Include" />
             </e>
             <e p="profiles-api.ts" t="Include" />
@@ -193,6 +193,9 @@
             </e>
             <e p="cabinet-admin" t="Include">
               <e p="CabinetAdmin.tsx" t="Include" />
+            </e>
+            <e p="cabinet-admin-invite" t="Include">
+              <e p="CabinetAdminInvite.tsx" t="Include" />
             </e>
             <e p="cabinet-admin-users" t="Include">
               <e p="CabinetAdminUsers.tsx" t="Include" />
@@ -285,12 +288,10 @@
           <e p="2019-03-05.log" t="Include" />
           <e p="2019-03-08.log" t="Include" />
           <e p="2019-03-09.log" t="Include" />
+          <e p="2019-05-12.log" t="Include" />
         </e>
         <e p="Middleware" t="Include">
           <e p="JwtFromCookieMiddleware.cs" t="Include" />
-        </e>
-        <e p="Models" t="Include">
-          <e p="HomeIndexModel.cs" t="Include" />
         </e>
         <e p="node_modules" t="ExcludeRecursive">
           <e p="@babel\cli" t="IncludeRecursive" />
@@ -447,12 +448,9 @@
             <e p="invites-api.js" t="Include" />
             <e p="invites-api.js.map" t="Include" />
             <e p="Models" t="Include">
-              <e p="email-data.d.ts" t="Include" />
-              <e p="email-data.js" t="Include" />
-              <e p="email-data.js.map" t="Include" />
-              <e p="token-data.d.ts" t="Include" />
-              <e p="token-data.js" t="Include" />
-              <e p="token-data.js.map" t="Include" />
+              <e p="auth-data.d.ts" t="Include" />
+              <e p="auth-data.js" t="Include" />
+              <e p="auth-data.js.map" t="Include" />
               <e p="user-model.d.ts" t="Include" />
               <e p="user-model.js" t="Include" />
               <e p="user-model.js.map" t="Include" />
@@ -478,6 +476,11 @@
               <e p="CabinetAdmin.d.ts" t="Include" />
               <e p="CabinetAdmin.js" t="Include" />
               <e p="CabinetAdmin.js.map" t="Include" />
+            </e>
+            <e p="cabinet-admin-invite" t="Include">
+              <e p="CabinetAdminInvite.d.ts" t="Include" />
+              <e p="CabinetAdminInvite.js" t="Include" />
+              <e p="CabinetAdminInvite.js.map" t="Include" />
             </e>
             <e p="cabinet-admin-users" t="Include">
               <e p="CabinetAdminUsers.d.ts" t="Include" />
@@ -603,8 +606,6 @@
           </e>
           <e p="store" t="Include">
             <e p="history.d.ts" t="Include" />
-            <e p="history.js" t="Include" />
-            <e p="history.js.map" t="Include" />
             <e p="index.d.ts" t="Include" />
             <e p="index.js" t="Include" />
             <e p="index.js.map" t="Include" />

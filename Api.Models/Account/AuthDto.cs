@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Api.Models
+namespace Api.Models.Account
 {
     public class AuthDto
     {

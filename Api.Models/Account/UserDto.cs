@@ -4,7 +4,7 @@ using Core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Api.Models
+namespace Api.Models.Account
 {
     public class UserDto : EntityDto
     {

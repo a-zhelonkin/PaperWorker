@@ -8,7 +8,7 @@ export interface InviteStatus {
 export default class InvitesApi extends ApiBase {
 
     public static getStatus(token: string): Promise<InviteStatus> {
-        return fetch(`${this.SERVER_HOST}/api/invites`, {
+        return fetch(`${this.SERVER_HOST}/api/invites/get-status`, {
             method: HttpMethod.Get,
             headers: this.authorizedHeaders(token)
         })
@@ -17,6 +17,18 @@ export default class InvitesApi extends ApiBase {
                     return response.json();
                 }
             });
+    }
+
+    public static invite(email: string, roles: string[]): Promise<boolean> {
+        return fetch(`${this.SERVER_HOST}/api/invites/invite`, {
+            method: HttpMethod.Post,
+            headers: this.authorizedHeaders(),
+            body: JSON.stringify({
+                email,
+                roles
+            })
+        })
+            .then((response: Response) => response.ok);
     }
 
 }

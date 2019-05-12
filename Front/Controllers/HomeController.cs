@@ -1,7 +1,6 @@
-using System.Linq;
 using Api.Extensions;
+using Api.Models.Account;
 using Database;
-using Front.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,21 +21,19 @@ namespace Front.Controllers
             var email = this.GetEmail();
             if (email == null)
             {
-                return View(new HomeIndexModel());
+                return View(new AuthInfoDto());
             }
 
             var user = _unitOfWork.UserRepository.GetWithRoles(email);
             if (user == null)
             {
-                return View(new HomeIndexModel());
+                return View(new AuthInfoDto());
             }
 
-            return View(new HomeIndexModel
+            return View(new AuthInfoDto
             {
                 Email = email,
-                Roles = user.Roles
-                            .Select(x => x.Role.Name)
-                            .ToArray()
+                Roles = user.GetRoleNames()
             });
         }
     }

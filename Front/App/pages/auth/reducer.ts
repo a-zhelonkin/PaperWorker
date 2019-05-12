@@ -45,6 +45,12 @@ export default combineReducers<AuthState, AuthAction>({
     },
     roles: (roles: RoleName[] = [], action: any) => {
         switch (action.type) {
+            case getType(authActions.updateRoles):
+                return action.payload;
+
+            case getType(authActions.logout):
+                return [];
+
             default:
                 return roles;
         }

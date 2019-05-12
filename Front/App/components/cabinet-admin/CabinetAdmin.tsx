@@ -4,6 +4,7 @@ import {RootState} from "../../store";
 import Tabs from "react-bootstrap/lib/Tabs";
 import Tab from "react-bootstrap/lib/Tab";
 import CabinetAdminUsers from "../cabinet-admin-users/CabinetAdminUsers";
+import CabinetAdminInvite from "../cabinet-admin-invite/CabinetAdminInvite";
 
 export interface CabinetAdminProps {
 }
@@ -17,7 +18,10 @@ class CabinetAdmin extends Component<CabinetAdminProps> {
                     <Tab eventKey="users" title="Пользователи">
                         <CabinetAdminUsers/>
                     </Tab>
-                </Tabs>;
+                    <Tab eventKey="invite" title="Приглашение">
+                        <CabinetAdminInvite/>
+                    </Tab>
+                </Tabs>
             </div>
         );
     }

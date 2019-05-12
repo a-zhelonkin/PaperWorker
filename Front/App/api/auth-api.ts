@@ -1,11 +1,10 @@
 import ApiBase from "./api-base";
 import {HttpMethod} from "../constants/http-method";
-import TokenData from "./models/token-data";
-import EmailData from "./models/email-data";
+import AuthData from "./models/auth-data";
 
 export default class AuthApi extends ApiBase {
 
-    public static token(email: string, password: string): Promise<TokenData> {
+    public static token(email: string, password: string): Promise<AuthData> {
         return fetch(`${this.SERVER_HOST}/api/auth/token`, {
             method: HttpMethod.Post,
             headers: this.DEFAULT_HEADERS,
@@ -21,7 +20,7 @@ export default class AuthApi extends ApiBase {
             });
     }
 
-    public static email(token: string): Promise<EmailData> {
+    public static email(token: string): Promise<AuthData> {
         return fetch(`${this.SERVER_HOST}/api/auth/email`, {
             method: HttpMethod.Get,
             headers: this.authorizedHeaders(token)

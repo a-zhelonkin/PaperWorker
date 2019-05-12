@@ -2,6 +2,7 @@
 using System.Linq;
 using Api.Mappers;
 using Api.Models;
+using Api.Models.Account;
 using Auth;
 using Core;
 using Database;
@@ -40,8 +41,7 @@ namespace Front
             services.AddScoped<IMapper<User, UserDto>, UserDtoMapper>();
             services.AddScoped<IMapper<Profile, ProfileDto>, ProfileDtoMapper>();
             services.AddScoped<IMapper<ProfileDto, Profile>, DtoProfileMapper>();
-            services.AddScoped<IAppConfigurations, AppConfigurations>();
-            services.Configure<AppConfigurations>(_configuration.GetSection(nameof(AppConfigurations)));
+            services.AddScoped<IAppConfigurations, AppConfigurations>(provider => _configuration.GetSection(nameof(AppConfigurations)).Get<AppConfigurations>());
 
             services.AddEmailService();
 
