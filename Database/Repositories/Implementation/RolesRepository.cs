@@ -3,7 +3,7 @@ using Core;
 using Database.Models.Account;
 using Microsoft.EntityFrameworkCore;
 
-namespace Database.Repositories
+namespace Database.Repositories.Implementation
 {
     public class RolesRepository : IRolesRepository
     {

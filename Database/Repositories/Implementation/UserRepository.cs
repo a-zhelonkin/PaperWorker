@@ -3,7 +3,7 @@ using System.Linq;
 using Database.Models.Account;
 using Microsoft.EntityFrameworkCore;
 
-namespace Database.Repositories
+namespace Database.Repositories.Implementation
 {
     public class UserRepository : IUserRepository
     {

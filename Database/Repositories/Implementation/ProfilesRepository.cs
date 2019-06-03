@@ -3,7 +3,7 @@ using System.Linq;
 using Database.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Database.Repositories
+namespace Database.Repositories.Implementation
 {
     public class ProfilesRepository : IProfilesRepository
     {

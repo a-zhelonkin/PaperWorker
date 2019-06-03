@@ -131,14 +131,28 @@
         </e>
         <e p="PaperWorkerDbContext.cs" t="Include" />
         <e p="Repositories" t="Include">
-          <e p="EmailMessagesRepository.cs" t="Include" />
+          <e p="IAddressesRepository.cs" t="Include" />
+          <e p="IConsumersRepository.cs" t="Include" />
           <e p="IEmailMessagesRepository.cs" t="Include" />
+          <e p="ILocalitiesRepository.cs" t="Include" />
+          <e p="Implementation" t="Include">
+            <e p="AddressesRepository.cs" t="Include" />
+            <e p="ConsumersRepository.cs" t="Include" />
+            <e p="EmailMessagesRepository.cs" t="Include" />
+            <e p="LocalitiesRepository.cs" t="Include" />
+            <e p="ProfilesRepository.cs" t="Include" />
+            <e p="RolesRepository.cs" t="Include" />
+            <e p="StreetsRepository.cs" t="Include" />
+            <e p="StructuresRepository.cs" t="Include" />
+            <e p="TerritoriesRepository.cs" t="Include" />
+            <e p="UserRepository.cs" t="Include" />
+          </e>
           <e p="IProfilesRepository.cs" t="Include" />
           <e p="IRolesRepository.cs" t="Include" />
+          <e p="IStreetsRepository.cs" t="Include" />
+          <e p="IStructuresRepository.cs" t="Include" />
+          <e p="ITerritoriesRepository.cs" t="Include" />
           <e p="IUserRepository.cs" t="Include" />
-          <e p="ProfilesRepository.cs" t="Include" />
-          <e p="RolesRepository.cs" t="Include" />
-          <e p="UserRepository.cs" t="Include" />
         </e>
         <e p="UnitOfWork.cs" t="Include" />
       </e>
