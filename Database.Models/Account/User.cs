@@ -15,6 +15,9 @@ namespace Database.Models.Account
     public class User : Entity
     {
         [Required]
+        public Guid ControlId { get; set; }
+        
+        [Required]
         public Guid ProfileId { get; set; }
 
         /// <summary>
@@ -38,6 +41,17 @@ namespace Database.Models.Account
         /// Набор ролей
         /// </summary>
         public virtual ICollection<UserRole> Roles { get; set; }
+
+        /// <summary>
+        /// Набор ТО
+        /// </summary>
+        public virtual ICollection<MaintenanceCard> MaintenanceCards { get; set; }
+
+        /// <summary>
+        /// Управление
+        /// </summary>
+        [ForeignKey(nameof(ControlId))]
+        public virtual Control Control { get; set; }
 
         /// <summary>
         /// Профиль

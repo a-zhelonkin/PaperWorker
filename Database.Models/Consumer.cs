@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Database.Models.Addressing;
@@ -14,7 +15,7 @@ namespace Database.Models
     {
         [Required]
         public Guid ProfileId { get; set; }
-        
+
         [Required]
         public Guid AddressId { get; set; }
 
@@ -34,5 +35,15 @@ namespace Database.Models
         /// </summary>
         [ForeignKey(nameof(AddressId))]
         public virtual Address Address { get; set; }
+
+        /// <summary>
+        /// Набор газового оборудования
+        /// </summary>
+        public virtual ICollection<ConsumerGasEquipment> GasEquipments { get; set; }
+
+        /// <summary>
+        /// Набор ТО
+        /// </summary>
+        public virtual ICollection<MaintenanceCard> MaintenanceCards { get; set; }
     }
 }

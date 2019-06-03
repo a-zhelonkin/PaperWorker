@@ -4,14 +4,16 @@ using Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Database.Migrations
 {
     [DbContext(typeof(PaperWorkerDbContext))]
-    partial class PaperWorkerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190603215106_GasStructure")]
+    partial class GasStructure
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -96,8 +98,6 @@ namespace Database.Migrations
 
                     b.Property<DateTime?>("Deleted");
 
-                    b.Property<int?>("Number");
-
                     b.Property<Guid>("StructureId");
 
                     b.HasKey("Id");
@@ -151,8 +151,6 @@ namespace Database.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime?>("Deleted");
-
-                    b.Property<int>("Number");
 
                     b.Property<Guid>("StreetId");
 

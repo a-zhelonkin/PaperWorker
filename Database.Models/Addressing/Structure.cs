@@ -16,7 +16,7 @@ namespace Database.Models.Addressing
         public Guid StreetId { get; set; }
 
         [Required]
-        private int Number { get; set; }
+        public int Number { get; set; }
 
         [ForeignKey(nameof(StreetId))]
         public virtual Street Street { get; set; }

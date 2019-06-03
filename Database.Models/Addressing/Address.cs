@@ -15,7 +15,7 @@ namespace Database.Models.Addressing
         [Required]
         public Guid StructureId { get; set; }
 
-        private int? Number { get; set; }
+        public int? Number { get; set; }
 
         [ForeignKey(nameof(StructureId))]
         public virtual Structure Structure { get; set; }

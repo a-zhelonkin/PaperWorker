@@ -16,6 +16,7 @@ namespace Database
     /// </summary>
     public class PaperWorkerDbContext : DbContext
     {
+        public virtual DbSet<Control> Controls { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Profile> Profiles { get; set; }
@@ -26,6 +27,10 @@ namespace Database
         public virtual DbSet<Street> Streets { get; set; }
         public virtual DbSet<Locality> Localities { get; set; }
         public virtual DbSet<Territory> Territories { get; set; }
+        public virtual DbSet<GasEquipment> GasEquipments { get; set; }
+        public virtual DbSet<Manufacturer> Manufacturers { get; set; }
+        public virtual DbSet<Maintenance> Maintenances { get; set; }
+        public virtual DbSet<MaintenanceCard> MaintenanceCards { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -52,13 +57,36 @@ namespace Database
             var roleNameConverter = new EnumToStringConverter<RoleName>();
             var userStatusConverter = new EnumToStringConverter<UserStatus>();
             var territoryTypeConverter = new EnumToStringConverter<TerritoryType>();
+            var gasEquipmentTypeConverter = new EnumToStringConverter<GasEquipmentType>();
+
+            #region Control
+
+            modelBuilder.Entity<Control>()
+                        .HasMany(control => control.Users)
+                        .WithOne(user => user.Control)
+                        .HasForeignKey(user => user.ControlId);
+
+            modelBuilder.Entity<Control>()
+                        .HasData(new Control
+                        {
+                            Id = godId,
+                            Number = 1
+                        });
+
+            #endregion
 
             #region User
 
             modelBuilder.Entity<User>()
                         .HasOne(profile => profile.Profile)
                         .WithOne()
-                        .HasForeignKey<User>(user => user.Id);
+                        .HasForeignKey<User>(user => user.Id)
+                        .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<User>()
+                        .HasMany(user => user.MaintenanceCards)
+                        .WithOne(maintenanceCard => maintenanceCard.User)
+                        .HasForeignKey(maintenanceCard => maintenanceCard.UserId);
 
             modelBuilder.Entity<User>()
                         .Property(user => user.Status)
@@ -68,6 +96,7 @@ namespace Database
                         .HasData(new User
                         {
                             Id = godId,
+                            ControlId = godId,
                             ProfileId = godId,
                             Email = "Zhelonkin.ru@yandex.ru",
                             Password = "pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=",
@@ -111,11 +140,17 @@ namespace Database
             modelBuilder.Entity<Consumer>()
                         .HasOne(profile => profile.Profile)
                         .WithOne()
-                        .HasForeignKey<Consumer>(consumer => consumer.Id);
+                        .HasForeignKey<Consumer>(consumer => consumer.Id)
+                        .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Consumer>()
                         .HasOne(consumer => consumer.Address)
                         .WithMany(profile => profile.Consumers);
+
+            modelBuilder.Entity<Consumer>()
+                        .HasMany(consumer => consumer.MaintenanceCards)
+                        .WithOne(maintenanceCard => maintenanceCard.Consumer)
+                        .HasForeignKey(maintenanceCard => maintenanceCard.ConsumerId);
 
             #endregion
 
@@ -175,6 +210,45 @@ namespace Database
             modelBuilder.Entity<Territory>()
                         .Property(territory => territory.Type)
                         .HasConversion(territoryTypeConverter);
+
+            #endregion
+
+            #region GasEquipment
+
+            modelBuilder.Entity<GasEquipment>()
+                        .HasOne(gasEquipment => gasEquipment.Manufacturer)
+                        .WithMany(manufacturer => manufacturer.GasEquipments)
+                        .HasForeignKey(gasEquipment => gasEquipment.ManufacturerId);
+
+            modelBuilder.Entity<GasEquipment>()
+                        .Property(gasEquipment => gasEquipment.Type)
+                        .HasConversion(gasEquipmentTypeConverter);
+
+            #endregion
+
+            #region ConsumerGasEquipment
+
+            modelBuilder.Entity<ConsumerGasEquipment>()
+                        .HasKey(consumerGasEquipment => new {consumerGasEquipment.ConsumerId, consumerGasEquipment.GasEquipmentId});
+
+            modelBuilder.Entity<ConsumerGasEquipment>()
+                        .HasOne(consumerGasEquipment => consumerGasEquipment.Consumer)
+                        .WithMany(consumer => consumer.GasEquipments)
+                        .HasForeignKey(consumerGasEquipment => consumerGasEquipment.ConsumerId);
+
+            modelBuilder.Entity<ConsumerGasEquipment>()
+                        .HasOne(consumerGasEquipment => consumerGasEquipment.GasEquipment)
+                        .WithMany()
+                        .HasForeignKey(consumerGasEquipment => consumerGasEquipment.GasEquipmentId);
+
+            #endregion
+
+            #region MaintenanceCard
+
+            modelBuilder.Entity<MaintenanceCard>()
+                        .HasMany(maintenanceCard => maintenanceCard.Maintenances)
+                        .WithOne(maintenance => maintenance.MaintenanceCard)
+                        .HasForeignKey(maintenance => maintenance.MaintenanceCardId);
 
             #endregion
 

@@ -13,8 +13,10 @@ namespace Database.Models.Account
         [Required]
         public Guid RoleId { get; set; }
 
+        [ForeignKey(nameof(UserId))]
         public virtual User User { get; set; }
 
+        [ForeignKey(nameof(RoleId))]
         public virtual Role Role { get; set; }
     }
 }

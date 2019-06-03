@@ -102,6 +102,7 @@
       <e p="core" t="IncludeRecursive">
         <e p="Core.projitems" t="Include" />
         <e p="Core.shproj" t="IncludeRecursive" />
+        <e p="GasEquipmentType.cs" t="Include" />
         <e p="Infra" t="Include">
           <e p="IConfigurationProvider.cs" t="Include" />
           <e p="IFactory.cs" t="Include" />
@@ -120,6 +121,10 @@
         <e p="Migrations" t="Include">
           <e p="20190603150904_Initial.cs" t="Include" />
           <e p="20190603150904_Initial.Designer.cs" t="Include" />
+          <e p="20190603215106_GasStructure.cs" t="Include" />
+          <e p="20190603215106_GasStructure.Designer.cs" t="Include" />
+          <e p="20190603232216_FixPrivate.cs" t="Include" />
+          <e p="20190603232216_FixPrivate.Designer.cs" t="Include" />
           <e p="PaperWorkerDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -175,8 +180,14 @@
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Consumer.cs" t="Include" />
+        <e p="ConsumerGasEquipment.cs" t="Include" />
+        <e p="Control.cs" t="Include" />
         <e p="Database.Models.csproj" t="IncludeRecursive" />
         <e p="EmailMessage.cs" t="Include" />
+        <e p="GasEquipment.cs" t="Include" />
+        <e p="Maintenance.cs" t="Include" />
+        <e p="MaintenanceCard.cs" t="Include" />
+        <e p="Manufacturer.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.1" t="Include">
@@ -308,6 +319,7 @@
           <e p="2019-05-30.log" t="Include" />
           <e p="2019-05-31.log" t="Include" />
           <e p="2019-06-03.log" t="Include" />
+          <e p="2019-06-04.log" t="Include" />
         </e>
         <e p="Middleware" t="Include">
           <e p="JwtFromCookieMiddleware.cs" t="Include" />

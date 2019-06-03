@@ -9,6 +9,7 @@
     <Import_RootNamespace>Core</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)GasEquipmentType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infra\IConfigurationProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infra\IFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infra\IMapper.cs" />
