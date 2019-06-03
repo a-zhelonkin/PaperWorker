@@ -7,6 +7,5 @@ export default interface UserModel {
     readonly firstName: string;
     readonly lastName: string;
     readonly patronymic: string;
-    readonly birthDateTime: string;
-    readonly employmentDateTime: string;
+    readonly phoneNumber: string;
 }

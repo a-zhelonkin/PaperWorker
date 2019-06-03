@@ -1,6 +1,8 @@
 using System.Linq;
+using Api.Models;
 using Api.Models.Account;
 using Core;
+using Database.Models;
 using Database.Models.Account;
 
 namespace Api.Mappers
@@ -13,11 +15,10 @@ namespace Api.Mappers
             Email = user.Email,
             Status = user.Status,
             Roles = user.Roles.Select(x => x.Role.Name).ToArray(),
-            FirstName = user.Profile?.FirstName,
-            LastName = user.Profile?.LastName,
-            Patronymic = user.Profile?.Patronymic,
-            BirthDateTime = user.Profile?.BirthDateTime,
-            EmploymentDateTime = user.Profile?.EmploymentDateTime
+            FirstName = user.Profile.FirstName,
+            LastName = user.Profile.LastName,
+            Patronymic = user.Profile.Patronymic,
+            PhoneNumber = user.Profile.PhoneNumber
         };
     }
 }

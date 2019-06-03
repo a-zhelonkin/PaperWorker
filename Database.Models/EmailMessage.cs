@@ -7,6 +7,9 @@ using Database.Models.Base;
 
 namespace Database.Models
 {
+    /// <summary>
+    /// Сообщение, которое необходимо отрпавить пользователю
+    /// </summary>
     [Table("EmailMessages")]
     public class EmailMessage : Entity
     {

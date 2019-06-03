@@ -1,5 +1,4 @@
-﻿using System;
-using Api.Models.Base;
+﻿using Api.Models.Base;
 using Core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -27,10 +26,7 @@ namespace Api.Models.Account
         [JsonProperty("patronymic")]
         public string Patronymic { get; set; }
 
-        [JsonProperty("birthDateTime")]
-        public DateTime? BirthDateTime { get; set; }
-
-        [JsonProperty("employmentDateTime")]
-        public DateTime? EmploymentDateTime { get; set; }
+        [JsonProperty("phoneNumber")]
+        public string PhoneNumber { get; set; }
     }
 }

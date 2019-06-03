@@ -39,8 +39,7 @@ class CabinetAdminUsers extends Component<CabinetAdminUsersProps, CabinetAdminUs
                 <TableHeaderColumn dataField="firstName">Имя</TableHeaderColumn>
                 <TableHeaderColumn dataField="lastName">Фамилия</TableHeaderColumn>
                 <TableHeaderColumn dataField="patronymic">Отчество</TableHeaderColumn>
-                <TableHeaderColumn dataField="birthDateTime">Дата рождения</TableHeaderColumn>
-                <TableHeaderColumn dataField="employmentDateTime">Дата трудоустройства</TableHeaderColumn>
+                <TableHeaderColumn dataField="phoneNumber">Номер телефона</TableHeaderColumn>
             </BootstrapTable>
         );
     }

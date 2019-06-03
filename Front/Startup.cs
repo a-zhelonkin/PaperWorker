@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Api.Mappers;
 using Api.Models;
 using Api.Models.Account;
@@ -8,7 +7,6 @@ using Core;
 using Database;
 using Database.Models;
 using Database.Models.Account;
-using Database.Repositories;
 using Front.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -63,7 +61,7 @@ namespace Front
                     });
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IUnitOfWork unitOfWork)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseMiddleware<JwtFromCookieMiddleware>();
 
@@ -79,21 +77,6 @@ namespace Front
                 routes.MapRoute("api", "api/{controller}/{action}/{id?}");
                 routes.MapSpaFallbackRoute("spa-fallback", new {controller = "Home", action = "Index"});
             });
-
-            CreateRoles(unitOfWork.RolesRepository);
-            unitOfWork.Save();
-        }
-
-        private static void CreateRoles(IRolesRepository rolesRepository)
-        {
-            var roleNames = Enum.GetValues(typeof(RoleName)).Cast<RoleName>();
-
-            foreach (var roleName in roleNames)
-            {
-                if (rolesRepository.Exists(roleName)) continue;
-
-                rolesRepository.Add(new Role {Name = roleName});
-            }
         }
     }
 }

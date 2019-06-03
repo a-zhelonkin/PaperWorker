@@ -16,7 +16,7 @@ namespace Database.Repositories
 
         public Profile Get(Guid userId)
         {
-            return _profiles.FirstOrDefault(profile => profile.UserId == userId);
+            return _profiles.FirstOrDefault(profile => profile.Id == userId);
         }
 
         public void Update(Profile profile)

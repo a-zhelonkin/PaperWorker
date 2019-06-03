@@ -34,6 +34,7 @@
     <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\v8.js" t="IncludeRecursive" />
     <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\vm.js" t="IncludeRecursive" />
     <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\zlib.js" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\scratches" t="IncludeRecursive" />
     <e p="C:\Users\zhelonkin\.Rider2018.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\zhelonkin\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_PaperWorker.-761895311.00" t="ExcludeRecursive" />
     <e p="C:\Users\zhelonkin\RiderProjects\PaperWorker" t="IncludeFlat">
@@ -108,6 +109,7 @@
         </e>
         <e p="MessageType.cs" t="Include" />
         <e p="RoleName.cs" t="Include" />
+        <e p="TerritoryType.cs" t="Include" />
         <e p="UserStatus.cs" t="Include" />
       </e>
       <e p="Database" t="IncludeRecursive">
@@ -116,18 +118,8 @@
         <e p="db.settings.json" t="Include" />
         <e p="IUnitOfWork.cs" t="Include" />
         <e p="Migrations" t="Include">
-          <e p="20181129101036_Init.cs" t="Include" />
-          <e p="20181129101036_Init.Designer.cs" t="Include" />
-          <e p="20181129144800_RepairRoles.cs" t="Include" />
-          <e p="20181129144800_RepairRoles.Designer.cs" t="Include" />
-          <e p="20181205133925_RenameUsernameToEmail.cs" t="Include" />
-          <e p="20181205133925_RenameUsernameToEmail.Designer.cs" t="Include" />
-          <e p="20181219153622_AddedInviteAndProfile.cs" t="Include" />
-          <e p="20181219153622_AddedInviteAndProfile.Designer.cs" t="Include" />
-          <e p="20190104104053_MoveStatusToUser.cs" t="Include" />
-          <e p="20190104104053_MoveStatusToUser.Designer.cs" t="Include" />
-          <e p="20190224203055_AddEmailMessages.cs" t="Include" />
-          <e p="20190224203055_AddEmailMessages.Designer.cs" t="Include" />
+          <e p="20190603150904_Initial.cs" t="Include" />
+          <e p="20190603150904_Initial.Designer.cs" t="Include" />
           <e p="PaperWorkerDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -156,10 +148,19 @@
           <e p="User.cs" t="Include" />
           <e p="UserRole.cs" t="Include" />
         </e>
+        <e p="Addressing" t="Include">
+          <e p="Address.cs" t="Include" />
+          <e p="Locality.cs" t="Include" />
+          <e p="Street.cs" t="Include" />
+          <e p="Structure.cs" t="Include" />
+          <e p="Territory.cs" t="Include" />
+        </e>
         <e p="base" t="Include">
           <e p="Entity.cs" t="Include" />
+          <e p="NamedEntity.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Consumer.cs" t="Include" />
         <e p="Database.Models.csproj" t="IncludeRecursive" />
         <e p="EmailMessage.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
@@ -289,6 +290,10 @@
           <e p="2019-03-08.log" t="Include" />
           <e p="2019-03-09.log" t="Include" />
           <e p="2019-05-12.log" t="Include" />
+          <e p="2019-05-15.log" t="Include" />
+          <e p="2019-05-30.log" t="Include" />
+          <e p="2019-05-31.log" t="Include" />
+          <e p="2019-06-03.log" t="Include" />
         </e>
         <e p="Middleware" t="Include">
           <e p="JwtFromCookieMiddleware.cs" t="Include" />
@@ -319,6 +324,8 @@
             <e p="react-router-bootstrap" t="IncludeRecursive" />
             <e p="react-router-dom" t="IncludeRecursive" />
             <e p="react-router-redux" t="IncludeRecursive" />
+            <e p="react-select" t="IncludeRecursive" />
+            <e p="react-transition-group" t="IncludeRecursive" />
           </e>
           <e p="babel-loader" t="IncludeRecursive" />
           <e p="bootstrap" t="IncludeRecursive" />
@@ -343,6 +350,7 @@
           <e p="react-router-bootstrap" t="IncludeRecursive" />
           <e p="react-router-dom" t="IncludeRecursive" />
           <e p="react-router-redux" t="IncludeRecursive" />
+          <e p="react-select" t="IncludeRecursive" />
           <e p="redux" t="IncludeRecursive" />
           <e p="redux-thunk" t="IncludeRecursive" />
           <e p="sass-loader" t="IncludeRecursive" />
@@ -451,6 +459,9 @@
               <e p="auth-data.d.ts" t="Include" />
               <e p="auth-data.js" t="Include" />
               <e p="auth-data.js.map" t="Include" />
+              <e p="profile-model.d.ts" t="Include" />
+              <e p="profile-model.js" t="Include" />
+              <e p="profile-model.js.map" t="Include" />
               <e p="user-model.d.ts" t="Include" />
               <e p="user-model.js" t="Include" />
               <e p="user-model.js.map" t="Include" />
@@ -606,6 +617,8 @@
           </e>
           <e p="store" t="Include">
             <e p="history.d.ts" t="Include" />
+            <e p="history.js" t="Include" />
+            <e p="history.js.map" t="Include" />
             <e p="index.d.ts" t="Include" />
             <e p="index.js" t="Include" />
             <e p="index.js.map" t="Include" />

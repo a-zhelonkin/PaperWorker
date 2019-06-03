@@ -62,8 +62,7 @@ namespace Api.Controllers
                 }).ToArray(),
                 Profile = new Profile
                 {
-                    UserId = userId,
-                    EmploymentDateTime = DateTime.Now
+                    Id = userId
                 }
             });
 

@@ -1,6 +1,6 @@
 using Api.Models;
-using Database.Models;
 using Core;
+using Database.Models;
 
 namespace Api.Mappers
 {
@@ -11,8 +11,7 @@ namespace Api.Mappers
             FirstName = profile.FirstName,
             LastName = profile.LastName,
             Patronymic = profile.Patronymic,
-            BirthDateTime = profile.BirthDateTime,
-            EmploymentDateTime = profile.EmploymentDateTime
+            PhoneNumber = profile.PhoneNumber
         };
     }
 }

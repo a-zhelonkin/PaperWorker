@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,6 +14,9 @@ namespace Database.Models.Account
     [Table("Users")]
     public class User : Entity
     {
+        [Required]
+        public Guid ProfileId { get; set; }
+
         /// <summary>
         /// Почтовый адрес
         /// </summary>
@@ -38,6 +42,7 @@ namespace Database.Models.Account
         /// <summary>
         /// Профиль
         /// </summary>
+        [ForeignKey(nameof(ProfileId))]
         public virtual Profile Profile { get; set; }
 
         /// <summary>

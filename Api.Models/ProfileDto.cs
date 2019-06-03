@@ -20,10 +20,7 @@ namespace Api.Models
         [JsonProperty("patronymic")]
         public string Patronymic { get; set; }
 
-        [JsonProperty("birthDateTime")]
-        public DateTime BirthDateTime { get; set; }
-
-        [JsonProperty("employmentDateTime")]
-        public DateTime EmploymentDateTime { get; set; }
+        [JsonProperty("phoneNumber")]
+        public string PhoneNumber { get; set; }
     }
 }
