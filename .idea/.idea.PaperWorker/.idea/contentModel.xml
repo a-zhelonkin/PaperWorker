@@ -138,13 +138,23 @@
         <e p="Repositories" t="Include">
           <e p="IAddressesRepository.cs" t="Include" />
           <e p="IConsumersRepository.cs" t="Include" />
+          <e p="IControlsRepository.cs" t="Include" />
           <e p="IEmailMessagesRepository.cs" t="Include" />
+          <e p="IGasEquipmentsRepository.cs" t="Include" />
           <e p="ILocalitiesRepository.cs" t="Include" />
+          <e p="IMaintenanceCardsRepository.cs" t="Include" />
+          <e p="IMaintenancesRepossitory.cs" t="Include" />
+          <e p="IManufacturersRepository.cs" t="Include" />
           <e p="Implementation" t="Include">
             <e p="AddressesRepository.cs" t="Include" />
             <e p="ConsumersRepository.cs" t="Include" />
+            <e p="ControlsRepository.cs" t="Include" />
             <e p="EmailMessagesRepository.cs" t="Include" />
+            <e p="GasEquipmentsRepository.cs" t="Include" />
             <e p="LocalitiesRepository.cs" t="Include" />
+            <e p="MaintenanceCardsRepository.cs" t="Include" />
+            <e p="MaintenancesRepossitory.cs" t="Include" />
+            <e p="ManufacturersRepository.cs" t="Include" />
             <e p="ProfilesRepository.cs" t="Include" />
             <e p="RolesRepository.cs" t="Include" />
             <e p="StreetsRepository.cs" t="Include" />
@@ -305,22 +315,6 @@
         <e p="favicon.ico" t="Include" />
         <e p="Front.csproj" t="IncludeRecursive" />
         <e p="log4net.config" t="Include" />
-        <e p="logs" t="Include">
-          <e p="2019-02-03.log" t="Include" />
-          <e p="2019-02-04.log" t="Include" />
-          <e p="2019-02-24.log" t="Include" />
-          <e p="2019-02-25.log" t="Include" />
-          <e p="2019-02-26.log" t="Include" />
-          <e p="2019-03-05.log" t="Include" />
-          <e p="2019-03-08.log" t="Include" />
-          <e p="2019-03-09.log" t="Include" />
-          <e p="2019-05-12.log" t="Include" />
-          <e p="2019-05-15.log" t="Include" />
-          <e p="2019-05-30.log" t="Include" />
-          <e p="2019-05-31.log" t="Include" />
-          <e p="2019-06-03.log" t="Include" />
-          <e p="2019-06-04.log" t="Include" />
-        </e>
         <e p="Middleware" t="Include">
           <e p="JwtFromCookieMiddleware.cs" t="Include" />
         </e>
