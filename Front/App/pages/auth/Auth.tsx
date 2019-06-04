@@ -4,7 +4,7 @@ import Tabs from "react-bootstrap/lib/Tabs";
 import Tab from "react-bootstrap/lib/Tab";
 import AuthViaPassword from "./AuthViaPassword";
 import AuthViaLink from "./AuthViaLink";
-import LogoHeader from "../../components/logo-header/LogoHeader";
+import {LogoHeader} from "../../components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export default class Auth extends Component {

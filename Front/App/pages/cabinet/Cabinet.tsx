@@ -4,9 +4,9 @@ import {RootState} from "../../store";
 import {RoleName, roleNameDetails} from "../../constants/role-name";
 import Tabs from "react-bootstrap/lib/Tabs";
 import Tab from "react-bootstrap/lib/Tab";
-import CabinetAdmin from "../../components/cabinet-admin/CabinetAdmin";
-import CabinetConsumer from "../../components/cabinet-consumer/CabinetConsumer";
-import CabinetLocksmith from "../../components/cabinet-locksmith/CabinetLocksmith";
+import CabinetAdmin from "./CabinetAdmin";
+import CabinetConsumer from "./CabinetConsumer";
+import CabinetLocksmith from "./CabinetLocksmith";
 
 export interface CabinetProps {
     roles: RoleName[];

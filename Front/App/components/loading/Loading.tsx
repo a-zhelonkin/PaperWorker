@@ -1,5 +1,5 @@
 import React, {FunctionComponent} from "react";
-import Logo from "../logo/Logo";
+import {Logo} from "../";
 
 const Loading: FunctionComponent = () => (
     <>

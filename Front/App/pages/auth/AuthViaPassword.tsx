@@ -58,9 +58,9 @@ class AuthViaPassword extends Component<AuthViaPasswordProps> {
                 </FormGroup>
 
                 <FormGroup>
-                    <Button className="btn-link pull-right" onClick={this.register}>
-                        Зарегистрироваться
-                    </Button>
+                    <Link className="pull-right" to="/register">
+                        Оставить заявку на регистрацию
+                    </Link>
                 </FormGroup>
             </Form>
         );
@@ -86,13 +86,6 @@ class AuthViaPassword extends Component<AuthViaPasswordProps> {
                 }
             });
     }
-
-    private register = (e: any): void => {
-        e.preventDefault();
-
-        // todo Реализовать подачу заявки на регистрацию
-    }
-
 }
 
 const mapDispatchToProps = {

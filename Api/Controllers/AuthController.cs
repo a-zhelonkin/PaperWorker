@@ -1,3 +1,4 @@
+using System;
 using Api.Extensions;
 using Api.Models.Account;
 using Auth;
@@ -117,6 +118,14 @@ namespace Api.Controllers
             _unitOfWork.Save();
 
             return Ok();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("register")]
+        public IActionResult Register([FromBody] string email)
+        {
+            throw new NotImplementedException();
         }
     }
 }

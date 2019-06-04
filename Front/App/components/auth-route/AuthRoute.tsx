@@ -1,6 +1,6 @@
 import React, {Component, ReactNode} from "react";
 import queryString from "querystring";
-import Loading from "../loading/Loading";
+import {Loading} from "../";
 import AuthApi from "../../api/auth-api";
 import {updateEmail, updateRoles, updateToken} from "../../pages/auth/actions";
 import {connect} from "react-redux";

@@ -3,8 +3,8 @@ import {connect} from "react-redux";
 import {RootState} from "../../store";
 import Tabs from "react-bootstrap/lib/Tabs";
 import Tab from "react-bootstrap/lib/Tab";
-import CabinetAdminUsers from "../cabinet-admin-users/CabinetAdminUsers";
-import CabinetAdminInvite from "../cabinet-admin-invite/CabinetAdminInvite";
+import CabinetAdminUsers from "./CabinetAdminUsers";
+import CabinetAdminInvite from "./CabinetAdminInvite";
 
 export interface CabinetAdminProps {
 }

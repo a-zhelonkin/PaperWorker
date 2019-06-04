@@ -50,4 +50,13 @@ export default class AuthApi extends ApiBase {
             .then((response: Response) => response.ok);
     }
 
+    public static register(email: string): Promise<boolean> {
+        return fetch(`${this.SERVER_HOST}/api/auth/register`, {
+            method: HttpMethod.Post,
+            headers: this.DEFAULT_HEADERS,
+            body: JSON.stringify(email)
+        })
+            .then((response: Response) => response.ok);
+    }
+
 }

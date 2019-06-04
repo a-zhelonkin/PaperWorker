@@ -33,8 +33,8 @@ class AuthViaLink extends Component {
                 </FormGroup>
 
                 <FormGroup>
-                    <Link className="pull-right" to="">
-                        Зарегистрироваться
+                    <Link className="pull-right" to="/register">
+                        Оставить заявку на регистрацию
                     </Link>
                 </FormGroup>
             </Form>

@@ -11,18 +11,18 @@ namespace Front
 {
     internal static class Program
     {
-        private static async Task Main(string[] args)
+        private static async Task Main()
         {
             XmlConfigurator.Configure(
                 LogManager.CreateRepository(Assembly.GetEntryAssembly(), typeof(Hierarchy)),
                 File.OpenRead("log4net.config")
             );
 
-            await CreateWebHostBuilder(args).Build().RunAsync();
+            await CreateWebHostBuilder().Build().RunAsync();
         }
 
-        private static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+        private static IWebHostBuilder CreateWebHostBuilder() =>
+            WebHost.CreateDefaultBuilder()
                    .UseStartup<Startup>()
                    .UseDefaultServiceProvider(o => o.ValidateScopes = false);
     }

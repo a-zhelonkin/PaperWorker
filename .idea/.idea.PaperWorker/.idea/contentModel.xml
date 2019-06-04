@@ -227,21 +227,7 @@
             <e p="auth-route" t="Include">
               <e p="AuthRoute.tsx" t="Include" />
             </e>
-            <e p="cabinet-admin" t="Include">
-              <e p="CabinetAdmin.tsx" t="Include" />
-            </e>
-            <e p="cabinet-admin-invite" t="Include">
-              <e p="CabinetAdminInvite.tsx" t="Include" />
-            </e>
-            <e p="cabinet-admin-users" t="Include">
-              <e p="CabinetAdminUsers.tsx" t="Include" />
-            </e>
-            <e p="cabinet-consumer" t="Include">
-              <e p="CabinetConsumer.tsx" t="Include" />
-            </e>
-            <e p="cabinet-locksmith" t="Include">
-              <e p="CabinetLocksmith.tsx" t="Include" />
-            </e>
+            <e p="index.ts" t="Include" />
             <e p="loading" t="Include">
               <e p="Loading.tsx" t="Include" />
             </e>
@@ -274,6 +260,11 @@
             <e p="cabinet" t="Include">
               <e p="actions.ts" t="Include" />
               <e p="cabinet.tsx" t="Include" />
+              <e p="CabinetAdmin.tsx" t="Include" />
+              <e p="CabinetAdminInvite.tsx" t="Include" />
+              <e p="CabinetAdminUsers.tsx" t="Include" />
+              <e p="CabinetConsumer.tsx" t="Include" />
+              <e p="CabinetLocksmith.tsx" t="Include" />
               <e p="index.ts" t="Include" />
               <e p="reducer.ts" t="Include" />
             </e>
@@ -283,13 +274,21 @@
             </e>
             <e p="error404" t="Include">
               <e p="error404.tsx" t="Include" />
+              <e p="index.ts" t="Include" />
             </e>
             <e p="Home" t="Include">
               <e p="home.tsx" t="Include" />
+              <e p="index.ts" t="Include" />
             </e>
+            <e p="index.ts" t="Include" />
             <e p="invite" t="Include">
               <e p="index.ts" t="Include" />
               <e p="invite.tsx" t="Include" />
+            </e>
+            <e p="register" t="Include">
+              <e p="index.ts" t="Include" />
+              <e p="register.scss" t="Include" />
+              <e p="Register.tsx" t="Include" />
             </e>
             <e p="restore-password" t="Include">
               <e p="index.ts" t="Include" />
@@ -315,6 +314,9 @@
         <e p="favicon.ico" t="Include" />
         <e p="Front.csproj" t="IncludeRecursive" />
         <e p="log4net.config" t="Include" />
+        <e p="logs" t="Include">
+          <e p="2019-06-04.log" t="Include" />
+        </e>
         <e p="Middleware" t="Include">
           <e p="JwtFromCookieMiddleware.cs" t="Include" />
         </e>
@@ -465,195 +467,9 @@
         <e p="webpack.prod.js" t="Include" />
         <e p="wwwroot" t="Include">
           <e p="904a9eed1ccd2d89c4b465f07eefaf0f.svg" t="Include" />
-          <e p="Api" t="Include">
-            <e p="api-base.d.ts" t="Include" />
-            <e p="api-base.js" t="Include" />
-            <e p="api-base.js.map" t="Include" />
-            <e p="auth-api.d.ts" t="Include" />
-            <e p="auth-api.js" t="Include" />
-            <e p="auth-api.js.map" t="Include" />
-            <e p="invites-api.d.ts" t="Include" />
-            <e p="invites-api.js" t="Include" />
-            <e p="invites-api.js.map" t="Include" />
-            <e p="Models" t="Include">
-              <e p="auth-data.d.ts" t="Include" />
-              <e p="auth-data.js" t="Include" />
-              <e p="auth-data.js.map" t="Include" />
-              <e p="profile-model.d.ts" t="Include" />
-              <e p="profile-model.js" t="Include" />
-              <e p="profile-model.js.map" t="Include" />
-              <e p="user-model.d.ts" t="Include" />
-              <e p="user-model.js" t="Include" />
-              <e p="user-model.js.map" t="Include" />
-            </e>
-            <e p="profiles-api.d.ts" t="Include" />
-            <e p="profiles-api.js" t="Include" />
-            <e p="profiles-api.js.map" t="Include" />
-            <e p="users-api.d.ts" t="Include" />
-            <e p="users-api.js" t="Include" />
-            <e p="users-api.js.map" t="Include" />
-          </e>
-          <e p="app.d.ts" t="Include" />
-          <e p="app.js" t="Include" />
-          <e p="app.js.map" t="Include" />
           <e p="bundle.js" t="Include" />
-          <e p="components" t="Include">
-            <e p="auth-route" t="Include">
-              <e p="AuthRoute.d.ts" t="Include" />
-              <e p="AuthRoute.js" t="Include" />
-              <e p="AuthRoute.js.map" t="Include" />
-            </e>
-            <e p="cabinet-admin" t="Include">
-              <e p="CabinetAdmin.d.ts" t="Include" />
-              <e p="CabinetAdmin.js" t="Include" />
-              <e p="CabinetAdmin.js.map" t="Include" />
-            </e>
-            <e p="cabinet-admin-invite" t="Include">
-              <e p="CabinetAdminInvite.d.ts" t="Include" />
-              <e p="CabinetAdminInvite.js" t="Include" />
-              <e p="CabinetAdminInvite.js.map" t="Include" />
-            </e>
-            <e p="cabinet-admin-users" t="Include">
-              <e p="CabinetAdminUsers.d.ts" t="Include" />
-              <e p="CabinetAdminUsers.js" t="Include" />
-              <e p="CabinetAdminUsers.js.map" t="Include" />
-            </e>
-            <e p="cabinet-consumer" t="Include">
-              <e p="CabinetConsumer.d.ts" t="Include" />
-              <e p="CabinetConsumer.js" t="Include" />
-              <e p="CabinetConsumer.js.map" t="Include" />
-            </e>
-            <e p="cabinet-locksmith" t="Include">
-              <e p="CabinetLocksmith.d.ts" t="Include" />
-              <e p="CabinetLocksmith.js" t="Include" />
-              <e p="CabinetLocksmith.js.map" t="Include" />
-            </e>
-            <e p="loading" t="Include">
-              <e p="Loading.d.ts" t="Include" />
-              <e p="Loading.js" t="Include" />
-              <e p="Loading.js.map" t="Include" />
-            </e>
-            <e p="logo" t="Include">
-              <e p="Logo.d.ts" t="Include" />
-              <e p="Logo.js" t="Include" />
-              <e p="Logo.js.map" t="Include" />
-            </e>
-            <e p="logo-header" t="Include">
-              <e p="LogoHeader.d.ts" t="Include" />
-              <e p="LogoHeader.js" t="Include" />
-              <e p="LogoHeader.js.map" t="Include" />
-            </e>
-            <e p="navigation-bar" t="Include">
-              <e p="NavigationBar.d.ts" t="Include" />
-              <e p="NavigationBar.js" t="Include" />
-              <e p="NavigationBar.js.map" t="Include" />
-            </e>
-          </e>
-          <e p="constants" t="Include">
-            <e p="http-method.d.ts" t="Include" />
-            <e p="http-method.js" t="Include" />
-            <e p="http-method.js.map" t="Include" />
-            <e p="role-name.d.ts" t="Include" />
-            <e p="role-name.js" t="Include" />
-            <e p="role-name.js.map" t="Include" />
-            <e p="user-status.d.ts" t="Include" />
-            <e p="user-status.js" t="Include" />
-            <e p="user-status.js.map" t="Include" />
-          </e>
           <e p="favicon.ico" t="Include" />
-          <e p="index.d.ts" t="Include" />
           <e p="index.html" t="Include" />
-          <e p="index.js" t="Include" />
-          <e p="index.js.map" t="Include" />
-          <e p="pages" t="Include">
-            <e p="auth" t="Include">
-              <e p="actions.d.ts" t="Include" />
-              <e p="actions.js" t="Include" />
-              <e p="actions.js.map" t="Include" />
-              <e p="Auth.d.ts" t="Include" />
-              <e p="Auth.js" t="Include" />
-              <e p="Auth.js.map" t="Include" />
-              <e p="AuthViaLink.d.ts" t="Include" />
-              <e p="AuthViaLink.js" t="Include" />
-              <e p="AuthViaLink.js.map" t="Include" />
-              <e p="AuthViaPassword.d.ts" t="Include" />
-              <e p="AuthViaPassword.js" t="Include" />
-              <e p="AuthViaPassword.js.map" t="Include" />
-              <e p="index.d.ts" t="Include" />
-              <e p="index.js" t="Include" />
-              <e p="index.js.map" t="Include" />
-              <e p="reducer.d.ts" t="Include" />
-              <e p="reducer.js" t="Include" />
-              <e p="reducer.js.map" t="Include" />
-            </e>
-            <e p="cabinet" t="Include">
-              <e p="actions.d.ts" t="Include" />
-              <e p="actions.js" t="Include" />
-              <e p="actions.js.map" t="Include" />
-              <e p="Cabinet.d.ts" t="Include" />
-              <e p="Cabinet.js" t="Include" />
-              <e p="Cabinet.js.map" t="Include" />
-              <e p="index.d.ts" t="Include" />
-              <e p="index.js" t="Include" />
-              <e p="index.js.map" t="Include" />
-              <e p="reducer.d.ts" t="Include" />
-              <e p="reducer.js" t="Include" />
-              <e p="reducer.js.map" t="Include" />
-            </e>
-            <e p="change-password" t="Include">
-              <e p="ChangePassword.d.ts" t="Include" />
-              <e p="ChangePassword.js" t="Include" />
-              <e p="ChangePassword.js.map" t="Include" />
-              <e p="index.d.ts" t="Include" />
-              <e p="index.js" t="Include" />
-              <e p="index.js.map" t="Include" />
-            </e>
-            <e p="error404" t="Include">
-              <e p="error404.d.ts" t="Include" />
-              <e p="error404.js" t="Include" />
-              <e p="error404.js.map" t="Include" />
-            </e>
-            <e p="Home" t="Include">
-              <e p="home.d.ts" t="Include" />
-              <e p="home.js" t="Include" />
-              <e p="home.js.map" t="Include" />
-            </e>
-            <e p="invite" t="Include">
-              <e p="index.d.ts" t="Include" />
-              <e p="index.js" t="Include" />
-              <e p="index.js.map" t="Include" />
-              <e p="Invite.d.ts" t="Include" />
-              <e p="Invite.js" t="Include" />
-              <e p="Invite.js.map" t="Include" />
-            </e>
-            <e p="restore-password" t="Include">
-              <e p="index.d.ts" t="Include" />
-              <e p="index.js" t="Include" />
-              <e p="index.js.map" t="Include" />
-              <e p="RestorePassword.d.ts" t="Include" />
-              <e p="RestorePassword.js" t="Include" />
-              <e p="RestorePassword.js.map" t="Include" />
-            </e>
-          </e>
-          <e p="store" t="Include">
-            <e p="history.d.ts" t="Include" />
-            <e p="history.js" t="Include" />
-            <e p="history.js.map" t="Include" />
-            <e p="index.d.ts" t="Include" />
-            <e p="index.js" t="Include" />
-            <e p="index.js.map" t="Include" />
-            <e p="reducer.d.ts" t="Include" />
-            <e p="reducer.js" t="Include" />
-            <e p="reducer.js.map" t="Include" />
-            <e p="store.d.ts" t="Include" />
-            <e p="store.js" t="Include" />
-            <e p="store.js.map" t="Include" />
-          </e>
-          <e p="utils" t="Include">
-            <e p="strings-utils.d.ts" t="Include" />
-            <e p="strings-utils.js" t="Include" />
-            <e p="strings-utils.js.map" t="Include" />
-          </e>
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />

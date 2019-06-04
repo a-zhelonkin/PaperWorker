@@ -33,12 +33,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <CopyToPublishDirectory>Always</CopyToPublishDirectory>
     </Content>
-    <Content Include="App\components\cabinet-admin-invite\CabinetAdminInvite.tsx" />
-    <Content Include="App\components\cabinet-admin-users\CabinetAdminUsers.tsx" />
-    <Content Include="App\components\cabinet-admin\CabinetAdmin.tsx" />
-    <Content Include="App\components\cabinet-consumer\CabinetConsumer.tsx" />
-    <Content Include="App\components\cabinet-locksmith\CabinetLocksmith.tsx" />
     <Content Include="App\pages\auth\reducer.ts" />
+    <Content Include="App\pages\cabinet\CabinetAdmin.tsx" />
+    <Content Include="App\pages\cabinet\CabinetAdminInvite.tsx" />
+    <Content Include="App\pages\cabinet\CabinetAdminUsers.tsx" />
+    <Content Include="App\pages\cabinet\CabinetConsumer.tsx" />
+    <Content Include="App\pages\cabinet\CabinetLocksmith.tsx" />
     <Content Include="App\pages\cabinet\reducer.ts" />
     <Content Update="log4net.config">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
