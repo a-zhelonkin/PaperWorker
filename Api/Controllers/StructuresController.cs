@@ -25,7 +25,14 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get([FromQuery] Guid streetId)
+        public IActionResult Get([FromQuery] Guid id)
+        {
+            return Ok(_structureDtoMapper.Map(_unitOfWork.StructuresRepository.Get(id)));
+        }
+
+        [HttpGet]
+        [Route("getByStreetId")]
+        public IActionResult GetByStreetId([FromQuery] Guid streetId)
         {
             return Ok(_unitOfWork.StructuresRepository.GetByStreetId(streetId).Select(_structureDtoMapper.Map));
         }

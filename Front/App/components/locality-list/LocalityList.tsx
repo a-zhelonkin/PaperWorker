@@ -1,12 +1,13 @@
 import React, {Component, ReactNode} from "react";
 import PanelGroup from "react-bootstrap/lib/PanelGroup";
 import Panel from "react-bootstrap/lib/Panel";
-import LocalitiesApi, {LocalityModel} from "../../api/localities-api";
+import {LocalityModel} from "../../api/localities-api";
 import LocalityCreator from "./LocalityCreator";
 import LocalityItem from "./LocalityItem";
 
 interface LocalityListProps {
     readonly territoryId: string;
+    readonly localities: LocalityModel[];
 }
 
 interface LocalityListState {
@@ -18,16 +19,8 @@ export default class LocalityList extends Component<LocalityListProps, LocalityL
 
     public state: LocalityListState = {
         activeLocalityIndex: -1,
-        localities: []
+        localities: this.props.localities
     };
-
-    public componentDidMount(): void {
-        LocalitiesApi.get(this.props.territoryId).then(localities => {
-            if (localities) {
-                this.setState({localities});
-            }
-        });
-    }
 
     public render(): ReactNode {
         return (
@@ -47,7 +40,7 @@ export default class LocalityList extends Component<LocalityListProps, LocalityL
                                     <Panel.Title toggle>Населенный пункт: {locality.name}</Panel.Title>
                                 </Panel.Heading>
                                 <Panel.Body collapsible>
-                                    <LocalityItem locality={locality}/>
+                                    <LocalityItem localityId={locality.id}/>
                                 </Panel.Body>
                             </Panel>
                         );

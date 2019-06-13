@@ -6,6 +6,7 @@ namespace Database.Repositories
 {
     public interface ILocalitiesRepository
     {
+        Locality Get(Guid id);
         IEnumerable<Locality> GetByTerritoryId(Guid territoryId);
         void Add(Locality locality);
         bool Exists(Guid territoryId, string name);

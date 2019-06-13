@@ -2,11 +2,12 @@ import React, {Component, ReactNode} from "react";
 import PanelGroup from "react-bootstrap/lib/PanelGroup";
 import Panel from "react-bootstrap/lib/Panel";
 import StructureItem from "./StructureItem";
-import StructuresApi, {StructureModel} from "../../api/structures-api";
+import {StructureModel} from "../../api/structures-api";
 import StructureCreator from "./StructureCreator";
 
 interface StructureListProps {
     readonly streetId: string;
+    readonly structures: StructureModel[];
 }
 
 interface StructureListState {
@@ -18,16 +19,8 @@ export default class StructureList extends Component<StructureListProps, Structu
 
     public state: StructureListState = {
         activeStructureIndex: -1,
-        structures: []
+        structures: this.props.structures
     };
-
-    public componentDidMount(): void {
-        StructuresApi.get(this.props.streetId).then(structures => {
-            if (structures) {
-                this.setState({structures});
-            }
-        });
-    }
 
     public render(): ReactNode {
         return (
@@ -47,7 +40,7 @@ export default class StructureList extends Component<StructureListProps, Structu
                                     <Panel.Title toggle>Строение: {structure.number}</Panel.Title>
                                 </Panel.Heading>
                                 <Panel.Body collapsible>
-                                    <StructureItem structure={structure}/>
+                                    <StructureItem structureId={structure.id}/>
                                 </Panel.Body>
                             </Panel>
                         );

@@ -25,7 +25,17 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get([FromQuery] Guid territoryId)
+        public IActionResult Get([FromQuery] Guid id)
+        {
+            var locality = _unitOfWork.LocalitiesRepository.Get(id);
+            var dto = _localityDtoMapper.Map(locality);
+
+            return Ok(dto);
+        }
+
+        [HttpGet]
+        [Route("getByTerritoryId")]
+        public IActionResult GetByTerritoryId([FromQuery] Guid territoryId)
         {
             return Ok(_unitOfWork.LocalitiesRepository.GetByTerritoryId(territoryId).Select(_localityDtoMapper.Map));
         }

@@ -12,7 +12,12 @@ namespace Database.Repositories.Implementation
 
         public StreetsRepository(DbSet<Street> streets) => _streets = streets;
 
-        public IEnumerable<Street> GetLocalityId(Guid localityId) => _streets.Where(locality => locality.LocalityId == localityId);
+        public Street Get(Guid id) => _streets
+                                      .Where(street => street.Id == id)
+                                      .Include(street => street.Structures)
+                                      .SingleOrDefault();
+
+        public IEnumerable<Street> GetByLocalityId(Guid localityId) => _streets.Where(locality => locality.LocalityId == localityId);
 
         public void Add(Street street) => _streets.Add(street);
 

@@ -6,10 +6,13 @@ namespace Api.Mappers
 {
     public class AddressDtoMapper : IMapper<Address, AddressDto>
     {
-        public AddressDto Map(Address source) => new AddressDto
-        {
-            Number = source.Number,
-            StructureId = source.StructureId
-        };
+        public AddressDto Map(Address source) => source == null
+            ? null
+            : new AddressDto
+            {
+                Id = source.Id,
+                Number = source.Number,
+                StructureId = source.StructureId
+            };
     }
 }

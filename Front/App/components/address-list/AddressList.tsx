@@ -22,7 +22,7 @@ export default class AddressList extends Component<AddressListProps, AddressList
     };
 
     public componentDidMount(): void {
-        AddressesApi.get(this.props.structureId).then(addresses => {
+        AddressesApi.getByStructureId(this.props.structureId).then(addresses => {
             if (addresses) {
                 this.setState({addresses});
             }
@@ -47,7 +47,7 @@ export default class AddressList extends Component<AddressListProps, AddressList
                                     <Panel.Title toggle>Квартира: {address.number}</Panel.Title>
                                 </Panel.Heading>
                                 <Panel.Body collapsible>
-                                    <AddressItem address={address}/>
+                                    <AddressItem addressId={address.id}/>
                                 </Panel.Body>
                             </Panel>
                         );

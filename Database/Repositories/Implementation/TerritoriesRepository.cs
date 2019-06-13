@@ -12,9 +12,13 @@ namespace Database.Repositories.Implementation
 
         public TerritoriesRepository(DbSet<Territory> territories) => _territories = territories;
 
-        public IEnumerable<Territory> Get() => _territories;
+        public Territory Get(Guid id) => _territories
+                                         .Where(territory => territory.Id == id)
+                                         .Include(territory => territory.Localities)
+                                         .Include(territory => territory.Children)
+                                         .SingleOrDefault();
 
-        public IEnumerable<Territory> GetByParentId(Guid parentId) => _territories.Where(locality => locality.ParentId == parentId);
+        public IEnumerable<Territory> GetByParentId(Guid? parentId) => _territories.Where(locality => locality.ParentId == parentId);
 
         public void Add(Territory territory) => _territories.Add(territory);
 

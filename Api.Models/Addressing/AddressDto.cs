@@ -5,6 +5,9 @@ namespace Api.Models.Account
 {
     public class AddressDto
     {
+        [JsonProperty("id")]
+        public Guid Id { get; set; }
+
         [JsonProperty("number")]
         public int Number { get; set; }
 

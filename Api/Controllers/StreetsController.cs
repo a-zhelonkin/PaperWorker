@@ -25,9 +25,16 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get([FromQuery] Guid localityId)
+        public IActionResult Get([FromQuery] Guid id)
         {
-            return Ok(_unitOfWork.StreetsRepository.GetLocalityId(localityId).Select(_streetDtoMapper.Map));
+            return Ok(_streetDtoMapper.Map(_unitOfWork.StreetsRepository.Get(id)));
+        }
+
+        [HttpGet]
+        [Route("getLocalityId")]
+        public IActionResult GetByLocalityId([FromQuery] Guid localityId)
+        {
+            return Ok(_unitOfWork.StreetsRepository.GetByLocalityId(localityId).Select(_streetDtoMapper.Map));
         }
 
         [HttpPost]

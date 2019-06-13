@@ -6,12 +6,14 @@ namespace Api.Mappers
 {
     public class DtoProfileMapper : IMapper<ProfileDto, Profile>
     {
-        public Profile Map(ProfileDto profile) => new Profile
-        {
-            FirstName = profile.FirstName,
-            LastName = profile.LastName,
-            Patronymic = profile.Patronymic,
-            PhoneNumber = profile.PhoneNumber
-        };
+        public Profile Map(ProfileDto source) => source == null
+            ? null
+            : new Profile
+            {
+                FirstName = source.FirstName,
+                LastName = source.LastName,
+                Patronymic = source.Patronymic,
+                PhoneNumber = source.PhoneNumber
+            };
     }
 }

@@ -13,5 +13,8 @@ namespace Api.Models.Account
 
         [JsonProperty("localityId")]
         public Guid LocalityId { get; set; }
+
+        [JsonProperty("structures")]
+        public StructureDto[] Structures { get; set; }
     }
 }

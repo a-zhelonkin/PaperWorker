@@ -13,5 +13,8 @@ namespace Api.Models.Account
 
         [JsonProperty("territoryId")]
         public Guid TerritoryId { get; set; }
+
+        [JsonProperty("streets")]
+        public StreetDto[] Streets { get; set; }
     }
 }

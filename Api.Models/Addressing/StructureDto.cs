@@ -16,5 +16,8 @@ namespace Api.Models.Account
 
         [JsonProperty("streetId")]
         public Guid StreetId { get; set; }
+
+        [JsonProperty("addresses")]
+        public AddressDto[] Addresses { get; set; }
     }
 }

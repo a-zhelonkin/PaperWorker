@@ -12,6 +12,11 @@ namespace Database.Repositories.Implementation
 
         public LocalitiesRepository(DbSet<Locality> localities) => _localities = localities;
 
+        public Locality Get(Guid id) => _localities
+                                        .Where(locality => locality.Id == id)
+                                        .Include(locality => locality.Streets)
+                                        .SingleOrDefault();
+
         public IEnumerable<Locality> GetByTerritoryId(Guid territoryId) => _localities.Where(locality => locality.TerritoryId == territoryId);
 
         public void Add(Locality locality) => _localities.Add(locality);

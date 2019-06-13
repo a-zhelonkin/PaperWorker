@@ -25,12 +25,24 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get([FromQuery] Guid? parentId = null)
+        public IActionResult Get([FromQuery] Guid id)
         {
-            return Ok(parentId.HasValue
-                          ? _unitOfWork.TerritoriesRepository.GetByParentId(parentId.Value).Select(_territoryDtoMapper.Map)
-                          : _unitOfWork.TerritoriesRepository.Get().Select(_territoryDtoMapper.Map)
-            );
+            var territory = _unitOfWork.TerritoriesRepository.Get(id);
+            var dto = _territoryDtoMapper.Map(territory);
+
+            return Ok(dto);
+        }
+
+        [HttpGet]
+        [Route("getByParentId")]
+        public IActionResult GetByParentId([FromQuery] Guid? parentId)
+        {
+            var territoryDtos = _unitOfWork.TerritoriesRepository
+                                           .GetByParentId(parentId)
+                                           .Select(_territoryDtoMapper.Map)
+                                           .ToArray();
+
+            return Ok(territoryDtos);
         }
 
         [HttpPost]

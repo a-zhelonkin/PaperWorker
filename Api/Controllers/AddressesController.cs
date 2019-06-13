@@ -25,13 +25,27 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAddresses([FromQuery] Guid structureId)
+        public IActionResult Get([FromQuery] Guid id)
         {
-            return Ok(_unitOfWork.AddressesRepository.GetByStructureId(structureId).Select(_addressDtoMapper.Map));
+            var address = _unitOfWork.AddressesRepository.Get(id);
+            var dto = _addressDtoMapper.Map(address);
+
+            return Ok(dto);
+        }
+
+        [HttpGet]
+        [Route("getByStructureId")]
+        public IActionResult GetByStructureId([FromQuery] Guid structureId)
+        {
+            var addressDtos = _unitOfWork.AddressesRepository
+                                         .GetByStructureId(structureId)
+                                         .Select(_addressDtoMapper.Map);
+
+            return Ok(addressDtos);
         }
 
         [HttpPost]
-        public IActionResult PostAddress([FromBody] AddressDto dto)
+        public IActionResult Post([FromBody] AddressDto dto)
         {
             var structure = _unitOfWork.StructuresRepository.Get(dto.StructureId);
             if (structure.Alone)

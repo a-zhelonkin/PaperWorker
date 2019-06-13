@@ -13,5 +13,11 @@ namespace Api.Models.Account
 
         [JsonProperty("parentId")]
         public Guid? ParentId { get; set; }
+
+        [JsonProperty("localities")]
+        public LocalityDto[] Localities { get; set; }
+
+        [JsonProperty("children")]
+        public TerritoryDto[] Children { get; set; }
     }
 }

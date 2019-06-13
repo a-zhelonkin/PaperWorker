@@ -1,12 +1,13 @@
 import React, {Component, ReactNode} from "react";
 import PanelGroup from "react-bootstrap/lib/PanelGroup";
 import Panel from "react-bootstrap/lib/Panel";
-import StreetsApi, {StreetModel} from "../../api/streets-api";
+import {StreetModel} from "../../api/streets-api";
 import StreetCreator from "./StreetCreator";
 import StreetItem from "./StreetItem";
 
 interface StreetListProps {
     readonly localityId: string;
+    readonly streets: StreetModel[];
 }
 
 interface StreetListState {
@@ -18,16 +19,8 @@ export default class StreetList extends Component<StreetListProps, StreetListSta
 
     public state: StreetListState = {
         activeStreetIndex: -1,
-        streets: []
+        streets: this.props.streets
     };
-
-    public componentDidMount(): void {
-        StreetsApi.get(this.props.localityId).then(streets => {
-            if (streets) {
-                this.setState({streets});
-            }
-        });
-    }
 
     public render(): ReactNode {
         return (
@@ -47,7 +40,7 @@ export default class StreetList extends Component<StreetListProps, StreetListSta
                                     <Panel.Title toggle>Населенный пункт: {street.name}</Panel.Title>
                                 </Panel.Heading>
                                 <Panel.Body collapsible>
-                                    <StreetItem street={street}/>
+                                    <StreetItem streetId={street.id}/>
                                 </Panel.Body>
                             </Panel>
                         );

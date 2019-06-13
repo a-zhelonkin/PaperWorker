@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="C:\Users\zhelonkin\.Rider2019.1\config\javascript\nodejs\10.15.3\core-modules" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2019.1\config\javascript\nodejs\10.15.3\node-typings\node_modules\@types" t="IncludeRecursive" />
     <e p="C:\Users\zhelonkin\.Rider2019.1\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\zhelonkin\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_PaperWorker.-761895311.00" t="ExcludeRecursive" />
     <e p="C:\Users\zhelonkin\RiderProjects\PaperWorker" t="IncludeFlat">
@@ -550,6 +552,9 @@
           <e p="bundle.js" t="Include" />
           <e p="components" t="Include">
             <e p="address-list" t="Include">
+              <e p="AddressCreator.d.ts" t="Include" />
+              <e p="AddressCreator.js" t="Include" />
+              <e p="AddressCreator.js.map" t="Include" />
               <e p="AddressItem.d.ts" t="Include" />
               <e p="AddressItem.js" t="Include" />
               <e p="AddressItem.js.map" t="Include" />
@@ -602,10 +607,27 @@
               <e p="NavigationBar.js" t="Include" />
               <e p="NavigationBar.js.map" t="Include" />
             </e>
-            <e p="territory-creator" t="Include">
-              <e p="TerritoryCreator.d.ts" t="Include" />
-              <e p="TerritoryCreator.js" t="Include" />
-              <e p="TerritoryCreator.js.map" t="Include" />
+            <e p="street-list" t="Include">
+              <e p="StreetCreator.d.ts" t="Include" />
+              <e p="StreetCreator.js" t="Include" />
+              <e p="StreetCreator.js.map" t="Include" />
+              <e p="StreetItem.d.ts" t="Include" />
+              <e p="StreetItem.js" t="Include" />
+              <e p="StreetItem.js.map" t="Include" />
+              <e p="StreetList.d.ts" t="Include" />
+              <e p="StreetList.js" t="Include" />
+              <e p="StreetList.js.map" t="Include" />
+            </e>
+            <e p="structure-list" t="Include">
+              <e p="StructureCreator.d.ts" t="Include" />
+              <e p="StructureCreator.js" t="Include" />
+              <e p="StructureCreator.js.map" t="Include" />
+              <e p="StructureItem.d.ts" t="Include" />
+              <e p="StructureItem.js" t="Include" />
+              <e p="StructureItem.js.map" t="Include" />
+              <e p="StructureList.d.ts" t="Include" />
+              <e p="StructureList.js" t="Include" />
+              <e p="StructureList.js.map" t="Include" />
             </e>
             <e p="territory-list" t="Include">
               <e p="TerritoryCreator.d.ts" t="Include" />

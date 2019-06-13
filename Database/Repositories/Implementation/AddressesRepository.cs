@@ -12,6 +12,11 @@ namespace Database.Repositories.Implementation
 
         public AddressesRepository(DbSet<Address> addresses) => _addresses = addresses;
 
+        public Address Get(Guid id) => _addresses
+                                       .Where(address => address.Id == id)
+                                       .Include(address => address.Consumers)
+                                       .SingleOrDefault();
+
         public IEnumerable<Address> GetByStructureId(Guid structureId) => _addresses.Where(address => address.StructureId == structureId);
 
         public void Add(Address address) => _addresses.Add(address);

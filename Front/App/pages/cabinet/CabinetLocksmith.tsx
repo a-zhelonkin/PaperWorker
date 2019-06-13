@@ -2,25 +2,45 @@ import React, {Component, ReactNode} from "react";
 import PanelGroup from "react-bootstrap/lib/PanelGroup";
 import Panel from "react-bootstrap/lib/Panel";
 import TerritoryList from "../../components/territory-list/TerritoryList";
+import queryString from "querystring";
+import {RouteComponentProps, withRouter} from "react-router";
+import TerritoryItem from "../../components/territory-list/TerritoryItem";
+import TerritoriesApi, {TerritoryModel} from "../../api/territories-api";
 
-export interface CabinetLocksmithProps {
+export interface CabinetLocksmithProps extends RouteComponentProps {
 }
 
 export interface CabinetLocksmithState {
-    activeTab: number;
+    readonly activeTab: number;
+    readonly territories: TerritoryModel[];
 }
 
 const tabNone: number = -1;
 const tabAddresses: number = 0;
 const tabConsumers: number = 1;
 
-export default class CabinetLocksmith extends Component<CabinetLocksmithProps, CabinetLocksmithState> {
+class CabinetLocksmith extends Component<CabinetLocksmithProps, CabinetLocksmithState> {
 
-    public state = {
-        activeTab: tabNone
+    public state: CabinetLocksmithState = {
+        activeTab: tabNone,
+        territories: []
     };
 
+    public componentDidMount(): void {
+        TerritoriesApi.getByParentId().then(territories => {
+            if (territories) {
+                this.setState({territories});
+            }
+        });
+    }
+
     public render(): ReactNode {
+        const params: any = queryString.parse(this.props.location.search.slice(1));
+        const territoryId: string = params.territoryId;
+        if (territoryId) {
+            return (<TerritoryItem territoryId={territoryId}/>);
+        }
+
         return (
             <PanelGroup
                 id="accordion-controlled-example"
@@ -30,10 +50,10 @@ export default class CabinetLocksmith extends Component<CabinetLocksmithProps, C
             >
                 <Panel eventKey={tabAddresses}>
                     <Panel.Heading>
-                        <Panel.Title toggle>Адреса</Panel.Title>
+                        <Panel.Title toggle>Территории</Panel.Title>
                     </Panel.Heading>
                     <Panel.Body collapsible>
-                        <TerritoryList/>
+                        <TerritoryList territories={this.state.territories}/>
                     </Panel.Body>
                 </Panel>
                 <Panel eventKey={tabConsumers}>
@@ -51,3 +71,5 @@ export default class CabinetLocksmith extends Component<CabinetLocksmithProps, C
     private onSelect = (index: number | any): void => this.setState({activeTab: index});
 
 }
+
+export default withRouter(CabinetLocksmith);

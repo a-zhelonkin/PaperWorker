@@ -1,5 +1,5 @@
 import React, {Component, ReactNode} from "react";
-import TerritoriesApi, {TerritoryModel} from "../../api/territories-api";
+import {TerritoryModel} from "../../api/territories-api";
 import TerritoryItem from "./TerritoryItem";
 import PanelGroup from "react-bootstrap/lib/PanelGroup";
 import Panel from "react-bootstrap/lib/Panel";
@@ -7,6 +7,7 @@ import TerritoryCreator from "./TerritoryCreator";
 
 interface TerritoryListProps {
     readonly parentId?: string;
+    readonly territories: TerritoryModel[];
 }
 
 interface TerritoryListState {
@@ -18,15 +19,14 @@ export default class TerritoryList extends Component<TerritoryListProps, Territo
 
     public state: TerritoryListState = {
         activeTerritoryIndex: -1,
-        territories: []
+        territories: this.props.territories
     };
 
-    public componentDidMount(): void {
-        TerritoriesApi.get(this.props.parentId).then(territories => {
-            if (territories) {
-                this.setState({territories});
-            }
-        });
+    public static getDerivedStateFromProps(props: TerritoryListProps, state: TerritoryListState): TerritoryListState {
+        return {
+            activeTerritoryIndex: state.activeTerritoryIndex,
+            territories: props.territories
+        };
     }
 
     public render(): ReactNode {
@@ -49,7 +49,7 @@ export default class TerritoryList extends Component<TerritoryListProps, Territo
                                         <Panel.Title toggle>Территория: {territory.name}</Panel.Title>
                                     </Panel.Heading>
                                     <Panel.Body collapsible>
-                                        <TerritoryItem territory={territory}/>
+                                        <TerritoryItem territoryId={territory.id}/>
                                     </Panel.Body>
                                 </Panel>
                             );

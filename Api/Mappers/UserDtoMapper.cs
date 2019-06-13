@@ -1,24 +1,24 @@
 using System.Linq;
-using Api.Models;
 using Api.Models.Account;
 using Core;
-using Database.Models;
 using Database.Models.Account;
 
 namespace Api.Mappers
 {
     public class UserDtoMapper : IMapper<User, UserDto>
     {
-        public UserDto Map(User user) => new UserDto
-        {
-            Id = user.Id,
-            Email = user.Email,
-            Status = user.Status,
-            Roles = user.Roles.Select(x => x.Role.Name).ToArray(),
-            FirstName = user.Profile.FirstName,
-            LastName = user.Profile.LastName,
-            Patronymic = user.Profile.Patronymic,
-            PhoneNumber = user.Profile.PhoneNumber
-        };
+        public UserDto Map(User source) => source == null
+            ? null
+            : new UserDto
+            {
+                Id = source.Id,
+                Email = source.Email,
+                Status = source.Status,
+                Roles = source.Roles?.Select(x => x.Role.Name).ToArray(),
+                FirstName = source.Profile.FirstName,
+                LastName = source.Profile.LastName,
+                Patronymic = source.Profile.Patronymic,
+                PhoneNumber = source.Profile.PhoneNumber
+            };
     }
 }
