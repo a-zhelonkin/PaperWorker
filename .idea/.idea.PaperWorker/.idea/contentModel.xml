@@ -224,8 +224,14 @@
             </e>
             <e p="addressing-actions.ts" t="Include" />
             <e p="addressing-reducer.ts" t="Include" />
+            <e p="addressing.scss" t="Include" />
             <e p="auth-route" t="Include">
               <e p="AuthRoute.tsx" t="Include" />
+            </e>
+            <e p="consumer-list" t="Include">
+              <e p="ConsumerCreator.tsx" t="Include" />
+              <e p="ConsumerItem.tsx" t="Include" />
+              <e p="ConsumerList.tsx" t="Include" />
             </e>
             <e p="index.ts" t="Include" />
             <e p="loading" t="Include">

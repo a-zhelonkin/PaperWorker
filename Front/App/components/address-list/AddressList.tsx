@@ -1,23 +1,20 @@
+import "./../addressing.scss";
 import React, {Component, ReactNode} from "react";
-import PanelGroup from "react-bootstrap/lib/PanelGroup";
-import Panel from "react-bootstrap/lib/Panel";
 import AddressesApi, {AddressModel} from "../../api/addresses-api";
 import AddressCreator from "./AddressCreator";
-import AddressItem from "./AddressItem";
+import {RouteComponentProps, withRouter} from "react-router";
 
-interface AddressListProps {
+interface AddressListProps extends RouteComponentProps {
     readonly structureId: string;
 }
 
 interface AddressListState {
-    readonly activeAddressIndex: number;
     readonly addresses: AddressModel[];
 }
 
-export default class AddressList extends Component<AddressListProps, AddressListState> {
+class AddressList extends Component<AddressListProps, AddressListState> {
 
     public state: AddressListState = {
-        activeAddressIndex: -1,
         addresses: []
     };
 
@@ -34,33 +31,23 @@ export default class AddressList extends Component<AddressListProps, AddressList
             <>
                 <AddressCreator structureId={this.props.structureId} addAddress={this.addAddress}/>
 
-                <PanelGroup
-                    id="accordion-controlled-example"
-                    accordion
-                    activeKey={this.state.activeAddressIndex}
-                    onSelect={this.onSelect}
-                >
-                    {this.state.addresses.map((address, index) => {
-                        return (
-                            <Panel key={index} eventKey={index}>
-                                <Panel.Heading>
-                                    <Panel.Title toggle>Квартира: {address.number}</Panel.Title>
-                                </Panel.Heading>
-                                <Panel.Body collapsible>
-                                    <AddressItem addressId={address.id}/>
-                                </Panel.Body>
-                            </Panel>
-                        );
-                    })}
-                </PanelGroup>
+                {this.state.addresses.map((address, index) => {
+                    const onClick = (): void => this.props.history.push(`/cabinet?addressId=${address.id}`);
+
+                    return (
+                        <div className="addressing-item" key={index} onClick={onClick}>
+                            {address.number}
+                        </div>
+                    );
+                })}
             </>
         );
     }
-
-    private onSelect = (index: number | any): void => this.setState({activeAddressIndex: index});
 
     private addAddress = (address: AddressModel): void => {
         this.setState({addresses: [...this.state.addresses, address]});
     }
 
 }
+
+export default withRouter(AddressList);

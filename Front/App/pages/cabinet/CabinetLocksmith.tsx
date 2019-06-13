@@ -6,6 +6,10 @@ import queryString from "querystring";
 import {RouteComponentProps, withRouter} from "react-router";
 import TerritoryItem from "../../components/territory-list/TerritoryItem";
 import TerritoriesApi, {TerritoryModel} from "../../api/territories-api";
+import LocalityItem from "../../components/locality-list/LocalityItem";
+import StreetItem from "../../components/street-list/StreetItem";
+import StructureItem from "../../components/structure-list/StructureItem";
+import AddressItem from "../../components/address-list/AddressItem";
 
 export interface CabinetLocksmithProps extends RouteComponentProps {
 }
@@ -36,6 +40,27 @@ class CabinetLocksmith extends Component<CabinetLocksmithProps, CabinetLocksmith
 
     public render(): ReactNode {
         const params: any = queryString.parse(this.props.location.search.slice(1));
+
+        const addressId: string = params.addressId;
+        if (addressId) {
+            return (<AddressItem addressId={addressId}/>);
+        }
+
+        const structureId: string = params.structureId;
+        if (structureId) {
+            return (<StructureItem structureId={structureId}/>);
+        }
+
+        const streetId: string = params.streetId;
+        if (streetId) {
+            return (<StreetItem streetId={streetId}/>);
+        }
+
+        const localityId: string = params.localityId;
+        if (localityId) {
+            return (<LocalityItem localityId={localityId}/>);
+        }
+
         const territoryId: string = params.territoryId;
         if (territoryId) {
             return (<TerritoryItem territoryId={territoryId}/>);

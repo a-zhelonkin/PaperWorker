@@ -1,24 +1,27 @@
+import "./../addressing.scss";
 import React, {Component, ReactNode} from "react";
-import PanelGroup from "react-bootstrap/lib/PanelGroup";
-import Panel from "react-bootstrap/lib/Panel";
 import {StreetModel} from "../../api/streets-api";
 import StreetCreator from "./StreetCreator";
-import StreetItem from "./StreetItem";
+import {RouteComponentProps, withRouter} from "react-router";
 
-interface StreetListProps {
+interface StreetListProps extends RouteComponentProps {
     readonly localityId: string;
     readonly streets: StreetModel[];
 }
 
 interface StreetListState {
-    readonly activeStreetIndex: number;
     readonly streets: StreetModel[];
 }
 
-export default class StreetList extends Component<StreetListProps, StreetListState> {
+class StreetList extends Component<StreetListProps, StreetListState> {
+
+    public static getDerivedStateFromProps(props: StreetListProps): StreetListState {
+        return {
+            streets: props.streets
+        };
+    }
 
     public state: StreetListState = {
-        activeStreetIndex: -1,
         streets: this.props.streets
     };
 
@@ -27,33 +30,23 @@ export default class StreetList extends Component<StreetListProps, StreetListSta
             <>
                 <StreetCreator localityId={this.props.localityId} addStreet={this.addStreet}/>
 
-                <PanelGroup
-                    id="accordion-controlled-example"
-                    accordion
-                    activeKey={this.state.activeStreetIndex}
-                    onSelect={this.onSelect}
-                >
-                    {this.state.streets.map((street, index) => {
-                        return (
-                            <Panel key={index} eventKey={index}>
-                                <Panel.Heading>
-                                    <Panel.Title toggle>Населенный пункт: {street.name}</Panel.Title>
-                                </Panel.Heading>
-                                <Panel.Body collapsible>
-                                    <StreetItem streetId={street.id}/>
-                                </Panel.Body>
-                            </Panel>
-                        );
-                    })}
-                </PanelGroup>
+                {this.state.streets.map((street, index) => {
+                    const onClick = (): void => this.props.history.push(`/cabinet?streetId=${street.id}`);
+
+                    return (
+                        <div className="addressing-item" key={index} onClick={onClick}>
+                            {street.name}
+                        </div>
+                    );
+                })}
             </>
         );
     }
-
-    private onSelect = (index: number | any): void => this.setState({activeStreetIndex: index});
 
     private addStreet = (street: StreetModel): void => {
         this.setState({streets: [...this.state.streets, street]});
     }
 
 }
+
+export default withRouter(StreetList);

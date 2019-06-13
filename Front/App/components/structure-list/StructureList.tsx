@@ -1,24 +1,27 @@
+import "./../addressing.scss";
 import React, {Component, ReactNode} from "react";
-import PanelGroup from "react-bootstrap/lib/PanelGroup";
-import Panel from "react-bootstrap/lib/Panel";
-import StructureItem from "./StructureItem";
 import {StructureModel} from "../../api/structures-api";
 import StructureCreator from "./StructureCreator";
+import {RouteComponentProps, withRouter} from "react-router";
 
-interface StructureListProps {
+interface StructureListProps extends RouteComponentProps {
     readonly streetId: string;
     readonly structures: StructureModel[];
 }
 
 interface StructureListState {
-    readonly activeStructureIndex: number;
     readonly structures: StructureModel[];
 }
 
-export default class StructureList extends Component<StructureListProps, StructureListState> {
+class StructureList extends Component<StructureListProps, StructureListState> {
+
+    public static getDerivedStateFromProps(props: StructureListProps): StructureListState {
+        return {
+            structures: props.structures
+        };
+    }
 
     public state: StructureListState = {
-        activeStructureIndex: -1,
         structures: this.props.structures
     };
 
@@ -27,33 +30,23 @@ export default class StructureList extends Component<StructureListProps, Structu
             <>
                 <StructureCreator streetId={this.props.streetId} addStructure={this.addStructure}/>
 
-                <PanelGroup
-                    id="accordion-controlled-example"
-                    accordion
-                    activeKey={this.state.activeStructureIndex}
-                    onSelect={this.onSelect}
-                >
-                    {this.state.structures.map((structure, index) => {
-                        return (
-                            <Panel key={index} eventKey={index}>
-                                <Panel.Heading>
-                                    <Panel.Title toggle>Строение: {structure.number}</Panel.Title>
-                                </Panel.Heading>
-                                <Panel.Body collapsible>
-                                    <StructureItem structureId={structure.id}/>
-                                </Panel.Body>
-                            </Panel>
-                        );
-                    })}
-                </PanelGroup>
+                {this.state.structures.map((structure, index) => {
+                    const onClick = (): void => this.props.history.push(`/cabinet?structureId=${structure.id}`);
+
+                    return (
+                        <div className="addressing-item" key={index} onClick={onClick}>
+                            {structure.number}
+                        </div>
+                    );
+                })}
             </>
         );
     }
-
-    private onSelect = (index: number | any): void => this.setState({activeStructureIndex: index});
 
     private addStructure = (structure: StructureModel): void => {
         this.setState({structures: [...this.state.structures, structure]});
     }
 
 }
+
+export default withRouter(StructureList);
