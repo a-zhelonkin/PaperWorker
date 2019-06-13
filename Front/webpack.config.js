@@ -1,5 +1,5 @@
 const path = require("path");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const outputDirectory = path.resolve(__dirname, "wwwroot");
@@ -47,7 +47,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(outputDirectory),
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             favicon: "./favicon.ico",
             minify: {

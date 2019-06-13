@@ -1,19 +1,17 @@
 import React, {Component, ReactNode} from "react";
-import history from "../../store/history";
 import {connect} from "react-redux";
 import Col from "react-bootstrap/lib/Col";
 import Form from "react-bootstrap/lib/Form";
 import Button from "react-bootstrap/lib/Button";
 import FormGroup from "react-bootstrap/lib/FormGroup";
 import FormControl from "react-bootstrap/lib/FormControl";
-import ControlLabel from "react-bootstrap/lib/ControlLabel";
 import {updateEmail, updateRoles, updateToken} from "./actions";
-import AuthApi from "../../api/auth-api";
-import {Link} from "react-router-dom";
+import AuthApi, {AuthData} from "../../api/auth-api";
+import {Link, RouteComponentProps, withRouter} from "react-router-dom";
 import {RoleName} from "../../constants/role-name";
-import AuthData from "../../api/models/auth-data";
+import ControlLabel from "react-bootstrap/lib/ControlLabel";
 
-export interface AuthViaPasswordProps {
+export interface AuthViaPasswordProps extends RouteComponentProps {
     updateToken: (token: string) => void;
     updateEmail: (email: string) => void;
     updateRoles: (roles: RoleName[]) => void;
@@ -82,7 +80,7 @@ class AuthViaPassword extends Component<AuthViaPasswordProps> {
                     this.props.updateToken(data.token);
                     this.props.updateEmail(data.email);
                     this.props.updateRoles(data.roles);
-                    history.push("/cabinet");
+                    this.props.history.push("/cabinet");
                 }
             });
     }
@@ -94,5 +92,5 @@ const mapDispatchToProps = {
     updateRoles: updateRoles
 };
 
-export default connect(undefined, mapDispatchToProps)(AuthViaPassword);
+export default connect(undefined, mapDispatchToProps)(withRouter(AuthViaPassword));
 // todo проверить восстановление пароля

@@ -56,6 +56,7 @@ namespace Database
 
             var roleNameConverter = new EnumToStringConverter<RoleName>();
             var userStatusConverter = new EnumToStringConverter<UserStatus>();
+            var messageTypeConverter = new EnumToStringConverter<MessageType>();
             var territoryTypeConverter = new EnumToStringConverter<TerritoryType>();
             var gasEquipmentTypeConverter = new EnumToStringConverter<GasEquipmentType>();
 
@@ -132,6 +133,14 @@ namespace Database
 
             modelBuilder.Entity<UserRole>()
                         .HasData(godRoles.Select(role => new UserRole {UserId = godId, RoleId = role.Id}).ToArray());
+
+            #endregion
+
+            #region EmailMessage
+
+            modelBuilder.Entity<EmailMessage>()
+                        .Property(emailMessage => emailMessage.Type)
+                        .HasConversion(messageTypeConverter);
 
             #endregion
 

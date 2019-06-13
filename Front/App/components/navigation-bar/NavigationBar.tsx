@@ -5,12 +5,12 @@ import NavItem from "react-bootstrap/lib/NavItem";
 import NavDropdown from "react-bootstrap/lib/NavDropdown";
 import MenuItem from "react-bootstrap/lib/MenuItem";
 import LinkContainer from "react-router-bootstrap/lib/LinkContainer";
-import {NavLink} from "react-router-dom";
+import {NavLink, RouteComponentProps, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {logout} from "../../pages/auth/actions";
 import {RootState} from "../../store";
 
-export interface NavigationBarProps {
+export interface NavigationBarProps extends RouteComponentProps {
     email: string;
     isLoggedIn: boolean;
     logout: () => void;
@@ -70,4 +70,4 @@ const mapDispatchToProps = {
     logout: logout
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavigationBar));

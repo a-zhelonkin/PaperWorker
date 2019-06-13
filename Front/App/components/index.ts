@@ -1,13 +1,5 @@
-import AuthRoute from "./auth-route/AuthRoute";
-import Loading from "./loading/Loading";
-import Logo from "./logo/Logo";
-import LogoHeader from "./logo-header/LogoHeader";
-import NavigationBar from "./navigation-bar/NavigationBar";
-
-export {
-    AuthRoute,
-    Loading,
-    Logo,
-    LogoHeader,
-    NavigationBar
-};
+export {default as AuthRoute} from "./auth-route/AuthRoute";
+export {default as Loading} from "./loading/Loading";
+export {default as Logo} from "./logo/Logo";
+export {default as LogoHeader} from "./logo-header/LogoHeader";
+export {default as NavigationBar} from "./navigation-bar/NavigationBar";

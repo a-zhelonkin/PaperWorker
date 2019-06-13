@@ -96,7 +96,7 @@ namespace Database.Migrations
 
                     b.Property<DateTime?>("Deleted");
 
-                    b.Property<int?>("Number");
+                    b.Property<int>("Number");
 
                     b.Property<Guid>("StructureId");
 
@@ -149,6 +149,8 @@ namespace Database.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Alone");
 
                     b.Property<DateTime?>("Deleted");
 
@@ -242,7 +244,8 @@ namespace Database.Migrations
 
                     b.Property<DateTime?>("Deleted");
 
-                    b.Property<byte>("Type");
+                    b.Property<string>("Type")
+                        .IsRequired();
 
                     b.Property<Guid>("UserId");
 

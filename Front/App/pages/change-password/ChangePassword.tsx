@@ -4,17 +4,16 @@ import {updateEmail, updateRoles, updateToken} from "../auth/actions";
 import Form from "react-bootstrap/lib/Form";
 import FormGroup from "react-bootstrap/lib/FormGroup";
 import Col from "react-bootstrap/lib/Col";
-import ControlLabel from "react-bootstrap/lib/ControlLabel";
 import FormControl from "react-bootstrap/lib/FormControl";
 import Button from "react-bootstrap/lib/Button";
-import UsersApi from "../../api/users-api";
+import ControlLabel from "react-bootstrap/lib/ControlLabel";
 import queryString from "querystring";
 import history from "../../store/history";
 import {RoleName} from "../../constants/role-name";
-import AuthData from "../../api/models/auth-data";
+import {RouteComponentProps, withRouter} from "react-router";
+import AuthApi, {AuthData} from "../../api/auth-api";
 
-export interface ChangePasswordProps {
-    location: Location;
+export interface ChangePasswordProps extends RouteComponentProps {
     updateToken: (token: string) => void;
     updateEmail: (email: string) => void;
     updateRoles: (roles: RoleName[]) => void;
@@ -113,7 +112,7 @@ class ChangePassword extends Component<ChangePasswordProps, ChangePasswordState>
         e.preventDefault();
 
         if (this.state.passwordsIdentical) {
-            UsersApi.changePassword(this.state.password, this.token)
+            AuthApi.changePassword(this.state.password, this.token)
                 .then((data: AuthData) => {
                     if (data) {
                         this.props.updateToken(this.token);
@@ -135,4 +134,4 @@ const mapDispatchToProps = {
     updateRoles: updateRoles
 };
 
-export default connect(undefined, mapDispatchToProps)(ChangePassword);
+export default connect(undefined, mapDispatchToProps)(withRouter(ChangePassword));

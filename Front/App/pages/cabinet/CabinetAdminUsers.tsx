@@ -3,8 +3,7 @@ import {connect} from "react-redux";
 import {RootState} from "../../store";
 import "react-bootstrap-table/css/react-bootstrap-table.css";
 import {BootstrapTable, TableHeaderColumn} from "react-bootstrap-table";
-import UserModel from "../../api/models/user-model";
-import UsersApi from "../../api/users-api";
+import UsersApi, {UserModel} from "../../api/users-api";
 
 export interface CabinetAdminUsersProps {
 }

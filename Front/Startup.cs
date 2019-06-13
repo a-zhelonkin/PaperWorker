@@ -1,12 +1,7 @@
 ﻿using System;
-using Api.Mappers;
-using Api.Models;
-using Api.Models.Account;
+using Api;
 using Auth;
-using Core;
 using Database;
-using Database.Models;
-using Database.Models.Account;
 using Front.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -36,11 +31,9 @@ namespace Front
             services.AddScoped<PaperWorkerDbContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ITokenGenerator, TokenGenerator>();
-            services.AddScoped<IMapper<User, UserDto>, UserDtoMapper>();
-            services.AddScoped<IMapper<Profile, ProfileDto>, ProfileDtoMapper>();
-            services.AddScoped<IMapper<ProfileDto, Profile>, DtoProfileMapper>();
             services.AddScoped<IAppConfigurations, AppConfigurations>(provider => _configuration.GetSection(nameof(AppConfigurations)).Get<AppConfigurations>());
 
+            services.AddApi();
             services.AddEmailService();
 
             services.AddMvc();

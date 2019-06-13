@@ -1,13 +1,13 @@
 import React, {Component, ReactNode} from "react";
 import queryString from "querystring";
 import {Loading} from "../";
-import AuthApi from "../../api/auth-api";
+import AuthApi, {AuthData} from "../../api/auth-api";
 import {updateEmail, updateRoles, updateToken} from "../../pages/auth/actions";
 import {connect} from "react-redux";
 import {Redirect, Route, RouteProps} from "react-router";
 import {RootState} from "../../store";
-import AuthData from "../../api/models/auth-data";
 import {RoleName} from "../../constants/role-name";
+import {LoadStatus} from "../../constants/load-status";
 
 export interface AuthRouteProps extends RouteProps {
     autoLogin: boolean;
@@ -18,7 +18,7 @@ export interface AuthRouteProps extends RouteProps {
 }
 
 export interface AuthRouteState {
-    tokenCheckingState: "pending" | "success" | "error";
+    tokenCheckingState: LoadStatus;
 }
 
 class AuthRoute extends Component<AuthRouteProps, AuthRouteState> {
@@ -27,17 +27,14 @@ class AuthRoute extends Component<AuthRouteProps, AuthRouteState> {
         autoLogin: false
     };
 
-    public constructor(props: AuthRouteProps) {
-        super(props);
-        this.state = {
-            tokenCheckingState: "pending"
-        };
-    }
+    public state = {
+        tokenCheckingState: LoadStatus.Pending
+    };
 
-    public componentWillMount() {
+    public componentDidMount(): void {
         if (this.props.autoLogin) {
             if (this.props.isLoggedIn) {
-                this.setState({tokenCheckingState: "success"});
+                this.setState({tokenCheckingState: LoadStatus.Success});
                 return;
             }
 
@@ -50,9 +47,9 @@ class AuthRoute extends Component<AuthRouteProps, AuthRouteState> {
                         this.props.updateToken(token);
                         this.props.updateEmail(data.email);
                         this.props.updateRoles(data.roles);
-                        this.setState({tokenCheckingState: "success"});
+                        this.setState({tokenCheckingState: LoadStatus.Success});
                     } else {
-                        this.setState({tokenCheckingState: "error"});
+                        this.setState({tokenCheckingState: LoadStatus.Error});
                     }
                 });
         }
@@ -61,11 +58,11 @@ class AuthRoute extends Component<AuthRouteProps, AuthRouteState> {
     public render(): ReactNode {
         if (this.props.autoLogin) {
             switch (this.state.tokenCheckingState) {
-                case "success":
+                case LoadStatus.Success:
                     return this.route();
-                case "error":
+                case LoadStatus.Error:
                     return AuthRoute.redirect();
-                case "pending":
+                case LoadStatus.Pending:
                 default:
                     return <Loading/>;
             }

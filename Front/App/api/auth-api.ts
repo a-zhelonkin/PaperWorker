@@ -1,6 +1,12 @@
 import ApiBase from "./api-base";
 import {HttpMethod} from "../constants/http-method";
-import AuthData from "./models/auth-data";
+import {RoleName} from "../constants/role-name";
+
+export interface AuthData {
+    readonly token?: string;
+    readonly email: string;
+    readonly roles: RoleName[];
+}
 
 export default class AuthApi extends ApiBase {
 
@@ -39,6 +45,19 @@ export default class AuthApi extends ApiBase {
             body: JSON.stringify(email)
         })
             .then((response: Response) => response.ok);
+    }
+
+    public static changePassword(password: string, token?: string): Promise<AuthData> {
+        return fetch(`${this.SERVER_HOST}/api/auth/change-password`, {
+            method: HttpMethod.Put,
+            headers: this.authorizedHeaders(token),
+            body: JSON.stringify(password)
+        })
+            .then((response: Response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+            });
     }
 
     public static sendAuthLink(email: string): Promise<boolean> {

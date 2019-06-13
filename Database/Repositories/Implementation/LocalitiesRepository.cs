@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Database.Models.Addressing;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,9 +10,12 @@ namespace Database.Repositories.Implementation
     {
         private readonly DbSet<Locality> _localities;
 
-        public LocalitiesRepository(DbSet<Locality> localities)
-        {
-            _localities = localities;
-        }
+        public LocalitiesRepository(DbSet<Locality> localities) => _localities = localities;
+
+        public IEnumerable<Locality> GetByTerritoryId(Guid territoryId) => _localities.Where(locality => locality.TerritoryId == territoryId);
+
+        public void Add(Locality locality) => _localities.Add(locality);
+
+        public bool Exists(Guid territoryId, string name) => _localities.Any(locality => locality.TerritoryId == territoryId && locality.Name == name);
     }
 }

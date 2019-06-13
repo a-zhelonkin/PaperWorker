@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -44,6 +44,30 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="App\api\localities-api.ts" />
+    <TypeScriptCompile Include="App\api\streets-api.ts" />
+    <TypeScriptCompile Include="App\api\structures-api.ts" />
+    <TypeScriptCompile Include="App\api\territories-api.ts" />
+    <TypeScriptCompile Include="App\components\address-list\AddressCreator.tsx" />
+    <TypeScriptCompile Include="App\components\address-list\AddressList.tsx" />
+    <TypeScriptCompile Include="App\components\address-list\AddressItem.tsx" />
+    <TypeScriptCompile Include="App\components\addressing-actions.ts" />
+    <TypeScriptCompile Include="App\components\addressing-reducer.ts" />
+    <TypeScriptCompile Include="App\components\locality-list\LocalityCreator.tsx" />
+    <TypeScriptCompile Include="App\components\locality-list\LocalityItem.tsx" />
+    <TypeScriptCompile Include="App\components\street-list\StreetCreator.tsx" />
+    <TypeScriptCompile Include="App\components\street-list\StreetItem.tsx" />
+    <TypeScriptCompile Include="App\components\street-list\StreetList.tsx" />
+    <TypeScriptCompile Include="App\components\structure-list\StructureCreator.tsx" />
+    <TypeScriptCompile Include="App\components\structure-list\StructureItem.tsx" />
+    <TypeScriptCompile Include="App\components\structure-list\StructureList.tsx" />
+    <TypeScriptCompile Include="App\components\territory-list\TerritoryCreator.tsx" />
+    <TypeScriptCompile Include="App\components\territory-list\TerritoryList.tsx" />
+    <TypeScriptCompile Include="App\components\territory-list\TerritoryItem.tsx" />
+    <TypeScriptCompile Include="App\constants\load-status.ts" />
   </ItemGroup>
 
 </Project>

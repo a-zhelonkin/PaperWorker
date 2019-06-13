@@ -5,11 +5,10 @@ import queryString from "querystring";
 import Jumbotron from "react-bootstrap/lib/Jumbotron";
 import Label from "react-bootstrap/lib/Label";
 import InvitesApi, {InviteStatus} from "../../api/invites-api";
-import {Link} from "react-router-dom";
+import {Link, RouteComponentProps, withRouter} from "react-router-dom";
 import {UserStatus} from "../../constants/user-status";
 
-export interface InviteProps {
-    location: Location;
+export interface InviteProps extends RouteComponentProps {
 }
 
 export interface InviteState {
@@ -54,4 +53,4 @@ class Invite extends Component<InviteProps, InviteState> {
 
 }
 
-export default connect(undefined, undefined)(Invite);
+export default connect(undefined, undefined)(withRouter(Invite));

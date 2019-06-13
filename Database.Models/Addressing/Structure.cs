@@ -18,6 +18,9 @@ namespace Database.Models.Addressing
         [Required]
         public int Number { get; set; }
 
+        [Required]
+        public bool Alone { get; set; }
+
         [ForeignKey(nameof(StreetId))]
         public virtual Street Street { get; set; }
 

@@ -3,10 +3,10 @@ import React, {Component, ReactNode} from "react";
 import {LogoHeader} from "../../components";
 import Form from "react-bootstrap/lib/Form";
 import FormGroup from "react-bootstrap/lib/FormGroup";
-import ControlLabel from "react-bootstrap/lib/ControlLabel";
 import FormControl from "react-bootstrap/lib/FormControl";
 import Col from "react-bootstrap/lib/Col";
 import Button from "react-bootstrap/lib/Button";
+import ControlLabel from "react-bootstrap/lib/ControlLabel";
 import AuthApi from "../../api/auth-api";
 
 export default class Register extends Component {

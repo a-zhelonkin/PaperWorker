@@ -9,6 +9,11 @@
     <Import_RootNamespace>Api.Models</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Addressing\AddressDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Addressing\LocalityDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Addressing\StreetDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Addressing\StructureDto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Addressing\TerritoryDto.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\EntityDto.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InviteDto.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProfileDto.cs" />

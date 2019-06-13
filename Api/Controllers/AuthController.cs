@@ -99,6 +99,35 @@ namespace Api.Controllers
             return Ok();
         }
 
+        [Authorize]
+        [HttpPut]
+        [Route("change-password")]
+        public IActionResult ChangePassword([FromBody] string password)
+        {
+            var email = this.GetEmail();
+            if (email == null)
+            {
+                return Unauthorized();
+            }
+
+            var userRepository = _unitOfWork.UserRepository;
+            var user = userRepository.GetWithRoles(email);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            user.Password = password.ToSha256();
+            userRepository.Update(user);
+            _unitOfWork.Save();
+
+            return Ok(new AuthInfoDto
+            {
+                Email = email,
+                Roles = user.GetRoleNames()
+            });
+        }
+
         [AllowAnonymous]
         [HttpPost]
         [Route("send-auth-link")]

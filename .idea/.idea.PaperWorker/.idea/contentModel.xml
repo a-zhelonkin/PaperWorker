@@ -1,59 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\consoles\db" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\Extensions" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\_http_incoming.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\_http_outgoing.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\_http_server.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\assert.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\async_hooks.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\child_process.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\cluster.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\crypto.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\dgram.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\dns.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\domain.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\events.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\fs.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\http.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\https.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\net.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\os.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\path.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\punycode.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\querystring.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\readline.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\repl.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\stream.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\string_decoder.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\tls.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\tty.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\url.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\util.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\v8.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\vm.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\javascript\nodejs\10.11.0\core-modules\zlib.js" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\Config\scratches" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\zhelonkin\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_PaperWorker.-761895311.00" t="ExcludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\zhelonkin\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_PaperWorker.-761895311.00" t="ExcludeRecursive" />
     <e p="C:\Users\zhelonkin\RiderProjects\PaperWorker" t="IncludeFlat">
       <e p="Api" t="IncludeRecursive">
         <e p="Api.csproj" t="IncludeRecursive" />
+        <e p="ApiDiExtension.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
+          <e p="AddressesController.cs" t="Include" />
           <e p="AuthController.cs" t="Include" />
           <e p="InvitesController.cs" t="Include" />
+          <e p="LocalitiesController.cs" t="Include" />
           <e p="ProfilesController.cs" t="Include" />
           <e p="RolesController.cs" t="Include" />
+          <e p="StreetsController.cs" t="Include" />
+          <e p="StructuresController.cs" t="Include" />
+          <e p="TerritoriesController.cs" t="Include" />
           <e p="UsersController.cs" t="Include" />
         </e>
         <e p="Extensions" t="Include">
           <e p="ControllerBaseExtension.cs" t="Include" />
         </e>
         <e p="Mappers" t="Include">
+          <e p="AddressDtoMapper.cs" t="Include" />
           <e p="DtoProfileMapper.cs" t="Include" />
+          <e p="LocalityDtoMapper.cs" t="Include" />
           <e p="ProfileDtoMapper.cs" t="Include" />
+          <e p="StreetDtoMapper.cs" t="Include" />
+          <e p="StructureDtoMapper.cs" t="Include" />
+          <e p="TerritoryDtoMapper.cs" t="Include" />
           <e p="UserDtoMapper.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -75,6 +52,13 @@
           <e p="AuthInfoDto.cs" t="Include" />
           <e p="RoleDto.cs" t="Include" />
           <e p="UserDto.cs" t="Include" />
+        </e>
+        <e p="Addressing" t="Include">
+          <e p="AddressDto.cs" t="Include" />
+          <e p="LocalityDto.cs" t="Include" />
+          <e p="StreetDto.cs" t="Include" />
+          <e p="StructureDto.cs" t="Include" />
+          <e p="TerritoryDto.cs" t="Include" />
         </e>
         <e p="Api.Models.projitems" t="Include" />
         <e p="Api.Models.shproj" t="IncludeRecursive" />
@@ -125,6 +109,8 @@
           <e p="20190603215106_GasStructure.Designer.cs" t="Include" />
           <e p="20190603232216_FixPrivate.cs" t="Include" />
           <e p="20190603232216_FixPrivate.Designer.cs" t="Include" />
+          <e p="20190612164822_StructureAlone.cs" t="Include" />
+          <e p="20190612164822_StructureAlone.Designer.cs" t="Include" />
           <e p="PaperWorkerDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -211,25 +197,42 @@
         <e p=".babelrc" t="Include" />
         <e p="App" t="Include">
           <e p="Api" t="Include">
+            <e p="addresses-api.ts" t="Include" />
             <e p="api-base.ts" t="Include" />
             <e p="auth-api.ts" t="Include" />
             <e p="invites-api.ts" t="Include" />
+            <e p="localities-api.ts" t="Include" />
             <e p="Models" t="Include">
               <e p="auth-data.ts" t="Include" />
               <e p="user-model.ts" t="Include" />
             </e>
             <e p="profiles-api.ts" t="Include" />
+            <e p="streets-api.ts" t="Include" />
+            <e p="structures-api.ts" t="Include" />
+            <e p="territories-api.ts" t="Include" />
             <e p="users-api.ts" t="Include" />
           </e>
           <e p="app.scss" t="Include" />
           <e p="app.tsx" t="Include" />
           <e p="components" t="Include">
+            <e p="address-list" t="Include">
+              <e p="AddressCreator.tsx" t="Include" />
+              <e p="AddressItem.tsx" t="Include" />
+              <e p="AddressList.tsx" t="Include" />
+            </e>
+            <e p="addressing-actions.ts" t="Include" />
+            <e p="addressing-reducer.ts" t="Include" />
             <e p="auth-route" t="Include">
               <e p="AuthRoute.tsx" t="Include" />
             </e>
             <e p="index.ts" t="Include" />
             <e p="loading" t="Include">
               <e p="Loading.tsx" t="Include" />
+            </e>
+            <e p="locality-list" t="Include">
+              <e p="LocalityCreator.tsx" t="Include" />
+              <e p="LocalityItem.tsx" t="Include" />
+              <e p="LocalityList.tsx" t="Include" />
             </e>
             <e p="logo" t="Include">
               <e p="Logo.tsx" t="Include" />
@@ -240,9 +243,25 @@
             <e p="navigation-bar" t="Include">
               <e p="NavigationBar.tsx" t="Include" />
             </e>
+            <e p="street-list" t="Include">
+              <e p="StreetCreator.tsx" t="Include" />
+              <e p="StreetItem.tsx" t="Include" />
+              <e p="StreetList.tsx" t="Include" />
+            </e>
+            <e p="structure-list" t="Include">
+              <e p="StructureCreator.tsx" t="Include" />
+              <e p="StructureItem.tsx" t="Include" />
+              <e p="StructureList.tsx" t="Include" />
+            </e>
+            <e p="territory-list" t="Include">
+              <e p="TerritoryCreator.tsx" t="Include" />
+              <e p="TerritoryItem.tsx" t="Include" />
+              <e p="TerritoryList.tsx" t="Include" />
+            </e>
           </e>
           <e p="constants" t="Include">
             <e p="http-method.ts" t="Include" />
+            <e p="load-status.ts" t="Include" />
             <e p="role-name.ts" t="Include" />
             <e p="user-status.ts" t="Include" />
           </e>
@@ -265,6 +284,8 @@
               <e p="CabinetAdminUsers.tsx" t="Include" />
               <e p="CabinetConsumer.tsx" t="Include" />
               <e p="CabinetLocksmith.tsx" t="Include" />
+              <e p="CabinetLocksmithMaintenanceCard.tsx" t="Include" />
+              <e p="CabinetLocksmithMaintenanceCards.tsx" t="Include" />
               <e p="index.ts" t="Include" />
               <e p="reducer.ts" t="Include" />
             </e>
@@ -315,131 +336,147 @@
         <e p="Front.csproj" t="IncludeRecursive" />
         <e p="log4net.config" t="Include" />
         <e p="logs" t="Include">
-          <e p="2019-06-04.log" t="Include" />
+          <e p="2019-06-12.log" t="Include" />
+          <e p="2019-06-13.log" t="Include" />
         </e>
         <e p="Middleware" t="Include">
           <e p="JwtFromCookieMiddleware.cs" t="Include" />
         </e>
-        <e p="node_modules" t="ExcludeRecursive">
-          <e p="@babel\cli" t="IncludeRecursive" />
-          <e p="@babel\core" t="IncludeRecursive" />
-          <e p="@babel\plugin-proposal-class-properties" t="IncludeRecursive" />
-          <e p="@babel\plugin-proposal-object-rest-spread" t="IncludeRecursive" />
-          <e p="@babel\preset-env" t="IncludeRecursive" />
-          <e p="@babel\preset-react" t="IncludeRecursive" />
-          <e p="@babel\preset-typescript" t="IncludeRecursive" />
-          <e p="@fortawesome\fontawesome-svg-core" t="IncludeRecursive" />
-          <e p="@fortawesome\free-solid-svg-icons" t="IncludeRecursive" />
-          <e p="@fortawesome\react-fontawesome" t="IncludeRecursive" />
-          <e p="@types" t="IncludeRecursive">
-            <e p="history" t="IncludeRecursive" />
-            <e p="hoist-non-react-statics" t="IncludeRecursive" />
-            <e p="node" t="IncludeRecursive" />
-            <e p="prop-types" t="IncludeRecursive" />
-            <e p="query-string" t="IncludeRecursive" />
-            <e p="react" t="IncludeRecursive" />
-            <e p="react-bootstrap" t="IncludeRecursive" />
-            <e p="react-bootstrap-table" t="IncludeRecursive" />
-            <e p="react-dom" t="IncludeRecursive" />
-            <e p="react-redux" t="IncludeRecursive" />
-            <e p="react-router" t="IncludeRecursive" />
-            <e p="react-router-bootstrap" t="IncludeRecursive" />
-            <e p="react-router-dom" t="IncludeRecursive" />
-            <e p="react-router-redux" t="IncludeRecursive" />
-            <e p="react-select" t="IncludeRecursive" />
-            <e p="react-transition-group" t="IncludeRecursive" />
-          </e>
-          <e p="babel-loader" t="IncludeRecursive" />
-          <e p="bootstrap" t="IncludeRecursive" />
-          <e p="clean-webpack-plugin" t="IncludeRecursive" />
-          <e p="css-loader" t="IncludeRecursive" />
-          <e p="csstype" t="IncludeRecursive" />
+        <e p="node_modules\@babel\cli" t="IncludeRecursive" />
+        <e p="node_modules\@babel\core" t="IncludeRecursive" />
+        <e p="node_modules\@babel\plugin-proposal-class-properties" t="IncludeRecursive" />
+        <e p="node_modules\@babel\plugin-proposal-object-rest-spread" t="IncludeRecursive" />
+        <e p="node_modules\@babel\preset-env" t="IncludeRecursive" />
+        <e p="node_modules\@babel\preset-react" t="IncludeRecursive" />
+        <e p="node_modules\@babel\preset-typescript" t="IncludeRecursive" />
+        <e p="node_modules\@fortawesome\fontawesome-svg-core" t="IncludeRecursive" />
+        <e p="node_modules\@fortawesome\free-solid-svg-icons" t="IncludeRecursive" />
+        <e p="node_modules\@fortawesome\react-fontawesome" t="IncludeRecursive" />
+        <e p="node_modules\@types" t="IncludeRecursive">
+          <e p="anymatch" t="IncludeRecursive" />
+          <e p="events" t="IncludeRecursive" />
           <e p="history" t="IncludeRecursive" />
           <e p="hoist-non-react-statics" t="IncludeRecursive" />
-          <e p="html-webpack-plugin" t="IncludeRecursive" />
-          <e p="image-webpack-loader" t="IncludeRecursive" />
-          <e p="mini-css-extract-plugin" t="IncludeRecursive" />
-          <e p="node-sass" t="IncludeRecursive" />
-          <e p="optimize-css-assets-webpack-plugin" t="IncludeRecursive" />
+          <e p="minimatch" t="IncludeRecursive" />
+          <e p="node" t="IncludeRecursive" />
+          <e p="prop-types" t="IncludeRecursive" />
           <e p="query-string" t="IncludeRecursive" />
           <e p="react" t="IncludeRecursive" />
           <e p="react-bootstrap" t="IncludeRecursive" />
           <e p="react-bootstrap-table" t="IncludeRecursive" />
           <e p="react-dom" t="IncludeRecursive" />
-          <e p="react-is" t="IncludeRecursive" />
           <e p="react-redux" t="IncludeRecursive" />
           <e p="react-router" t="IncludeRecursive" />
           <e p="react-router-bootstrap" t="IncludeRecursive" />
           <e p="react-router-dom" t="IncludeRecursive" />
           <e p="react-router-redux" t="IncludeRecursive" />
           <e p="react-select" t="IncludeRecursive" />
-          <e p="redux" t="IncludeRecursive" />
-          <e p="redux-thunk" t="IncludeRecursive" />
-          <e p="sass-loader" t="IncludeRecursive" />
-          <e p="source-map" t="IncludeRecursive" />
-          <e p="source-map-loader" t="IncludeRecursive" />
-          <e p="style-loader" t="IncludeRecursive" />
-          <e p="svg-url-loader" t="IncludeRecursive" />
-          <e p="terser" t="IncludeRecursive" />
-          <e p="ts-node" t="IncludeRecursive" />
-          <e p="tslint" t="IncludeRecursive" />
-          <e p="tslint-react" t="IncludeRecursive" />
-          <e p="typesafe-actions" t="IncludeRecursive" />
-          <e p="typescript" t="IncludeRecursive">
-            <e p="lib\lib.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.dom.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.dom.iterable.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2015.collection.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2015.core.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2015.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2015.generator.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2015.iterable.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2015.promise.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2015.proxy.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2015.reflect.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2015.symbol.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2015.symbol.wellknown.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2016.array.include.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2016.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2016.full.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2017.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2017.full.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2017.intl.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2017.object.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2017.sharedmemory.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2017.string.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2017.typedarrays.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2018.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2018.full.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2018.intl.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2018.promise.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es2018.regexp.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es5.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.es6.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.esnext.array.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.esnext.asynciterable.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.esnext.bigint.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.esnext.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.esnext.full.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.esnext.intl.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.esnext.symbol.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.scripthost.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.webworker.d.ts" t="IncludeRecursive" />
-            <e p="lib\lib.webworker.importscripts.d.ts" t="IncludeRecursive" />
-          </e>
-          <e p="uglifyjs-webpack-plugin" t="IncludeRecursive" />
-          <e p="universal-cookie" t="IncludeRecursive" />
-          <e p="url-loader" t="IncludeRecursive" />
-          <e p="utility-types" t="IncludeRecursive" />
-          <e p="webpack" t="IncludeRecursive" />
-          <e p="webpack-cli" t="IncludeRecursive" />
-          <e p="webpack-dev-middleware" t="IncludeRecursive" />
-          <e p="webpack-merge" t="IncludeRecursive" />
+          <e p="react-transition-group" t="IncludeRecursive" />
+          <e p="tapable" t="IncludeRecursive" />
+          <e p="uglify-js" t="IncludeRecursive" />
         </e>
+        <e p="node_modules\babel-loader" t="IncludeRecursive" />
+        <e p="node_modules\bootstrap" t="IncludeRecursive" />
+        <e p="node_modules\clean-webpack-plugin" t="IncludeRecursive" />
+        <e p="node_modules\css-loader" t="IncludeRecursive" />
+        <e p="node_modules\csstype" t="IncludeRecursive" />
+        <e p="node_modules\history" t="IncludeRecursive" />
+        <e p="node_modules\hoist-non-react-statics" t="IncludeRecursive" />
+        <e p="node_modules\html-webpack-plugin" t="IncludeRecursive" />
+        <e p="node_modules\image-webpack-loader" t="IncludeRecursive" />
+        <e p="node_modules\mini-css-extract-plugin" t="IncludeRecursive" />
+        <e p="node_modules\node-sass" t="IncludeRecursive" />
+        <e p="node_modules\optimize-css-assets-webpack-plugin" t="IncludeRecursive" />
+        <e p="node_modules\query-string" t="IncludeRecursive" />
+        <e p="node_modules\react" t="IncludeRecursive" />
+        <e p="node_modules\react-bootstrap" t="IncludeRecursive" />
+        <e p="node_modules\react-bootstrap-table" t="IncludeRecursive" />
+        <e p="node_modules\react-dom" t="IncludeRecursive" />
+        <e p="node_modules\react-is" t="IncludeRecursive" />
+        <e p="node_modules\react-redux" t="IncludeRecursive" />
+        <e p="node_modules\react-router" t="IncludeRecursive" />
+        <e p="node_modules\react-router-bootstrap" t="IncludeRecursive" />
+        <e p="node_modules\react-router-dom" t="IncludeRecursive" />
+        <e p="node_modules\react-router-redux" t="IncludeRecursive" />
+        <e p="node_modules\react-select" t="IncludeRecursive" />
+        <e p="node_modules\redux" t="IncludeRecursive" />
+        <e p="node_modules\redux-thunk" t="IncludeRecursive" />
+        <e p="node_modules\sass-loader" t="IncludeRecursive" />
+        <e p="node_modules\source-map" t="IncludeRecursive" />
+        <e p="node_modules\source-map-loader" t="IncludeRecursive" />
+        <e p="node_modules\style-loader" t="IncludeRecursive" />
+        <e p="node_modules\svg-url-loader" t="IncludeRecursive" />
+        <e p="node_modules\terser" t="IncludeRecursive" />
+        <e p="node_modules\ts-node" t="IncludeRecursive" />
+        <e p="node_modules\tslint" t="IncludeRecursive" />
+        <e p="node_modules\tslint-react" t="IncludeRecursive" />
+        <e p="node_modules\typesafe-actions" t="IncludeRecursive" />
+        <e p="node_modules\typescript" t="IncludeRecursive">
+          <e p="lib\lib.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.dom.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.dom.iterable.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2015.collection.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2015.core.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2015.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2015.generator.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2015.iterable.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2015.promise.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2015.proxy.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2015.reflect.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2015.symbol.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2015.symbol.wellknown.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2016.array.include.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2016.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2016.full.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2017.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2017.full.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2017.intl.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2017.object.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2017.sharedmemory.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2017.string.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2017.typedarrays.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2018.asynciterable.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2018.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2018.full.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2018.intl.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2018.promise.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2018.regexp.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2019.array.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2019.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2019.full.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2019.object.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2019.string.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2019.symbol.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2020.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2020.full.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2020.string.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es2020.symbol.wellknown.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es5.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.es6.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.esnext.array.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.esnext.asynciterable.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.esnext.bigint.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.esnext.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.esnext.full.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.esnext.intl.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.esnext.symbol.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.scripthost.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.webworker.d.ts" t="IncludeRecursive" />
+          <e p="lib\lib.webworker.importscripts.d.ts" t="IncludeRecursive" />
+        </e>
+        <e p="node_modules\uglifyjs-webpack-plugin" t="IncludeRecursive" />
+        <e p="node_modules\universal-cookie" t="IncludeRecursive" />
+        <e p="node_modules\url-loader" t="IncludeRecursive" />
+        <e p="node_modules\utility-types" t="IncludeRecursive" />
+        <e p="node_modules\webpack" t="IncludeRecursive" />
+        <e p="node_modules\webpack-cli" t="IncludeRecursive" />
+        <e p="node_modules\webpack-dev-middleware" t="IncludeRecursive" />
+        <e p="node_modules\webpack-merge" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.1" t="Include">
               <e p="Front.AssemblyInfo.cs" t="Include" />
+              <e p="Front.RazorAssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -467,9 +504,267 @@
         <e p="webpack.prod.js" t="Include" />
         <e p="wwwroot" t="Include">
           <e p="904a9eed1ccd2d89c4b465f07eefaf0f.svg" t="Include" />
+          <e p="Api" t="Include">
+            <e p="addresses-api.d.ts" t="Include" />
+            <e p="addresses-api.js" t="Include" />
+            <e p="addresses-api.js.map" t="Include" />
+            <e p="api-base.d.ts" t="Include" />
+            <e p="api-base.js" t="Include" />
+            <e p="api-base.js.map" t="Include" />
+            <e p="auth-api.d.ts" t="Include" />
+            <e p="auth-api.js" t="Include" />
+            <e p="auth-api.js.map" t="Include" />
+            <e p="invites-api.d.ts" t="Include" />
+            <e p="invites-api.js" t="Include" />
+            <e p="invites-api.js.map" t="Include" />
+            <e p="localities-api.d.ts" t="Include" />
+            <e p="localities-api.js" t="Include" />
+            <e p="localities-api.js.map" t="Include" />
+            <e p="Models" t="Include">
+              <e p="auth-data.d.ts" t="Include" />
+              <e p="auth-data.js" t="Include" />
+              <e p="auth-data.js.map" t="Include" />
+              <e p="user-model.d.ts" t="Include" />
+              <e p="user-model.js" t="Include" />
+              <e p="user-model.js.map" t="Include" />
+            </e>
+            <e p="profiles-api.d.ts" t="Include" />
+            <e p="profiles-api.js" t="Include" />
+            <e p="profiles-api.js.map" t="Include" />
+            <e p="streets-api.d.ts" t="Include" />
+            <e p="streets-api.js" t="Include" />
+            <e p="streets-api.js.map" t="Include" />
+            <e p="structures-api.d.ts" t="Include" />
+            <e p="structures-api.js" t="Include" />
+            <e p="structures-api.js.map" t="Include" />
+            <e p="territories-api.d.ts" t="Include" />
+            <e p="territories-api.js" t="Include" />
+            <e p="territories-api.js.map" t="Include" />
+            <e p="users-api.d.ts" t="Include" />
+            <e p="users-api.js" t="Include" />
+            <e p="users-api.js.map" t="Include" />
+          </e>
+          <e p="app.d.ts" t="Include" />
+          <e p="app.js" t="Include" />
+          <e p="app.js.map" t="Include" />
           <e p="bundle.js" t="Include" />
+          <e p="components" t="Include">
+            <e p="address-list" t="Include">
+              <e p="AddressItem.d.ts" t="Include" />
+              <e p="AddressItem.js" t="Include" />
+              <e p="AddressItem.js.map" t="Include" />
+              <e p="AddressList.d.ts" t="Include" />
+              <e p="AddressList.js" t="Include" />
+              <e p="AddressList.js.map" t="Include" />
+            </e>
+            <e p="addressing-actions.d.ts" t="Include" />
+            <e p="addressing-actions.js" t="Include" />
+            <e p="addressing-actions.js.map" t="Include" />
+            <e p="addressing-reducer.d.ts" t="Include" />
+            <e p="addressing-reducer.js" t="Include" />
+            <e p="addressing-reducer.js.map" t="Include" />
+            <e p="auth-route" t="Include">
+              <e p="AuthRoute.d.ts" t="Include" />
+              <e p="AuthRoute.js" t="Include" />
+              <e p="AuthRoute.js.map" t="Include" />
+            </e>
+            <e p="index.d.ts" t="Include" />
+            <e p="index.js" t="Include" />
+            <e p="index.js.map" t="Include" />
+            <e p="loading" t="Include">
+              <e p="Loading.d.ts" t="Include" />
+              <e p="Loading.js" t="Include" />
+              <e p="Loading.js.map" t="Include" />
+            </e>
+            <e p="locality-list" t="Include">
+              <e p="LocalityCreator.d.ts" t="Include" />
+              <e p="LocalityCreator.js" t="Include" />
+              <e p="LocalityCreator.js.map" t="Include" />
+              <e p="LocalityItem.d.ts" t="Include" />
+              <e p="LocalityItem.js" t="Include" />
+              <e p="LocalityItem.js.map" t="Include" />
+              <e p="LocalityList.d.ts" t="Include" />
+              <e p="LocalityList.js" t="Include" />
+              <e p="LocalityList.js.map" t="Include" />
+            </e>
+            <e p="logo" t="Include">
+              <e p="Logo.d.ts" t="Include" />
+              <e p="Logo.js" t="Include" />
+              <e p="Logo.js.map" t="Include" />
+            </e>
+            <e p="logo-header" t="Include">
+              <e p="LogoHeader.d.ts" t="Include" />
+              <e p="LogoHeader.js" t="Include" />
+              <e p="LogoHeader.js.map" t="Include" />
+            </e>
+            <e p="navigation-bar" t="Include">
+              <e p="NavigationBar.d.ts" t="Include" />
+              <e p="NavigationBar.js" t="Include" />
+              <e p="NavigationBar.js.map" t="Include" />
+            </e>
+            <e p="territory-creator" t="Include">
+              <e p="TerritoryCreator.d.ts" t="Include" />
+              <e p="TerritoryCreator.js" t="Include" />
+              <e p="TerritoryCreator.js.map" t="Include" />
+            </e>
+            <e p="territory-list" t="Include">
+              <e p="TerritoryCreator.d.ts" t="Include" />
+              <e p="TerritoryCreator.js" t="Include" />
+              <e p="TerritoryCreator.js.map" t="Include" />
+              <e p="TerritoryItem.d.ts" t="Include" />
+              <e p="TerritoryItem.js" t="Include" />
+              <e p="TerritoryItem.js.map" t="Include" />
+              <e p="TerritoryList.d.ts" t="Include" />
+              <e p="TerritoryList.js" t="Include" />
+              <e p="TerritoryList.js.map" t="Include" />
+            </e>
+          </e>
+          <e p="constants" t="Include">
+            <e p="http-method.d.ts" t="Include" />
+            <e p="http-method.js" t="Include" />
+            <e p="http-method.js.map" t="Include" />
+            <e p="load-status.d.ts" t="Include" />
+            <e p="load-status.js" t="Include" />
+            <e p="load-status.js.map" t="Include" />
+            <e p="role-name.d.ts" t="Include" />
+            <e p="role-name.js" t="Include" />
+            <e p="role-name.js.map" t="Include" />
+            <e p="user-status.d.ts" t="Include" />
+            <e p="user-status.js" t="Include" />
+            <e p="user-status.js.map" t="Include" />
+          </e>
           <e p="favicon.ico" t="Include" />
+          <e p="index.d.ts" t="Include" />
           <e p="index.html" t="Include" />
+          <e p="index.js" t="Include" />
+          <e p="index.js.map" t="Include" />
+          <e p="pages" t="Include">
+            <e p="auth" t="Include">
+              <e p="actions.d.ts" t="Include" />
+              <e p="actions.js" t="Include" />
+              <e p="actions.js.map" t="Include" />
+              <e p="Auth.d.ts" t="Include" />
+              <e p="Auth.js" t="Include" />
+              <e p="Auth.js.map" t="Include" />
+              <e p="AuthViaLink.d.ts" t="Include" />
+              <e p="AuthViaLink.js" t="Include" />
+              <e p="AuthViaLink.js.map" t="Include" />
+              <e p="AuthViaPassword.d.ts" t="Include" />
+              <e p="AuthViaPassword.js" t="Include" />
+              <e p="AuthViaPassword.js.map" t="Include" />
+              <e p="index.d.ts" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="index.js.map" t="Include" />
+              <e p="reducer.d.ts" t="Include" />
+              <e p="reducer.js" t="Include" />
+              <e p="reducer.js.map" t="Include" />
+            </e>
+            <e p="cabinet" t="Include">
+              <e p="actions.d.ts" t="Include" />
+              <e p="actions.js" t="Include" />
+              <e p="actions.js.map" t="Include" />
+              <e p="Cabinet.d.ts" t="Include" />
+              <e p="Cabinet.js" t="Include" />
+              <e p="Cabinet.js.map" t="Include" />
+              <e p="CabinetAdmin.d.ts" t="Include" />
+              <e p="CabinetAdmin.js" t="Include" />
+              <e p="CabinetAdmin.js.map" t="Include" />
+              <e p="CabinetAdminInvite.d.ts" t="Include" />
+              <e p="CabinetAdminInvite.js" t="Include" />
+              <e p="CabinetAdminInvite.js.map" t="Include" />
+              <e p="CabinetAdminUsers.d.ts" t="Include" />
+              <e p="CabinetAdminUsers.js" t="Include" />
+              <e p="CabinetAdminUsers.js.map" t="Include" />
+              <e p="CabinetConsumer.d.ts" t="Include" />
+              <e p="CabinetConsumer.js" t="Include" />
+              <e p="CabinetConsumer.js.map" t="Include" />
+              <e p="CabinetLocksmith.d.ts" t="Include" />
+              <e p="CabinetLocksmith.js" t="Include" />
+              <e p="CabinetLocksmith.js.map" t="Include" />
+              <e p="CabinetLocksmithMaintenanceCard.d.ts" t="Include" />
+              <e p="CabinetLocksmithMaintenanceCard.js" t="Include" />
+              <e p="CabinetLocksmithMaintenanceCard.js.map" t="Include" />
+              <e p="CabinetLocksmithMaintenanceCards.d.ts" t="Include" />
+              <e p="CabinetLocksmithMaintenanceCards.js" t="Include" />
+              <e p="CabinetLocksmithMaintenanceCards.js.map" t="Include" />
+              <e p="index.d.ts" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="index.js.map" t="Include" />
+              <e p="reducer.d.ts" t="Include" />
+              <e p="reducer.js" t="Include" />
+              <e p="reducer.js.map" t="Include" />
+            </e>
+            <e p="change-password" t="Include">
+              <e p="ChangePassword.d.ts" t="Include" />
+              <e p="ChangePassword.js" t="Include" />
+              <e p="ChangePassword.js.map" t="Include" />
+              <e p="index.d.ts" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="index.js.map" t="Include" />
+            </e>
+            <e p="error404" t="Include">
+              <e p="Error404.d.ts" t="Include" />
+              <e p="Error404.js" t="Include" />
+              <e p="Error404.js.map" t="Include" />
+              <e p="index.d.ts" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="index.js.map" t="Include" />
+            </e>
+            <e p="Home" t="Include">
+              <e p="home.d.ts" t="Include" />
+              <e p="home.js" t="Include" />
+              <e p="home.js.map" t="Include" />
+              <e p="index.d.ts" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="index.js.map" t="Include" />
+            </e>
+            <e p="index.d.ts" t="Include" />
+            <e p="index.js" t="Include" />
+            <e p="index.js.map" t="Include" />
+            <e p="invite" t="Include">
+              <e p="index.d.ts" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="index.js.map" t="Include" />
+              <e p="Invite.d.ts" t="Include" />
+              <e p="Invite.js" t="Include" />
+              <e p="Invite.js.map" t="Include" />
+            </e>
+            <e p="register" t="Include">
+              <e p="index.d.ts" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="index.js.map" t="Include" />
+              <e p="Register.d.ts" t="Include" />
+              <e p="Register.js" t="Include" />
+              <e p="Register.js.map" t="Include" />
+            </e>
+            <e p="restore-password" t="Include">
+              <e p="index.d.ts" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="index.js.map" t="Include" />
+              <e p="RestorePassword.d.ts" t="Include" />
+              <e p="RestorePassword.js" t="Include" />
+              <e p="RestorePassword.js.map" t="Include" />
+            </e>
+          </e>
+          <e p="store" t="Include">
+            <e p="history.d.ts" t="Include" />
+            <e p="history.js" t="Include" />
+            <e p="history.js.map" t="Include" />
+            <e p="index.d.ts" t="Include" />
+            <e p="index.js" t="Include" />
+            <e p="index.js.map" t="Include" />
+            <e p="reducer.d.ts" t="Include" />
+            <e p="reducer.js" t="Include" />
+            <e p="reducer.js.map" t="Include" />
+            <e p="store.d.ts" t="Include" />
+            <e p="store.js" t="Include" />
+            <e p="store.js.map" t="Include" />
+          </e>
+          <e p="utils" t="Include">
+            <e p="strings-utils.d.ts" t="Include" />
+            <e p="strings-utils.js" t="Include" />
+            <e p="strings-utils.js.map" t="Include" />
+          </e>
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
